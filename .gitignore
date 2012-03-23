@@ -26,8 +26,6 @@ db/*.sqlite3
 .rspec
 .redcar/
 .sass-cache
-/config/config.yml
-/config/database.yml
 /coverage.data
 /coverage/
 /db/*.javadb/
@@ -73,3 +71,6 @@ db/*.sqlite3
 
 # vim artifacts
 **.swp
+
+
+.project
