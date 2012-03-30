@@ -1,0 +1,59 @@
+<%= form_for(@resource) do |f| %>
+  <% if @resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+
+      <ul>
+      <% @resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= hidden_field_tag :house_id, params[:house_id].to_i %>
+
+  <div class="field">
+    <%= f.label :breakfast %><br />
+    <%= f.check_box :breakfast %>
+  </div>
+  <div class="field">
+    <%= f.label :lunch %><br />
+    <%= f.check_box :lunch %>
+  </div>
+  <div class="field">
+    <%= f.label :dinner %><br />
+    <%= f.check_box :dinner %>
+  </div>
+  <div class="field">
+    <%= f.label :private_bathroon %><br />
+    <%= f.check_box :private_bathroon %>
+  </div>
+  <div class="field">
+    <%= f.label :private_space %><br />
+    <%= f.check_box :private_space %>
+  </div>
+  <div class="field">
+    <%= f.label :parking_spaces %><br />
+    <%= f.number_field :parking_spaces %>
+  </div>
+   <div class="field">
+    <%= f.label :place %><br />
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= f.text_field :picture %>
+  </div>
+  <div class="field">
+    <%= f.label :vacancies %><br />
+    <%= f.number_field :vacancies %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
