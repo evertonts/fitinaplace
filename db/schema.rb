@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(:version => 20120323221230) do
 
+  create_table "events", :force => true do |t|
+    t.string  "name"
+    t.string  "description"
+    t.string  "address"
+    t.string  "city"
+    t.string  "state"
+    t.integer "user_id"
+    t.date    "date"
+  end
+
   create_table "houses", :force => true do |t|
     t.string   "street"
     t.integer  "number"
