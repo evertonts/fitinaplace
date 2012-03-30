@@ -1,4 +1,6 @@
 Fitinaplace::Application.routes.draw do
+  resources :offerings
+
   resources :events
   resources :houses
 
