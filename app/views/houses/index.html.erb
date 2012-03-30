@@ -1,0 +1,35 @@
+<h1>Listing houses</h1>
+
+<table>
+  <tr>
+    <th>Street</th>
+    <th>Number</th>
+    <th>Complement</th>
+    <th>Neightborhood</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @houses.each do |house| %>
+  <tr>
+    <td><%= house.street %></td>
+    <td><%= house.number %></td>
+    <td><%= house.complement %></td>
+    <td><%= house.neightborhood %></td>
+    <td><%= house.city %></td>
+    <td><%= house.state %></td>
+    <td><%= house.country %></td>
+    <td><%= link_to 'Show', house %></td>
+    <td><%= link_to 'Edit', edit_house_path(house) %></td>
+    <td><%= link_to 'Destroy', house, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New House', new_house_path %>
