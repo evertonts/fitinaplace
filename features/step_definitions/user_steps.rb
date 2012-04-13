@@ -2,7 +2,8 @@
 
 def create_visitor
   @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
-    :password => "please", :password_confirmation => "please", :cpf => "123456", :rg => "123456", :telefone => "12345678" }
+    :password => "please", :password_confirmation => "please", :cpf => "123456", 
+    :rg => "123456", :telefone => "12345678", :role => "site_user" }
 end
 
 def find_user
@@ -19,7 +20,8 @@ end
 def create_user
   create_visitor
   delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email], cpf: @visitor[:cpf], rg: @visitor[:rg], telefone: @visitor[:telefone])
+  @user = FactoryGirl.create(:user, email: @visitor[:email], cpf: @visitor[:cpf], rg: @visitor[:rg], 
+    telefone: @visitor[:telefone], :role => @visitor[:role])
 end
 
 def delete_user

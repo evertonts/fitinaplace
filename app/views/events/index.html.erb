@@ -21,9 +21,9 @@
     <td><%= event.city %></td>
     <td><%= event.state %></td>
     <td><%= event.date %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', event if can? :show, event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) if can? :edit, event %></td>
+    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %></td>
   </tr>
 <% end %>
 </table>

@@ -9,7 +9,18 @@ class Ability
          can :manage, :all
        else
          can :read, :all
+         can :create, Event
+         
+         can :edit, Event do |event|
+           event.try(:user) == user
+         end
+         
+         can :destroy, Event do |event|
+           event.try(:user) == user
+         end
        end
+       
+
     #
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are
