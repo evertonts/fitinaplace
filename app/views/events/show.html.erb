@@ -31,5 +31,6 @@
 </p>
 
 <%= link_to 'Adicionar oferta', new_offering_path(:id_event => @event.id) %> |
+<%= link_to 'Mostrar ofertas disponíveis', offerings_path(:id_event => @event.id) %> |
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
