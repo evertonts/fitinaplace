@@ -15,6 +15,7 @@ Feature: Sign in
       When I sign in with valid credentials
       Then I see an unconfirmed account message
       And I should be signed out
+
     Scenario: User signs in successfully
       Given I exist as a user
         And I am not logged in
