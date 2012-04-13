@@ -2,7 +2,11 @@ class OfferingsController < ApplicationController
   # GET /offerings
   # GET /offerings.json
   def index
-    @offerings = Offering.all
+    if params[:id_event].blank?
+      @offerings = Offering.all
+    else
+      @offerings = Offering.find_all_by_id_event params[:id_event]
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +29,14 @@ class OfferingsController < ApplicationController
   # GET /offerings/new.json
   def new
     @offering = Offering.new
-
+    @houses = House.find_all_by_user_id current_user.id
+    @select = []
+    @houses.each do |h|
+      resources = Resource.find_all_by_house_id h.id
+      resources.each do |resource|
+        @select << [h.street + ", " + h.number.to_s + " - " + resource.place, resource.id]
+      end
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @offering }

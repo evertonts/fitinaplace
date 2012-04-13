@@ -15,8 +15,9 @@
   <%= hidden_field_tag :id_event, params[:id_event].to_i %>
   <div class="field">
     <%= f.label :id_space %><br />
-    <%= f.number_field :id_space %>
+    <%= f.select :id_space, options_for_select(@select) %>
   </div>
+ 
   <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
