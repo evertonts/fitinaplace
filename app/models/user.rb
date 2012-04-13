@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   has_many :houses
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :rg, :email, :cpf, :telefone,:name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :avatar
+  attr_accessible :rg, :email, :cpf, :telefone,:name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, 
+    :avatar, :role
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
+  def admin?
+    role == :admin
+  end
 end
