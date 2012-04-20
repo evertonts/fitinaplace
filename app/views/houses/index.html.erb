@@ -25,8 +25,8 @@
     <td><%= house.state %></td>
     <td><%= house.country %></td>
     <td><%= link_to 'Show', house %></td>
-    <td><%= link_to 'Edit', edit_house_path(house) %></td>
-    <td><%= link_to 'Destroy', house, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_house_path(house) if can? :edit, house%></td>
+    <td><%= link_to 'Destroy', house, confirm: 'Are you sure?', method: :delete if can? :destroy, house %></td>
   </tr>
 <% end %>
 <%end%>

@@ -8,15 +8,22 @@ class Ability
        if user.admin?
          can :manage, :all
        else
-         can :read, :all
-         can :create, Event
+         can :read, Event
          
-         can :edit, Event do |event|
-           event.try(:user) == user
+         can :read, House do |c|
+           c.try(:user) == user
          end
          
-         can :destroy, Event do |event|
-           event.try(:user) == user
+         classes = [House, Event]
+         
+         for classe in classes 
+           can :create, classe
+           can :edit, classe do |c|
+             c.try(:user) == user
+           end
+           can :destroy, classe do |c|
+             c.try(:user) == user
+           end
          end
        end
        
