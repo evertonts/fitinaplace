@@ -18,7 +18,8 @@ class OfferingsController < ApplicationController
   # GET /offerings/1.json
   def show
     @offering = Offering.find(params[:id])
-
+    @question = Question.new
+    @questions = @offering.questions
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @offering }
@@ -46,6 +47,14 @@ class OfferingsController < ApplicationController
   # GET /offerings/1/edit
   def edit
     @offering = Offering.find(params[:id])
+    @houses = House.find_all_by_user_id current_user.id
+    @select = []
+    @houses.each do |h|
+      resources = Resource.find_all_by_house_id h.id
+      resources.each do |resource|
+        @select << [h.street + ", " + h.number.to_s + " - " + resource.place, resource.id]
+      end
+    end
   end
 
   # POST /offerings
