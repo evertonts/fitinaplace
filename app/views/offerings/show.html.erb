@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id event:</b>
+  <%= @offering.id_event %>
+</p>
+
+<p>
+  <b>Id space:</b>
+  <%= @offering.id_space %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @offering.price %>
+</p>
+
+<h3><%= link_to 'Iniciar negociação'%></h3>
+
+<%= link_to 'Edit', edit_offering_path(@offering) %> |
+<%= link_to 'Back', offerings_path %>

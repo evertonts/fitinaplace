@@ -5,7 +5,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if params[:search].blank?
+      @events = Event.all
+    else
+      @events = Event.find_by_sql("select * from events where description like '%#{params[:search]}%' or name like '%#{params[:search]}%' or address like '%#{params[:search]}%' or city like '%#{params[:search]}%' or state like '%#{params[:search]}%'")
+    end
 
     respond_to do |format|
       format.html # index.html.erb

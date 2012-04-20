@@ -5,9 +5,15 @@ class HousesController < ApplicationController
   
   # GET /houses
   # GET /houses.json
-  def index
-    @houses = House.all
+  def index 
+    @aux = House.all
+    @houses = []
+    for house in @aux
 
+      if house.user_id == current_user.id 
+      @houses << house 
+    end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @houses }
@@ -18,11 +24,11 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @house = House.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @house }
     end
+    
   end
 
   # GET /houses/new

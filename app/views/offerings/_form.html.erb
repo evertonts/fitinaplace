@@ -1,0 +1,28 @@
+<%= form_for(@offering) do |f| %>
+  <% if @offering.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
+
+      <ul>
+      <% @offering.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+  <%= hidden_field_tag :id_event, params[:id_event].to_i %>
+  <div class="field">
+    <%= f.label :id_space %><br />
+    <%= f.select :id_space, options_for_select(@select) %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
