@@ -9,14 +9,17 @@ class Ability
          can :manage, :all
        else
          can :read, :all
-         can :create, Event
          
-         can :edit, Event do |event|
-           event.try(:user) == user
-         end
+         classes = [Event, House]
          
-         can :destroy, Event do |event|
-           event.try(:user) == user
+         for classe in classes 
+           can :create, classe
+           can :edit, classe do |c|
+             c.try(:user) == user
+           end
+           can :destroy, classe do |c|
+             c.try(:user) == user
+           end
          end
        end
        
