@@ -1,11 +1,14 @@
 class OfferingsController < ApplicationController
+  
+  load_and_authorize_resource
+  
   # GET /offerings
   # GET /offerings.json
   def index
-    if params[:id_event].blank?
+    if params[:event_id].blank?
       @offerings = Offering.all
     else
-      @offerings = Offering.find_all_by_id_event params[:id_event]
+      @offerings = Offering.find_all_by_event_id params[:event_id]
     end
 
     respond_to do |format|
@@ -52,7 +55,7 @@ class OfferingsController < ApplicationController
   # POST /offerings.json
   def create
     @offering = Offering.new(params[:offering])
-    @offering.id_event = params[:id_event]
+    @offering.event_id = params[:event_id]
 
     respond_to do |format|
       if @offering.save

@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20120420155825) do
 
   create_table "events", :force => true do |t|
@@ -38,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20120420155825) do
   end
 
   create_table "offerings", :force => true do |t|
-    t.integer  "id_event"
-    t.integer  "id_space"
+    t.integer  "event_id"
+    t.integer  "space_id"
     t.decimal  "price",      :precision => 10, :scale => 2
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false

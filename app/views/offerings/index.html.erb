@@ -12,8 +12,8 @@
 
 <% @offerings.each do |offering| %>
   <tr>
-    <td><%= offering.id_event %></td>
-    <td><%= offering.id_space %></td>
+    <td><%= offering.event_id %></td>
+    <td><%= offering.space_id %></td>
     <td><%= offering.price %></td>
     <td><%= link_to 'Show', offering %></td>
     <td><%= link_to 'Edit', edit_offering_path(offering) %></td>

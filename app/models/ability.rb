@@ -9,9 +9,20 @@ class Ability
          can :manage, :all
        else
          can :read, Event
+         can :read, Offering
          
          can :read, House do |c|
            c.try(:user) == user
+         end
+         
+         can :create, Offering
+         
+         can :edit, Offering do |o|
+           o.try(:event).user == user
+         end
+         
+         can :destroy, Offering do |o|
+           o.try(:event).user == user
          end
          
          classes = [House, Event]
@@ -25,6 +36,7 @@ class Ability
              c.try(:user) == user
            end
          end
+         
        end
        
 

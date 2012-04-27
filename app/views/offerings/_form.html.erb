@@ -12,10 +12,10 @@
   <% end %>
   
   
-  <%= hidden_field_tag :id_event, params[:id_event].to_i %>
+  <%= hidden_field_tag :event_id, params[:event_id].to_i %>
   <div class="field">
-    <%= f.label :id_space %><br />
-    <%= f.select :id_space, options_for_select(@select) %>
+    <%= f.label :space_id %><br />
+    <%= f.select :space_id, options_for_select(@select) %>
   </div>
  
   <div class="field">
