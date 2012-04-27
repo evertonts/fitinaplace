@@ -5,7 +5,9 @@ class OfferingsController < ApplicationController
     if params[:id_event].blank?
       @offerings = Offering.all
     else
-      @offerings = Offering.find_all_by_id_event params[:id_event]
+      @offerings = Offering.find_all_by_event_id params[:id_event]
+
+
     end
 
     respond_to do |format|
@@ -17,7 +19,7 @@ class OfferingsController < ApplicationController
   # GET /offerings/1
   # GET /offerings/1.json
   def show
-    @offering = Offering.find(params[:id])
+    @offering = Offering.find_by_id(params[:id])
     @question = Question.new
     @negociation = Negociation.new
     @questions = @offering.questions
@@ -62,7 +64,7 @@ class OfferingsController < ApplicationController
   # POST /offerings.json
   def create
     @offering = Offering.new(params[:offering])
-    @offering.id_event = params[:id_event]
+    @offering.event_id = params[:id_event]
     @offering.user_id = current_user.id
     respond_to do |format|
       if @offering.save

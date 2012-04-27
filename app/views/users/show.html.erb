@@ -1,6 +1,27 @@
 <h1>Users#show</h1>
+<%= image_tag @user.avatar.url(:thumb)%>
 <p>Find me in app/views/users/show.html.erb</p>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>cpf: <%= @user.cpf if @user.cpf %></p>
 <%= link_to "Checar meus interesses", negociations_path %>
+<h3> Minhas ofertas: </h3>
+
+<table>
+	<tr>
+		<th>Evento</th>
+		<th>Espaço</th>
+		<th>Interessados</th>
+	</tr>
+	<% for offering in  @offerings%>
+	<tr>
+	 <% event = Event.find offering.event_id%>
+	 
+	 <td> <%= event.name%> </td>
+	 <% space = Resource.find offering.space_id%>
+	 <td><%= space.description %></td>
+	 <td> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
+	</tr>
+<% end%>
+</table>
+
