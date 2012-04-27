@@ -7,6 +7,7 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.admin?
          can :manage, :all
+         
        else
          can :read, Event
          can :read, Offering
@@ -22,7 +23,7 @@ class Ability
          end
          
          can :destroy, Offering do |o|
-           o.try(:event).user == user
+           o.try(:event).try(:user) == user
          end
          
          classes = [House, Event]
