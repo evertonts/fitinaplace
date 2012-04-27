@@ -5,6 +5,7 @@ Fitinaplace::Application.routes.draw do
 
   resources :events
   resources :houses
+  resources :questions
 
   authenticated :user do
     root :to => 'home#index'

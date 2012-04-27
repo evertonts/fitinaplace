@@ -15,9 +15,9 @@
     <td><%= offering.event_id %></td>
     <td><%= offering.space_id %></td>
     <td><%= offering.price %></td>
-    <td><%= link_to 'Show', offering %></td>
-    <td><%= link_to 'Edit', edit_offering_path(offering) %></td>
-    <td><%= link_to 'Destroy', offering, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', offering if can? :show, offering %></td>
+    <td><%= link_to 'Edit', edit_offering_path(offering) if can? :edit, offering %></td>
+    <td><%= link_to 'Destroy', offering, confirm: 'Are you sure?', method: :delete if can? :destroy, offering %></td>
   </tr>
 <% end %>
 </table>

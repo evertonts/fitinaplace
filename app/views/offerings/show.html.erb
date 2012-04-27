@@ -15,7 +15,22 @@
   <%= @offering.price %>
 </p>
 
-<h3><%= link_to 'Iniciar negociação'%></h3>
 
 <%= link_to 'Edit', edit_offering_path(@offering) %> |
 <%= link_to 'Back', offerings_path %>
+
+<div>
+<% for question in @questions%>
+<% usuario = User.find question.user_id %>
+
+<h4> <%= usuario.name %> escreveu: </h4> 
+<h4> Em <%= question.created_at.strftime('%d/%m/%Y %H:%M:%S')%> </h4>
+<p> <%= question.text%> </p>
+<%end%>
+</div>
+
+<%= form_for (@question) do |f| %>
+	<%= hidden_field_tag "offering_id", @offering.id %>
+	<%= f.text_area :text, :style => "width: 400px; height: 100px"%>
+	<%= f.submit "Enviar"%>
+<%end%>
