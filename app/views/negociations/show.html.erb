@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @negociation.status %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @negociation.user_id %>
+</p>
+
+<p>
+  <b>Offering:</b>
+  <%= @negociation.offering_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_negociation_path(@negociation) %> |
+<%= link_to 'Back', negociations_path %>

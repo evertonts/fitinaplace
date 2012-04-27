@@ -19,6 +19,7 @@ class OfferingsController < ApplicationController
   def show
     @offering = Offering.find(params[:id])
     @question = Question.new
+    @negociation = Negociation.new
     @questions = @offering.questions
     respond_to do |format|
       format.html # show.html.erb
@@ -62,7 +63,7 @@ class OfferingsController < ApplicationController
   def create
     @offering = Offering.new(params[:offering])
     @offering.id_event = params[:id_event]
-
+    @offering.user_id = current_user.id
     respond_to do |format|
       if @offering.save
         format.html { redirect_to @offering, notice: 'Offering was successfully created.' }

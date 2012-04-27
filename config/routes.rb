@@ -1,4 +1,6 @@
 Fitinaplace::Application.routes.draw do
+  resources :negociations
+
   resources :resources
 
   resources :offerings
