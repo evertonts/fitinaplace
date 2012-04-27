@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
   def create
     @user = current_user
     @question = Question.new(params[:question])
-    puts "\n\n\n\n\n #{params[:offering_id]}   #{offerings_path} \n\n\n\n\n\n"
     @question.offering_id = params[:offering_id]
     @question.user_id = current_user.id
     @question.save

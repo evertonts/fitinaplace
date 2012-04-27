@@ -18,7 +18,15 @@
 
 <%= link_to 'Edit', edit_offering_path(@offering) %> |
 <%= link_to 'Back', offerings_path %>
-
+<% if @offering.user_id == current_user.id %>
+	<%= link_to "Checar negociações", negociations_path(:offering_id => @offering.id) %>
+<% else %>
+	<%= form_for (@negociation) do |f| %>
+	<%= hidden_field_tag "offering_id", @offering.id %>
+	<%= hidden_field_tag "user_id", current_user.id %>
+	<%= f.submit "Demonstrar interesse"%>
+<%end%>
+<%end%>
 <div>
 <% for question in @questions%>
 <% usuario = User.find question.user_id %>
