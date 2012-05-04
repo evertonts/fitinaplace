@@ -25,7 +25,7 @@ class ResourcesController < ApplicationController
   # GET /resources/new.json
   def new
     @resource = Resource.new
-
+    @resource.assets.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @resource }
@@ -35,6 +35,7 @@ class ResourcesController < ApplicationController
   # GET /resources/1/edit
   def edit
     @resource = Resource.find(params[:id])
+    @resource.assets.build
   end
 
   # POST /resources
