@@ -20,7 +20,7 @@ class OfferingsController < ApplicationController
   # GET /offerings/1
   # GET /offerings/1.json
   def show
-    @offering = Offering.find(params[:id])
+    @offering = Offering.find_by_id(params[:id])
     @question = Question.new
     @negociation = Negociation.new
     @questions = @offering.questions
@@ -66,7 +66,6 @@ class OfferingsController < ApplicationController
   def create
     @offering = Offering.new(params[:offering])
     @offering.event_id = params[:event_id]
-
     @offering.user_id = current_user.id
 
     respond_to do |format|

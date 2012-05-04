@@ -50,6 +50,16 @@
   <%= @resource.vacancies %>
 </p>
 
+<%= form_for(@resource) do |f| %>
+<%= f.fields_for :assets do |asset|%>
+	<% unless asset.object.new_record? %>
+	
+	<div>
+		<%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
+	</div>
+	<% end %>
+<%end%>
+<%end%>
 
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %>
