@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Fit In A Place</title>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+		<%= javascript_include_tag "application" %>
+
+		<%= javascript_include_tag 'jquery'%>
+	</head>
+	<body>
+		<div id="background">
+			<div id="header">
+				<div class="redline"></div>
+				<img src="/resources/images/Logo-1.png" alt="Fit In A Place" style="margin-bottom: 3px; margin-left: 19px; margin-top: 3px;"</img>
+				<img src="/resources/images/Fit-parte-1-1.png"style="margin-left: 270px; margin-bottom: 15px" />
+				<div class="redline"></div>
+			</div>
+			<div style="clear: both;"></div>
+			
+			<div id="container">
+				<%= yield %>
+			</div>
+			
+			<div id="footer" >
+				About &nbsp;&nbsp;&nbsp; FAQ &nbsp;&nbsp;&nbsp; Termos de Uso &nbsp;&nbsp;&nbsp; Termos de Segurança
+			</div>
+			<div class="redline"></div>
+		</div>
+	</body>
+</html>
