@@ -18,7 +18,7 @@ class Ability
          
          can :create, Offering
          
-         can :edit, Offering do |o|
+         can :update, Offering do |o|
            o.try(:event).user == user
          end
          
@@ -30,7 +30,7 @@ class Ability
          
          for classe in classes 
            can :create, classe
-           can :edit, classe do |c|
+           can :update, classe do |c|
              c.try(:user) == user
            end
            can :destroy, classe do |c|
