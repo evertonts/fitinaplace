@@ -1,5 +1,6 @@
 <h1>Listing negociations</h1>
 
+<%= form_tag :action => :update_status do %>
 <table>
   <tr>
     <th>Status</th>
@@ -9,6 +10,7 @@
     <th></th>
     <th></th>
   </tr>
+
 
 <% @negociations.each do |negociation| %>
   <tr>
@@ -20,8 +22,12 @@
     <td><%= link_to 'Destroy', negociation, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-</table>
 
+
+</table>
+<%= submit_tag "Atualizar"%>
+
+<% end %>
 <br />
 
 <%= link_to 'New Negociation', new_negociation_path %>

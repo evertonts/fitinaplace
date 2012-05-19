@@ -18,9 +18,9 @@
   </tr>
 
 <% @negociations.each do |negociation| %>
-	offering = Offering.find negociation.offering_id
+	<% offering = Offering.find negociation.offering_id
 	event = Event.find offering.event_id
-	space = Resource.find offering.space_id
+	space = Resource.find offering.space_id %>
   <tr>
     <td><%= negociation.status %></td>
     <td><%= event.name %></td>

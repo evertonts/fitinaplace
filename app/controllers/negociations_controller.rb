@@ -88,4 +88,9 @@ class NegociationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def update_status
+    puts "\n\n\n\n\n\n\n FUNFS \n\n\n\n\n\n\n\n"
+    redirect_to negociations_path
+  end
 end
