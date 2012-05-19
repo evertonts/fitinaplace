@@ -23,11 +23,33 @@ body {
 	
 }
 
+.container_aonde {
+	background-image:url('/resources/images/Moldura-para-caixa-de-busca.png');
+	background-repeat: no-repeat;
+	height: 248px;
+	width: 500px;
+	float: left;
+	margin-right: 15px;
+}
+.container_aonde input[type='text']{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 20pt;
+	border-color: #A80713;
+	border-style: solid;
+}
+
+
 #footer{
 	margin-left: 10px;
 	margin-bottom: 10px;
 	margin-top: 20px;
 	font-size: 12pt;
+}
+
+#footer span {
+	padding: 20px;
 }
 
 #left-column{
