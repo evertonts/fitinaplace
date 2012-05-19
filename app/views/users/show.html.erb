@@ -6,6 +6,10 @@
 <p>cpf: <%= @user.cpf if @user.cpf %></p>
 <h3> Meus interesses</h3>
 
+<% if @negociations.empty? %>
+	<p> Você não tem nenhuma negociação em andamento.
+	 <%= link_to "Clique aqui", events_path %>  </a> para checar eventos. </p>
+<% else %>
 <table>
   <tr>
     <th>Reservado</th>
@@ -24,6 +28,8 @@
   </tr>
 <% end %>
 </table>
+
+<% end %>
 <h3> Minhas ofertas: </h3>
 
 <table>
