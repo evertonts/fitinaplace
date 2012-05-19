@@ -3,6 +3,6 @@ class HomeController < ApplicationController
   layout "home"
   
   def index
-    @users = User.all
+    redirect_to user_path(current_user.id) unless current_user.blank?
   end
 end

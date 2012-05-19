@@ -1,5 +1,16 @@
-<h1>Listing events</h1>
-
+<div style="background-color: #F4F2F2">
+<h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 5%"%>Eventos</h1>
+<% @events.each do |event| %>
+<div style="background-color: white;margin-left: 10%;margin-right: 10%;">
+<li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
+<%= link_to event.name, event if can? :show, event %>
+</li>
+<%= event.description %>
+<%= image_tag event.avatar.url(:thumb)%>
+</div>
+<br />
+<%end%>
+</div>
 <table>
   <tr>
     <th>Name</th>

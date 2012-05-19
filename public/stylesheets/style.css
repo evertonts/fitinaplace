@@ -9,6 +9,14 @@ body {
 	margin-right: auto;
 }
 
+ul.nav {
+  list-style: none;
+  padding: 0;
+}
+ul.nav li {
+  display: inline;
+}
+
 #background{
 	width: 80%;
 }
