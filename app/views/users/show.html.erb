@@ -4,7 +4,26 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>cpf: <%= @user.cpf if @user.cpf %></p>
-<%= link_to "Checar meus interesses", negociations_path %>
+<h3> Meus interesses</h3>
+
+<table>
+  <tr>
+    <th>Reservado</th>
+    <th>Nome</th>
+    <th>Descrição</th>
+  </tr>
+
+<% @negociations.each do |negociation| %>
+	offering = Offering.find negociation.offering_id
+	event = Event.find offering.event_id
+	space = Resource.find offering.space_id
+  <tr>
+    <td><%= negociation.status %></td>
+    <td><%= event.name %></td>
+    <td><%= space.description %></td>
+  </tr>
+<% end %>
+</table>
 <h3> Minhas ofertas: </h3>
 
 <table>
