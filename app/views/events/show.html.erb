@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-
+<div>
+<div style="float: left">
 <%= image_tag @event.avatar.url(:medium)%>
+</div>
+<div style="overflow:scroll;overflow-y:scroll;overflow-x:hidden;margin-left: 70px;margin-right: 70px;height:200px;float: right">
+  <%= @event.description %>
+  </div>
+  </div>
+<p id="notice"><%= notice %></p>
 <p>
   <b>Name:</b>
   <%= @event.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
 </p>
 
 <p>
@@ -29,6 +30,10 @@
 <p>
   <b>Date:</b>
   <%= @event.date %>
+</p>
+
+<p>
+ 
 </p>
 
 <% if user_signed_in? %>

@@ -1,3 +1,5 @@
+<div>
+<div class="listagemcinza">
 <h1>Listing houses</h1>
 
 <table>
@@ -16,7 +18,7 @@
 
 <% @houses.each do |house| %>
 <% if house.user_id == current_user.id %>
-  <tr>
+  <tr class="listagemcampobranco">
     <td><%= house.street %></td>
     <td><%= house.number %></td>
     <td><%= house.complement %></td>
@@ -34,5 +36,6 @@
 
 <br />
 
+</div>
 <%= link_to 'New House', new_house_path %>
-
+</div>

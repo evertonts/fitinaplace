@@ -4,14 +4,14 @@
   
 	
 	
-  <div style="float:left; background-color: #F4F2F2; margin-left: 3%;width: 70%;border-radius: 10px">
+  <div class="listagemcinza">
     <h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 6%"%>Eventos</h1>
 
 
 
 
       <% @events.each do |event| %>
-      <div style="background-color: white;margin-left: 6%;margin-right: 2%;border-radius: 10px">
+      <div class="listagemcampobranco">
         <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
           <%= link_to event.name, event if can? :show, event %>
         </li>
@@ -22,18 +22,19 @@
           <div style="float: right"><%= image_tag event.avatar.url(:thumb)%></div>
           
           <div style="clear:both"></div>
-	      <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %>
+	    <!--  <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %>-->
         </div>
       </div>
       <br />
     <%end%>
   </div>
   
-  <div style="float:right;border: 1px solid #A80713; border-radius: 10px; color: #A80713; font-size: 20pt; font-weight: bold;">
+  <div class="destaquelateral">
 	  Destaques
     <div>
 	  <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
     </div>
+	   <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
   </div>
   <div style="clear:both"></div>
 </div>

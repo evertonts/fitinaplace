@@ -48,7 +48,30 @@ ul.nav li {
 	border-style: solid;
 }
 
+.listagemcinza{
+	float:left; 
+	background-color: #F4F2F2; 
+	margin-left: 3%;
+	width: 70%;
+	border-radius: 10px;
+}
 
+.listagemcampobranco{
+	background-color: white;
+	margin-left: 6%;
+	margin-right: 2%;
+	border-radius: 10px
+}
+
+.destaquelateral{
+	float:right;
+	border: 1px solid #A80713; 
+	border-radius: 10px; 
+	color: #A80713; 
+	font-size: 20pt; 
+	font-weight: bold;
+	margin-right: 2%;
+}
 #footer{
 	margin-left: 10px;
 	margin-bottom: 10px;

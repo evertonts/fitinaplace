@@ -1,16 +1,16 @@
-<h1>Users#show</h1>
-<%= image_tag @user.avatar.url(:thumb)%>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>User: <%= @user.name %></p>
+<div style="float: right;margin-right: 55%;font-family: Trebuchet MS; color: #BD2026">
+<h1 style="font-size: 20pt"><%= @user.name %></h1>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>cpf: <%= @user.cpf if @user.cpf %></p>
-<h3> Meus interesses</h3>
+</div>
+<%= image_tag @user.avatar.url(:medium)%>
+<h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
 
 <% if @negociations.empty? %>
 	<p> Você não tem nenhuma negociação em andamento.
 	 <%= link_to "Clique aqui", events_path %>  </a> para checar eventos. </p>
 <% else %>
-<table>
+<table style="font-family: Trebuchet MS; color: #BD2026;">
   <tr>
     <th>Reservado</th>
     <th>Nome</th>
@@ -27,12 +27,16 @@
     <td><%= space.description %></td>
   </tr>
 <% end %>
+
 </table>
 
 <% end %>
-<h3> Minhas ofertas: </h3>
-
-<table>
+<h3 style="font-family: Trebuchet MS; color: #BD2026;font-size: 20pt"> Minhas ofertas: </h3>
+<% if @offerings.empty? %>
+	<p> Você não está ofertando nenhum lugar.
+	 <%= link_to "Clique aqui", events_path %>  </a> para checar novos eventos e ofertar hospedagens. </p>
+<% else %>
+<table style="font-family: Trebuchet MS; color: #BD2026;">
 	<tr>
 		<th>Evento</th>
 		<th>Espaço</th>
@@ -48,5 +52,7 @@
 	 <td> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
 	</tr>
 <% end%>
+<%end%>
 </table>
+<br />
 
