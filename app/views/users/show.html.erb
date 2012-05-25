@@ -22,7 +22,11 @@
 	event = Event.find offering.event_id
 	space = Resource.find offering.space_id %>
   <tr>
-    <td><%= negociation.status %></td>
+  	<% if negociation.status == true %>
+    <td>Reservado</td>
+    <% else %>
+    <td>Aguardando</td>
+    <%end%>
     <td><%= event.name %></td>
     <td><%= space.description %></td>
   </tr>

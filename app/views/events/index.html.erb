@@ -39,34 +39,6 @@
   <div style="clear:both"></div>
 </div>
 
-<!--<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.description %></td>
-    <td><%= event.address %></td>
-    <td><%= event.city %></td>
-    <td><%= event.state %></td>
-    <td><%= event.date %></td>
-    <td><%= link_to 'Show', event if can? :show, event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) if can? :edit, event %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %></td>
-  </tr>
-<% end %>
-</table>-->
-
 <br />
 <% if user_signed_in? %>
 <%= link_to 'Criar um novo evento', new_event_path, :style => "margin-left: 3%" %>
