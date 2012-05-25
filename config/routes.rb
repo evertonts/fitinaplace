@@ -1,5 +1,7 @@
 Fitinaplace::Application.routes.draw do
-  resources :negociations, :collection => {:update_status => :post}
+  resources :negociations do
+    post :update_status, :on => :collection
+  end
 
   resources :resources
 

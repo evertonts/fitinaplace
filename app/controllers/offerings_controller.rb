@@ -21,6 +21,7 @@ class OfferingsController < ApplicationController
   # GET /offerings/1.json
   def show
     @offering = Offering.find_by_id(params[:id])
+    @resource = Resource.find @offering.space_id
     @question = Question.new
     @negociation = Negociation.new
     @questions = @offering.questions

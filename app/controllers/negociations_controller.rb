@@ -1,6 +1,5 @@
 class NegociationsController < ApplicationController
   before_filter :authenticate_user!
-  
   # GET /negociations
   # GET /negociations.json
   def index
@@ -88,9 +87,16 @@ class NegociationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def update_status
-    puts "\n\n\n\n\n\n\n FUNFS \n\n\n\n\n\n\n\n"
+    ids = params[:selected]
+    if !ids.blank?
+      for id in ids
+        tmp = Negociation.find id
+        tmp.status = true
+        tmp.save
+      end
+    end
     redirect_to negociations_path
   end
 end
