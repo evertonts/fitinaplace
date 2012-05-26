@@ -4,13 +4,13 @@
 	<br />
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 	<div style="font-size: 14pt; margin-left: 20px;">
-		e-mail:&nbsp;<%= f.email_field :email %>
+		e-mail:&nbsp;<%= f.email_field :email, :style => "width: 300px"%>
 	</div>
 	<br />
 	<div style="font-size: 14pt; margin-left: 20px;">
 		senha:&nbsp;<%= f.password_field :password %>
-		<div style="float:right">
-			<%= f.submit "Entrar", :type => :image, :src => "/resources/images/botao-03.png"%>
+		<div style="float: right">
+		<%= f.submit "Entrar", :type => :image, :src => "/resources/images/botao-03.png"%>
 		</div>
 	</div>
 	<br />
