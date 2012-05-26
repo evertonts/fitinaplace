@@ -6,31 +6,31 @@
 	<p><%= f.label :Foto %><br />
 	<%= f.file_field :avatar %></p>
 	
-	<p><%= f.label :name %><br />
+	<p><%= f.label 'Nome' %><br />
 	<%= f.text_field :name %></p>
 	
-	<p><%= f.label :cpf %><br />
+	<p><%= f.label 'CPF' %><br />
 	<%= f.text_field :cpf %></p>
 	
-	<p><%= f.label :rg %><br />
+	<p><%= f.label 'RG' %><br />
 	<%= f.text_field :rg %></p>
 	
-	<p><%= f.label :telefone %><br />
+	<p><%= f.label 'Telefone' %><br />
 	<%= f.text_field :telefone %></p>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label 'Email' %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div><%= f.label 'Senha: ' %> <i>(deixe em branco se não deseja mudá-la)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label 'Confirmação da senha' %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div><%= f.label 'Senha atual' %> <i>(precisamos da sua senha atual para confirmar as mudanças)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Update" %></div>
+  <div><%= f.submit "Atualize" %></div>
 <% end %>
 
 <h3>Cancel my account</h3>
