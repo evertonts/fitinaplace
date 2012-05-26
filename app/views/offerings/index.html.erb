@@ -1,6 +1,46 @@
 <h1>Listing offerings</h1>
+<div >
+	
+  
+	
+	
+  <div class="listagemcinza">
+    <h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 6%"%>Eventos</h1>
 
-<table>
+
+
+      <% @offerings.each do |offering| %>
+      <%@resource  = Resource.find offering.space_id%>
+      <div class="listagemcampobranco">
+        <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
+          <% resource = @resource.description.to 500%>
+          <%= link_to resource, offering if can? :show, offering %>
+        </li>
+
+        <div style="height: 20%; margin-left: 3%;">
+          
+          
+          
+          <div style="clear:both"></div>
+	  
+        </div>
+      </div>
+      <br />
+    <%end%>
+  </div>
+  
+  <div class="destaquelateral">
+	  Destaques
+    <div>
+	  <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+    </div>
+	   <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+  </div>
+  <div style="clear:both"></div>
+</div>
+
+
+<!--<table>
   <tr>
     <th>Event_id</th>
     <th>Space_id</th>
@@ -20,7 +60,7 @@
     <td><%= link_to 'Destroy', offering, confirm: 'Are you sure?', method: :delete if can? :destroy, offering %></td>
   </tr>
 <% end %>
-</table>
+</table> -->
 
 <br />
 
