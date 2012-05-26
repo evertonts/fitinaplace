@@ -13,8 +13,7 @@
       <%@resource  = Resource.find offering.space_id%>
       <div class="listagemcampobranco">
         <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
-          <% resource = @resource.description.to 500%>
-          <%= link_to resource, offering if can? :show, offering %>
+          <%= link_to offering.titulo, offering if can? :show, offering %>
         </li>
 
         <div style="height: 20%; margin-left: 3%;">

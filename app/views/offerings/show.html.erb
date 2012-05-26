@@ -13,7 +13,7 @@
 			<%= link_to "Checar negociações", negociations_path(:offering_id => @offering.id) , :style => "margin-left: 20px" %>
 			<% else %>
 			<%= form_for (@negociation) do |f| %>
-			<%= f.submit "Demonstrar interesse"%>
+			<!--<%= f.submit "Demonstrar interesse"%>-->
 			<%= hidden_field_tag "offering_id", @offering.id %>
 			<%= hidden_field_tag "user_id", current_user.id %>
 			<%end%>
@@ -21,14 +21,14 @@
 		</p>
 	</div>
 	<p>
-		<%= @event.description.to 600 %>
+		<h1><%= @offering.titulo %></h1>
 	</p>
 	<p style="font-size: 20pt;  font-weight: bold; color: #A80713">
 		R$ <%= '%.2f' % @offering.price %>
 	</p>
 </div>
 
-<div>
+<div style="float: left">
 	<h1 style="margin-left: 40px; float: left"> Detalhes da Oferta</h1>
 	<div style="margin: 10px 45px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right">
 		
