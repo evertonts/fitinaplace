@@ -7,7 +7,12 @@
 <% if house.user_id == current_user.id %>
     
     <div class="linha">
+    	
+    	<div style="float: left; position: relative;"><%= image_tag house.image.url(:thumb)%></div>
+    <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
     <span class="rua">
+    	<%= 
+    	  link_to house.street , house%>
     	<%= house.street %>, <%= house.number %>
     	
     	<% if house.complement != nil && house.complement != "" %>
@@ -15,14 +20,22 @@
     	<% end %>
     	 - <%= house.neightborhood %>
     </span>
-    <div></div>
+    <div style="clear:both;"></div>
     <span class="localizacao">
     	<%= house.city %> - <%= house.state %> - <%= house.country %>
     </span>
-    <div></div>
-    <span><%= link_to 'Show', house %></span>
+    
+    <div style="clear:both;"></div>
+    
+    
+    <span></span>
     <span><%= link_to 'Edit', edit_house_path(house) if can? :edit, house%></span>
     <span><%= link_to 'Destroy', house, confirm: 'Are you sure?', method: :delete if can? :destroy, house %></span>
+    
+    </div>
+    <div></div>
+    
+    <div style="clear:both;"></div>
     
 </div>
 <% end %>

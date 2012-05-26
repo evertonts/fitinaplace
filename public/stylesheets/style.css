@@ -172,6 +172,7 @@ form.form_interno input[type='submit']{
 	height: 24px;
 	background-color: white;
 	 outline:none; 
+	 margin-left: 150px;
 }
 
 form.form_interno input[type='submit']:active{
@@ -189,6 +190,7 @@ div.listagemcinza div.linha{
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 -moz-border-radius: 10px;
+position: relative;
 }
 
 div.listagemcinza div.linha span.rua{

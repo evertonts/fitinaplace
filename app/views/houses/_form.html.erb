@@ -41,8 +41,9 @@
     <%= f.text_field :country, :style => "width: 15%;" %>
   </div>
   
-    <p><%= f.label :Foto %><br />
-	<%= f.file_field :image %></p>
+    <div class="field"><%= f.label 'Foto: ' %>
+	<%= f.file_field :image %></div>
+	<br>	
   <div class="actions">
     <%= f.submit ''%>
   </div>
