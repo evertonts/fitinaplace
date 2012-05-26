@@ -22,6 +22,10 @@ class Ability
            o.try(:event).user == user
          end
          
+         can :update, Offering do |o|
+           o.try(:event).try(:user) == user
+         end
+         
          can :destroy, Offering do |o|
            o.try(:event).try(:user) == user
          end

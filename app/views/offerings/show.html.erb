@@ -1,4 +1,4 @@
-<p id="not=ice">
+<p id="notice">
 	<%= notice %>
 </p>
 <div style="position: relative; float: left; margin: 1%; margin-left: 3%">
@@ -8,8 +8,8 @@
 	<div style="position: relative; margin: 1%;color: #A80713;">
 		<p>
 			<em style="font-size: 20pt;  font-weight: bold"> Oferta nº<%= @offering.id %> </em>
-			<%= link_to 'Editar oferta', edit_offering_path(@offering), :style => "margin-left: 20px"%>
 			<% if @offering.user_id == current_user.id %>
+			<%= link_to 'Editar oferta', edit_offering_path(@offering), :style => "margin-left: 20px"%>
 			<%= link_to "Checar negociações", negociations_path(:offering_id => @offering.id) , :style => "margin-left: 20px" %>
 			<% else %>
 			<%= form_for (@negociation) do |f| %>

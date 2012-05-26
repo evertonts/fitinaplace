@@ -74,7 +74,7 @@ class OfferingsController < ApplicationController
 
     respond_to do |format|
       if @offering.save
-        format.html { redirect_to @offering, notice: 'Offering was successfully created.' }
+        format.html { redirect_to @offering, notice: 'Oferta criada com sucesso.' }
         format.json { render json: @offering, status: :created, location: @offering }
       else
         format.html { render action: "new" }
@@ -90,7 +90,7 @@ class OfferingsController < ApplicationController
 
     respond_to do |format|
       if @offering.update_attributes(params[:offering])
-        format.html { redirect_to @offering, notice: 'Offering was successfully updated.' }
+        format.html { redirect_to @offering, notice: 'Oferta atualizada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -14,14 +14,19 @@
   
   <%= hidden_field_tag :event_id, params[:event_id].to_i %>
   <div class="field">
-    <%= f.label :space_id %><br />
+    <%= f.label 'Espaço: ' %><br />
     <%= f.select :space_id, options_for_select(@select) %>
+  </div>
+  <div class="field">
+    <%= f.label :'Título da oferta: ' %><br />
+    <%= f.text_field :titulo %>
   </div>
  
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label 'Preço: *' %><br />
     <%= f.text_field :price %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
