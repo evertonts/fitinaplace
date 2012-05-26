@@ -69,6 +69,18 @@ table.user td {
 	border-radius: 10px;
 }
 
+.bordacinza{
+	margin-left: 3%;
+	background-color: #F4F2F2; 
+	border-radius: 10px;
+}
+
+.titulo{
+	font-size: 20pt;
+	font-family: Trebuchet MS;
+	color: #BD2026;
+}
+
 .listagemcampobranco{
 	background-color: white;
 	margin-left: 6%;

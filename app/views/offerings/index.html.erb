@@ -1,31 +1,35 @@
-<h1>Listing offerings</h1>
 <div >
 	
-  
-	
-	
+  <div class="bordacinza", style="width: 30%">
+    <h1 class="titulo" style="margin: 5%; margin-left: 13%"> Fit in...</h1>	
+  </div>
   <div class="listagemcinza">
     <h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 6%"%>Eventos</h1>
-
-
-
       <% @offerings.each do |offering| %>
       <%@resource  = Resource.find offering.space_id%>
       <% @house = House.find @resource.house_id%>
       <div class="listagemcampobranco">
-        <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
-        <div style="float: right">
-          <%= link_to offering.titulo, offering if can? :show, offering %>
-          </div>
-        </li>
-		 <div style="float: left"><%= image_tag @house.image.url(:thumb)%></div>
-        <div style="height: 20%; margin-left: 3%;">
+        <table style="padding: 2%">
+        	<tr  >
+        		<td width="10%" >
+        			<%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
+        		</td>
+        		<td>
+        			<div >
+          				<%= link_to offering.titulo, offering if can? :show, offering %>
+          				<p> <%= @resource.description.to 150 %> </p>
+          			</div>
+        		</td>
+        		<td width="20%" >
+        			<div style="float: right"> <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b> </div>
+        		</td>
+        	</tr>
+        </table>
+        
+		
           
-          
-          
-          <div style="clear:both"></div>
-	  
-        </div>
+		 
+
       </div>
       <br />
     <%end%>
