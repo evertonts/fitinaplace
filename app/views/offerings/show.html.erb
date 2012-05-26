@@ -1,53 +1,83 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Id event:</b>
-  <%= @offering.event_id %>
+<p id="not=ice">
+	<%= notice %>
 </p>
-
-<p>
-  <b>Id space:</b>
-  <%= @offering.space_id %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @offering.price %>
-</p>
-
-<%= form_for(@resource) do |f| %>
-<%= f.fields_for :assets do |asset|%>
-	<% unless asset.object.new_record? %>
-	
-	<div>
-		<%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
+<div style="position: relative; float: left; margin: 1%; margin-left: 3%">
+	<%= image_tag @house.image.url(:medium), :style => "width: 175px; height: 175px"%>
+</div>
+<div style="position: relative; margin: 2%">
+	<div style="position: relative; margin: 1%;color: #A80713;">
+		<p>
+			<em style="font-size: 20pt;  font-weight: bold"> Oferta nº<%= @offering.id %> </em>
+			<%= link_to 'Editar oferta', edit_offering_path(@offering), :style => "margin-left: 20px"%>
+			<% if @offering.user_id == current_user.id %>
+			<%= link_to "Checar negociações", negociations_path(:offering_id => @offering.id) , :style => "margin-left: 20px" %>
+			<% else %>
+			<%= form_for (@negociation) do |f| %>
+			<!--<%= f.submit "Demonstrar interesse"%>-->
+			<%= hidden_field_tag "offering_id", @offering.id %>
+			<%= hidden_field_tag "user_id", current_user.id %>
+			<%= f.submit "Demonstrar interesse"%>
+			<%end%>
+			<%end%>
+		</p>
 	</div>
-	<% end %>
-<%end%>
-<%end%>
-<%= link_to 'Edit', edit_offering_path(@offering) %> |
-<%= link_to 'Back', offerings_path %>
-<% if @offering.user_id == current_user.id %>
-	<%= link_to "Checar negociações", negociations_path(:offering_id => @offering.id) %>
-<% else %>
-	<%= form_for (@negociation) do |f| %>
-	<%= hidden_field_tag "offering_id", @offering.id %>
-	<%= hidden_field_tag "user_id", current_user.id %>
-	<%= f.submit "Demonstrar interesse"%>
-<%end%>
-<%end%>
-<div>
-<% for question in @questions%>
-<% usuario = User.find question.user_id %>
-
-<h4> <%= usuario.name %> escreveu: </h4> 
-<h4> Em <%= question.created_at.strftime('%d/%m/%Y %H:%M:%S')%> </h4>
-<p> <%= question.text%> </p>
-<%end%>
+	<p>
+		<h1><%= @offering.titulo %></h1>
+	</p>
+	<p style="font-size: 20pt;  font-weight: bold; color: #A80713">
+		R$ <%= '%.2f' % @offering.price %>
+	</p>
 </div>
 
-<%= form_for (@question) do |f| %>
-	<%= hidden_field_tag "offering_id", @offering.id %>
-	<%= f.text_area :text, :style => "width: 400px; height: 100px"%>
-	<%= f.submit "Enviar"%>
+<div>
+	<h1 style="margin-left: 40px; float: left"> Detalhes da Oferta</h1>
+	<div style="margin: 10px 45px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right">
+		
+	<%=@resource.description%>
+	
+	</div>
+	<div style= "margin-left: 40px; padding: 10px 10 px; float: left">
+	<p> Banheiro privado: <% if @resource.private_bathroon == true%> Sim <%else%> Não <%end%>  </p>
+ 	<p> Café da manhã: <% if @resource.breakfast == true%> Sim <%else%> Não <%end%> </p>
+	<p> Almoço: <% if @resource.lunch == true%> Sim <%else%> Não <%end%> </p>
+	<p> Jantar: <% if @resource.dinner == true%> Sim <%else%> Não <%end%> </p>
+	<p> Espaço privado: <% if @resource.private_space == true%> Sim <%else%> Não <%end%>  </p>
+	<p> Estacionamento: <%= @resource.parking_spaces %> </p>
+	</div>
+</div>
+<%= form_for(@resource) do |f| %>
+<div class="listagemcinza" style="width: 94%;">
+	<%= f.fields_for :assets do |asset|%>
+
+	<% unless asset.object.new_record? %>
+
+	<%= link_to(image_tag(asset.object.image.url(:thumb), :height => 120, :width => 180, :style  => "margin: 2%") ,asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
+
+	<% end %>
+
+	<%end%>
+</div>
 <%end%>
+<br />
+<br />
+<div class="listagemcinza" style="width: 94%; margin-top: 20px">
+	<% for question in @questions%>
+	<div style="margin: 2%">
+		<% usuario = User.find question.user_id %>
+		<p style="color: #A80713">
+			<b> <%= usuario.name %> </b> <%= question.created_at.strftime('%d/%m/%Y %H:%M:%S')%>
+		</p>
+		<p>
+			<%= question.text%>
+		</p>
+	</div>
+	<%end%>
+</div>
+<div style="margin: 5%">
+	<%= form_for (@question) do |f| %>
+	<%= hidden_field_tag "offering_id", @offering.id %>
+	<%= f.text_area :text, :style => "width: 100%; height: 100px; margin-top: 3%"%>
+	<br />
+	<%= f.submit "Enviar", :style => "float:right"%>
+	<%end%>
+</div>

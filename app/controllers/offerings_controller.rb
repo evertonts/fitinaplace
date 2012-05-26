@@ -10,7 +10,7 @@ class OfferingsController < ApplicationController
     else
       @offerings = Offering.find_all_by_event_id params[:event_id]
     end
-
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offerings }
@@ -20,11 +20,14 @@ class OfferingsController < ApplicationController
   # GET /offerings/1
   # GET /offerings/1.json
   def show
+    
     @offering = Offering.find_by_id(params[:id])
     @resource = Resource.find @offering.space_id
+    @house = House.find @resource.house_id
     @question = Question.new
     @negociation = Negociation.new
     @questions = @offering.questions
+    @event = Event.find @offering.event_id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @offering }

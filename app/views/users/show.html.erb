@@ -1,3 +1,4 @@
+<div style="margin: 2%">
 <div style="float: right;margin-right: 55%;font-family: Trebuchet MS; color: #BD2026">
 <h1 style="font-size: 20pt"><%= @user.name %></h1>
 <p>Email: <%= @user.email if @user.email %></p>
@@ -10,17 +11,19 @@
 	<p> Você não tem nenhuma negociação em andamento.
 	 <%= link_to "Clique aqui", events_path %>  </a> para checar eventos. </p>
 <% else %>
-<table class="user">
+<table class="user" width="90%">
   <tr>
     <th >Reservado</th>
     <th >Nome</th>
-    <th >Descrição</th>
+    <th width="60%">Descrição</th>
+    <th> Email de Contato </th>
   </tr>
 
 <% @negociations.each do |negociation| %>
 	<% offering = Offering.find negociation.offering_id
 	event = Event.find offering.event_id
-	space = Resource.find offering.space_id %>
+	space = Resource.find offering.space_id
+	user = User.find offering.user_id %>
   <tr>
   	<% if negociation.status == true %>
     <td>Reservado</td>
@@ -28,22 +31,25 @@
     <td>Aguardando</td>
     <%end%>
     <td><%= event.name %></td>
-    <td><%= space.description %></td>
+    <td><%= space.description.to 200 %></td>
+    <td> <%= user.email unless negociation.status == false %></td>
   </tr>
 <% end %>
 
 </table>
 
 <% end %>
+
 <h3 style="font-family: Trebuchet MS; color: #BD2026;font-size: 20pt"> Minhas ofertas: </h3>
+
 <% if @offerings.empty? %>
 	<p> Você não está ofertando nenhum lugar.
 	 <%= link_to "Clique aqui", events_path %>  </a> para checar novos eventos e ofertar hospedagens. </p>
 <% else %>
-<table class="user">
+<table class="user" width="90%">
 	<tr>
 		<th >Evento</th>
-		<th >Espaço</th>
+		<th width="70%">Espaço</th>
 		<th >Interessados</th>
 	</tr>
 	<% for offering in  @offerings%>
@@ -52,7 +58,7 @@
 	 
 	 <td> <%= event.name%> </td>
 	 <% space = Resource.find offering.space_id%>
-	 <td><%= space.description %></td>
+	 <td><%= space.description.to 200 %></td>
 	 <td> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
 	</tr>
 <% end%>
@@ -60,3 +66,4 @@
 </table>
 <br />
 
+</div>

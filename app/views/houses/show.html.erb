@@ -1,41 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Street:</b>
-  <%= @house.street %>
+<p id="notice">
+	<%= notice %>
 </p>
-
+<div style="position: relative; float: left">
+	<%= image_tag @house.image.url(:medium)%>
+</div>
 <p>
-  <b>Number:</b>
-  <%= @house.number %>
+	<b>Street:</b>
+	<%= @house.street %>
 </p>
-
 <p>
-  <b>Complement:</b>
-  <%= @house.complement %>
+	<b>Number:</b>
+	<%= @house.number %>
 </p>
-
 <p>
-  <b>Neightborhood:</b>
-  <%= @house.neightborhood %>
+	<b>Complement:</b>
+	<%= @house.complement %>
 </p>
-
 <p>
-  <b>City:</b>
-  <%= @house.city %>
+	<b>Neightborhood:</b>
+	<%= @house.neightborhood %>
 </p>
-
 <p>
-  <b>State:</b>
-  <%= @house.state %>
+	<b>City:</b>
+	<%= @house.city %>
 </p>
-
 <p>
-  <b>Country:</b>
-  <%= @house.country %>
+	<b>State:</b>
+	<%= @house.state %>
 </p>
-
+<p>
+	<b>Country:</b>
+	<%= @house.country %>
+</p>
 <%= link_to 'Add new resource', new_resource_path(:house_id => @house.id) %> |
 <%= link_to 'Show resources', resources_path(:house_id => @house.id) %>|
 <%= link_to 'Edit', edit_house_path(@house) %> 
-
