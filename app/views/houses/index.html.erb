@@ -2,37 +2,44 @@
 <div class="listagemcinza">
 <h1>Listing houses</h1>
 
-<table id="user">
-  <tr>
-    <th>Street</th>
-    <th>Number</th>
-    <th>Complement</th>
-    <th>Neightborhood</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Country</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @houses.each do |house| %>
 <% if house.user_id == current_user.id %>
-  <tr class="listagemcampobranco">
-    <td><%= house.street %></td>
-    <td><%= house.number %></td>
-    <td><%= house.complement %></td>
-    <td><%= house.neightborhood %></td>
-    <td><%= house.city %></td>
-    <td><%= house.state %></td>
-    <td><%= house.country %></td>
-    <td><%= link_to 'Show', house %></td>
-    <td><%= link_to 'Edit', edit_house_path(house) if can? :edit, house%></td>
-    <td><%= link_to 'Destroy', house, confirm: 'Are you sure?', method: :delete if can? :destroy, house %></td>
-  </tr>
+    
+    <div class="linha">
+    	
+    	<div style="float: left; position: relative;"><%= image_tag house.image.url(:thumb)%></div>
+    <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
+    <span class="rua">
+    	<%= 
+    	  link_to house.street , house%>
+    	<%= house.street %>, <%= house.number %>
+    	
+    	<% if house.complement != nil && house.complement != "" %>
+    	  - <%= house.complement %>
+    	<% end %>
+    	 - <%= house.neightborhood %>
+    </span>
+    <div style="clear:both;"></div>
+    <span class="localizacao">
+    	<%= house.city %> - <%= house.state %> - <%= house.country %>
+    </span>
+    
+    <div style="clear:both;"></div>
+    
+    
+    <span></span>
+    <span><%= link_to 'Edit', edit_house_path(house) if can? :edit, house%></span>
+    <span><%= link_to 'Destroy', house, confirm: 'Are you sure?', method: :delete if can? :destroy, house %></span>
+    
+    </div>
+    <div></div>
+    
+    <div style="clear:both;"></div>
+    
+</div>
 <% end %>
 <%end%>
-</table>
 
 <br />
 
