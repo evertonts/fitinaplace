@@ -97,6 +97,6 @@ class NegociationsController < ApplicationController
         tmp.save
       end
     end
-    redirect_to negociations_path
+    redirect_to negociations_path(:offering_id => params[:offering_id])
   end
 end

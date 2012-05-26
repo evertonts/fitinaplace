@@ -45,6 +45,7 @@
 
 <% if user_signed_in? %>
 <%= link_to 'Adicionar oferta', new_offering_path(:event_id => @event.id) %> |
-<%end%>
+
 <%= link_to 'Mostrar ofertas disponíveis', offerings_path(:event_id => @event.id) %> |
 <%= link_to 'Edit', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
+<%end%>
