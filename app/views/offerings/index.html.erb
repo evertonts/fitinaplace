@@ -11,11 +11,14 @@
 
       <% @offerings.each do |offering| %>
       <%@resource  = Resource.find offering.space_id%>
+      <% @house = House.find @resource.house_id%>
       <div class="listagemcampobranco">
         <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
+        <div style="float: right">
           <%= link_to offering.titulo, offering if can? :show, offering %>
+          </div>
         </li>
-
+		 <div style="float: left"><%= image_tag @house.image.url(:thumb)%></div>
         <div style="height: 20%; margin-left: 3%;">
           
           

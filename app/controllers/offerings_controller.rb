@@ -10,14 +10,7 @@ class OfferingsController < ApplicationController
     else
       @offerings = Offering.find_all_by_event_id params[:event_id]
     end
-    @resource = []
-    n = 0
-    @offerings.each do |offering|
-    @resource[n]  = Resource.find offering.space_id
-    puts @resource[n].description
-    puts "\n\n\n\n\n"
-    n = n+1
-    end
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offerings }
