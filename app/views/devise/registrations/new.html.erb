@@ -1,27 +1,28 @@
+<div>
 <div class="form_normal">
 <h2 class="titulo" style="margin-left: 40px">Cadastre-se</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => 'form_interno'}) do |f| %>
   <%= devise_error_messages! %>
-	<div class="field"><%= f.label 'Nome: *' %>
+	<div class="field"><%= f.label 'Nome: *' %>&nbsp;
 	<%= f.text_field :name %></div>
 
-	<div class="field"><%= f.label 'Rg: *' %>
+	<div class="field"><%= f.label 'Rg: *' %>&nbsp;
 	<%= f.text_field :rg %></div>
 
-	<div class="field"><%= f.label 'CPF: *' %>
+	<div class="field"><%= f.label 'CPF: *' %>&nbsp;
 	<%= f.text_field :cpf %></div>
 
-	<div class="field"><%= f.label 'Telefone: *' %>
+	<div class="field"><%= f.label 'Telefone: *' %>&nbsp;
 	<%= f.text_field :telefone %></div>
 
-  <div class="field"><%= f.label 'Email: *' %>
+  <div class="field"><%= f.label 'Email: *' %>&nbsp;
   <%= f.email_field :email %></div>
 
-  <div class="field"><%= f.label 'Senha: *' %>
+  <div class="field"><%= f.label 'Senha: *' %>&nbsp;
   <%= f.password_field :password %></div>
 
-  <div class="field"><%= f.label 'Confirmação de senha: *' %>
+  <div class="field"><%= f.label 'Confirmação de senha: *' %>&nbsp;
   <%= f.password_field :password_confirmation %></div><br />
 	
 	<div class="field"><%= f.label 'Foto: *'%>
@@ -34,3 +35,5 @@
 <%= render :partial => "devise/shared/links" %>
 </div>
 </div>
+
+
