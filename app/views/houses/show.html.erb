@@ -1,37 +1,41 @@
 <p id="notice">
 	<%= notice %>
 </p>
-<div style="position: relative; float: left">
+<div style="position: relative; float: left; margin-left: 20px">
 	<%= image_tag @house.image.url(:medium)%>
 </div>
+<div style="margin-left: 347px">
 <p>
-	<b>Street:</b>
+	<b>Rua:</b>
 	<%= @house.street %>
 </p>
 <p>
-	<b>Number:</b>
+	<b>Número:</b>
 	<%= @house.number %>
 </p>
 <p>
-	<b>Complement:</b>
+	<b>Complemento:</b>
 	<%= @house.complement %>
 </p>
 <p>
-	<b>Neightborhood:</b>
+	<b>Bairro:</b>
 	<%= @house.neightborhood %>
 </p>
 <p>
-	<b>City:</b>
+	<b>Cidade:</b>
 	<%= @house.city %>
 </p>
 <p>
-	<b>State:</b>
+	<b>Estado:</b>
 	<%= @house.state %>
 </p>
 <p>
-	<b>Country:</b>
+	<b>País:</b>
 	<%= @house.country %>
 </p>
-<%= link_to 'Add new resource', new_resource_path(:house_id => @house.id) %> |
-<%= link_to 'Show resources', resources_path(:house_id => @house.id) %>|
-<%= link_to 'Edit', edit_house_path(@house) %> 
+</div><br />
+<div style="margin-left: 20px">
+<%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
+<%= link_to 'Mostrar recursos', resources_path(:house_id => @house.id) %>|
+<%= link_to 'Editar', edit_house_path(@house) %> 
+</div>
