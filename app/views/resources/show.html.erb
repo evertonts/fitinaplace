@@ -1,65 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>House:</b>
-  <%= @resource.house_id %>
-</p>
+<div>
+	<p style="margin-left: 40px;"><em style="font-size: 20pt;  font-weight: bold"> Detalhes do Recurso</em>
+		<%= link_to 'Editar', edit_resource_path(@resource) , :style => "margin-left: 20px"%> </p>
+	<div style="margin: 10px 45px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right">
+		
+	<%=@resource.description%>
+	
+	</div>
+	<div style= "margin-left: 40px; padding: 10px 10 px; float: left">
+	<p> Banheiro privado: <% if @resource.private_bathroon == true%> Sim <%else%> Não <%end%>  </p>
+ 	<p> Café da manhã: <% if @resource.breakfast == true%> Sim <%else%> Não <%end%> </p>
+	<p> Almoço: <% if @resource.lunch == true%> Sim <%else%> Não <%end%> </p>
+	<p> Jantar: <% if @resource.dinner == true%> Sim <%else%> Não <%end%> </p>
+	<p> Espaço privado: <% if @resource.private_space == true%> Sim <%else%> Não <%end%>  </p>
+	<p> Estacionamento: <%= @resource.parking_spaces %> </p>
+    <p> Cômodo: <%= @resource.place %> </p>
+	<p> Vagas: <%= @resource.vacancies %> </p>
+    
+	</div>
+</div>
 
-<p>
-  <b>Breakfast:</b>
-  <%= @resource.breakfast %>
-</p>
-
-<p>
-  <b>Lunch:</b>
-  <%= @resource.lunch %>
-</p>
-
-<p>
-  <b>Dinner:</b>
-  <%= @resource.dinner %>
-</p>
-
-<p>
-  <b>Private bathroon:</b>
-  <%= @resource.private_bathroon %>
-</p>
-
-<p>
-  <b>Private space:</b>
-  <%= @resource.private_space %>
-</p>
-
-<p>
-  <b>Parking spaces:</b>
-  <%= @resource.parking_spaces %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @resource.description %>
-</p>
-
-<p>
-  <b>Picture:</b>
-  <%= @resource.picture %>
-</p>
-
-<p>
-  <b>Vacancies:</b>
-  <%= @resource.vacancies %>
-</p>
 
 <%= form_for(@resource) do |f| %>
-<%= f.fields_for :assets do |asset|%>
+<div class="listagemcinza" style="width: 94%;">
+	<%= f.fields_for :assets do |asset|%>
+
 	<% unless asset.object.new_record? %>
-	
-	<div>
-		<%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
-	</div>
+
+	<%= link_to(image_tag(asset.object.image.url(:thumb), :height => 120, :width => 180, :style  => "margin: 2%") ,asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
+
 	<% end %>
-<%end%>
+
+	<%end%>
+</div>
 <%end%>
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
-<%= link_to 'Back', resources_path %>
+
+
+
+
+

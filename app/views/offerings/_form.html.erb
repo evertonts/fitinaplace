@@ -1,4 +1,4 @@
-<%= form_for(@offering) do |f| %>
+<%= form_for(@offering,:html => {:multipart => true,:class => 'form_interno' }) do |f| %>
   <% if @offering.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
@@ -14,20 +14,20 @@
   
   <%= hidden_field_tag :event_id, params[:event_id].to_i %>
   <div class="field">
-    <%= f.label 'Espaço: ' %><br />
+    <%= f.label 'Espaço: ' %>&nbsp;
     <%= f.select :space_id, options_for_select(@select) %>
   </div>
   <div class="field">
-    <%= f.label :'Título da oferta: ' %><br />
+    <%= f.label :'Título da oferta: *' %>&nbsp;
     <%= f.text_field :titulo %>
   </div>
  
   <div class="field">
-    <%= f.label 'Preço: *' %><br />
+    <%= f.label 'Preço: *' %>&nbsp;
     <%= f.text_field :price %>
   </div>
-  
-  <div class="actions">
-    <%= f.submit %>
+  <br />
+  <div class="actions" style="margin-left: 10px;">
+    <%= f.submit ''%>
   </div>
 <% end %>

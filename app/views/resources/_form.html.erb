@@ -15,64 +15,66 @@
 <%= hidden_field_tag :house_id, params[:house_id].to_i %>
 <div class="field">
 	<%= f.label 'Café da manhã:' %>
-	<%= f.check_box :breakfast %>
+	<%= f.check_box :breakfast, :style => "margin-left: -130px;" %>
 </div>
 <div class="field">
 	<%= f.label 'Almoço: ' %>
-	<%= f.check_box :lunch %>
+	<%= f.check_box :lunch, :style => "margin-left: -130px;" %>
 </div>
 <div class="field">
 	<%= f.label 'Jantar: ' %>
-	<%= f.check_box :dinner %>
+	<%= f.check_box :dinner, :style => "margin-left: -130px;" %>
 </div>
 <div class="field">
-	<%= f.label 'Banheiro individual' %>
-	<%= f.check_box :private_bathroon %>
+	<%= f.label 'Banheiro individual: ' %>
+	<%= f.check_box :private_bathroon, :style => "margin-left: -130px;" %>
 </div>
 <div class="field">
-	<%= f.label 'Quarto individual' %>
-	<%= f.check_box :private_space %>
+	<%= f.label 'Espaço privativo: ' %>
+	<%= f.check_box :private_space, :style => "margin-left: -130px;" %>
 </div>
 <div class="field">
-	<%= f.label 'Estacionamento' %>
+	<%= f.label 'Estacionamento: ' %>&nbsp;
 	<%= f.number_field :parking_spaces %>
 </div>
 <div class="field">
-	<%= f.label 'Cômodo' %>
+	<%= f.label 'Cômodo: ' %>&nbsp;
 	<%= f.text_field :place %>
 </div>
 
 <div class="field">
-	<%= f.label 'Descrição' %>
+	<%= f.label 'Descrição: ' %>&nbsp;
 	<%= f.text_field :description %>
 </div>
 <div class="field">
-	<%= f.label 'Vagas' %>
+	<%= f.label 'Vagas: ' %>&nbsp;
 	<%= f.number_field :vacancies %>
 </div>
 
 <%= f.fields_for :assets do |asset|%>
 <% if asset.object.new_record? %>
 		<div class="field">
-    	<%= f.label 'Fotos' %>
+    	<%= f.label 'Fotos: ' %>&nbsp;
 
 		<%= asset.file_field :image%>
 	</div>
 <%end%>
 <%end%>
-
+<br />
+<i>(Marque as fotos que deseja excluir)</i>
 <div class="field">
 <%= f.fields_for :assets do |asset|%>
 	<% unless asset.object.new_record? %>
 	
 	<div class="field">
 		<%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original))%>
-		<%= asset.check_box :_destroy %>
+		<%= asset.check_box :_destroy, :style => "margin-left: -130px;"%>
 	</div>
 	<% end %>
 <%end%>
 </div>
 
+<br />
 <div class="actions">
 	<%= f.submit ''%>
 </div>

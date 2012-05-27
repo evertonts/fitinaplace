@@ -43,6 +43,8 @@
 	<p> Jantar: <% if @resource.dinner == true%> Sim <%else%> Não <%end%> </p>
 	<p> Espaço privado: <% if @resource.private_space == true%> Sim <%else%> Não <%end%>  </p>
 	<p> Estacionamento: <%= @resource.parking_spaces %> </p>
+	<p> Cômodo: <%= @resource.place %> </p>
+	<p> Vagas: <%= @resource.vacancies %> </p>
 	</div>
 </div>
 <%= form_for(@resource) do |f| %>
