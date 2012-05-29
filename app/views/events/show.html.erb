@@ -8,23 +8,23 @@
 	<%= notice %>
 </p>
 <p>
-	<b>Name:</b>
+	<b>Nome:</b>
 	<%= @event.name %>
 </p>
 <p>
-	<b>Address:</b>
+	<b>Endereço:</b>
 	<%= @event.address %>
 </p>
 <p>
-	<b>City:</b>
+	<b>Cidade:</b>
 	<%= @event.city %>
 </p>
 <p>
-	<b>State:</b>
+	<b>Estado:</b>
 	<%= @event.state %>
 </p>
 <p>
-	<b>Date:</b>
+	<b>Data:</b>
 	<%= @event.date %>
 </p>
 <p></p>
@@ -47,7 +47,9 @@
 <div style="margin-left: 20px">
 <%= link_to 'Adicionar oferta', new_offering_path(:event_id => @event.id) %> |
 
-<%= link_to 'Mostrar ofertas disponíveis', offerings_path(:event_id => @event.id) %> |
-<%= link_to 'Editar', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
+<%= link_to 'Mostrar ofertas disponíveis', offerings_path(:event_id => @event.id) %> 
+<% if current_user.id== @event.user_id%>
+| <%= link_to 'Editar', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
+<%end%>
 <%end%>
 </div>
