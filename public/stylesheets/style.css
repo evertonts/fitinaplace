@@ -132,16 +132,16 @@ div.field label {
   font-size: 12px;
   }
 
-div.field input {
+div.field input[type="text"], input[type="number"]{
   width: 335px;
   height: 25px;
   text-align: left;
   border: 1px solid #C9C7C4;
   
   border-radius: 3px;
-	-webkit-border-radius: 3px;
--moz-border-radius: 3px;
-  } 
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+} 
 
 div.form_normal{
 	padding: 0.5% 1% 5% 1%;
