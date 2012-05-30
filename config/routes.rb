@@ -10,7 +10,12 @@ Fitinaplace::Application.routes.draw do
   resources :events
   resources :houses
   resources :questions
-
+  resources :comofunciona
+  resources :about
+  resources :faq
+  resources :termosdeuso
+  resources :termosdeseguro
+  
   authenticated :user do
     root :to => 'home#index'
   end

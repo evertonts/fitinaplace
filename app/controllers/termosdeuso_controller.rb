@@ -1,0 +1,3 @@
+class TermosdeusoController < ApplicationController
+  
+end
