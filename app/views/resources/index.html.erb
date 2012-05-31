@@ -1,41 +1,32 @@
 <h1>Listing resources</h1>
 
-<table>
-  <tr>
-    <th>Breakfast</th>
-    <th>Lunch</th>
-    <th>Dinner</th>
-    <th>Private bathroon</th>
-    <th>Private space</th>
-    <th>Parking spaces</th>
-    <th>Description</th>
-    <th>Picture</th>
-    <th>Vacancies</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @resources.each do |resource| %>
 	<% if params[:house_id].to_i == resource.house_id  %>
-  <tr>
-    <td><%= resource.breakfast %></td>
-    <td><%= resource.lunch %></td>
-    <td><%= resource.dinner %></td>
-    <td><%= resource.private_bathroon %></td>
-    <td><%= resource.private_space %></td>
-    <td><%= resource.parking_spaces %></td>
-    <td><%= resource.description %></td>
-    <td><%= resource.picture %></td>
-    <td><%= resource.vacancies %></td>
-    <td><%= link_to 'Show', resource %></td>
-    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-    <td><%= link_to 'Destroy', resource, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-  <% end %>
-<% end %>
-</table>
+
+    <div class="linha">
+    	<div style="float: left; position: relative;"><%= image_tag(resource.assets.first.image.url(:thumb))%></div>
+    <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
+    <span class="rua">
+    <div style="clear:both;"></div>
+    
+    
+    <span></span>
+    <span><%= link_to 'Detalhes', resource %></span>
+
+    <span><%= link_to 'Editar', edit_resource_path(resource) %></span>
+    <span><%= link_to 'Remover', resource, confirm: 'Deseja remover este recurso?', method: :delete %></span>
+
+    
+    </div>
+    <div></div>
+    
+    <div style="clear:both;"></div>
+    
+</div>
+
 
 <br />
+<% end %>
 
-
+<% end %>
+	

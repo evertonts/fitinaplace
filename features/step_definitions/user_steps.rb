@@ -21,7 +21,7 @@ def create_user
   create_visitor
   delete_user
   @user = FactoryGirl.create(:user, email: @visitor[:email], cpf: @visitor[:cpf], rg: @visitor[:rg], 
-    telefone: @visitor[:telefone], :role => @visitor[:role])
+    telefone: @visitor[:telefone], role: @visitor[:role])
 end
 
 def delete_user
