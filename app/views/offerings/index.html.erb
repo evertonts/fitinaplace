@@ -1,73 +1,79 @@
 <div >
+	<div class="bordacinza", style="width: 30%; border-radius: 10px 10px 0 0">
+		<h1 class="titulo" style="margin-left: 13%; margin-bottom: 0;"> Fit in...</h1>
+	</div>
+	<div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
+		<h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 6%"%></h1>
+		<% @offerings.each do |offering| %>
+		<% @resource  = Resource.find offering.space_id%>
+		<% @house = House.find @resource.house_id%>
+		<div class="linha">
+			<div style="float: left; position: relative;width: 15%;">
+				<%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
+			</div>
+			<div style="margin-left: 5px;position: relative; float:left;width: 55%;">
+				<span class="rua"><%= link_to offering.titulo, offering if can? :show, offering %></span>
+				<span >
+					<p style="text-align: justify">
+						<%= @resource.description.to 150 %>
+					</p></span>
+			</div>
+			<div style="float: right;width: 25%">
+				<b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		<!--
+		<table style="padding: 2%">
+		<tr  >
+		<td width="10%" >
+		<%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
+		</td>
+		<td>
+		<div >
+		<%= link_to offering.titulo, offering if can? :show, offering %>
+		<p style="text-align: justify"> <%= @resource.description.to 150 %> </p>
+		</div>
+		</td>
+		<td width="20%" >
+		<div style="float: right"> <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b> </div>
+		</td>
+		</tr>
+		</table>
+		-->
+		<%end%>
+	</div>
+	<br />
 	
-  <div class="bordacinza", style="width: 30%; border-radius: 10px 10px 0 0">
-    <h1 class="titulo" style="margin-left: 13%; margin-bottom: 0;"> Fit in...</h1>	
-  </div>
-  <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
-    <h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 6%"%></h1>
-      <% @offerings.each do |offering| %>
-      <%@resource  = Resource.find offering.space_id%>
-      <% @house = House.find @resource.house_id%>
-      <div class="listagemcampobranco">
-        <table style="padding: 2%">
-        	<tr  >
-        		<td width="10%" >
-        			<%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
-        		</td>
-        		<td>
-        			<div >
-          				<%= link_to offering.titulo, offering if can? :show, offering %>
-          				<p> <%= @resource.description.to 150 %> </p>
-          			</div>
-        		</td>
-        		<td width="20%" >
-        			<div style="float: right"> <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b> </div>
-        		</td>
-        	</tr>
-        </table>
-        
-		
-          
-		 
-
-      </div>
-      <br />
-    <%end%>
-  </div>
-  
-  <div class="destaquelateral">
-	  Destaques
-    <div>
-	  <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
-    </div>
-	   <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
-  </div>
-  <div style="clear:both"></div>
 </div>
-
-
-<!--<table>
-  <tr>
-    <th>Event_id</th>
-    <th>Space_id</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="destaquelateral">
+	Destaques
+	<div>
+		<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+	</div>
+	<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+</div>
+<div style="clear:both"></div>
+</div> <!--<table>
+<tr>
+<th>Event_id</th>
+<th>Space_id</th>
+<th>Price</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
 
 <% @offerings.each do |offering| %>
-  <tr>
-    <td><%= offering.event_id %></td>
-    <td><%= offering.space_id %></td>
-    <td><%= offering.price %></td>
-    <td><%= link_to 'Show', offering if can? :show, offering %></td>
-    <td><%= link_to 'Edit', edit_offering_path(offering) if can? :edit, offering %></td>
-    <td><%= link_to 'Destroy', offering, confirm: 'Are you sure?', method: :delete if can? :destroy, offering %></td>
-  </tr>
+<tr>
+<td><%= offering.event_id %></td>
+<td><%= offering.space_id %></td>
+<td><%= offering.price %></td>
+<td><%= link_to 'Show', offering if can? :show, offering %></td>
+<td><%= link_to 'Edit', edit_offering_path(offering) if can? :edit, offering %></td>
+<td><%= link_to 'Destroy', offering, confirm: 'Are you sure?', method: :delete if can? :destroy, offering %></td>
+</tr>
 <% end %>
 </table> -->
-
 <br />
-
 <!--<%= link_to 'New Offering', new_offering_path %>-->
