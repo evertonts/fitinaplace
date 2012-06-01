@@ -215,3 +215,14 @@ div.listagemcinza h1,h2{
     font-size: 20pt;
     margin-left: 3%;
 }
+
+form.new_user div.linha{
+  font-size: 14pt;
+  margin: 15px 10px;
+}
+
+form.new_user div.linha label{
+  display: block;
+    float: left;
+    width: 100px;
+}

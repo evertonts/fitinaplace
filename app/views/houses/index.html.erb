@@ -1,55 +1,40 @@
 <div>
-<div class="listagemcinza">
-<h2>Casas</h2>
-
-
-<% @houses.each do |house| %>
-<% if house.user_id == current_user.id %>
-    
+  <div class="listagemcinza">
+    <h2>Casas</h2>
+    <% @houses.each do |house| %>
+    <% if house.user_id == current_user.id %>
     <div class="linha">
-    	
-    	<div style="float: left; position: relative;"><%= image_tag house.image.url(:thumb)%></div>
-    <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
-    <span class="rua">
-    	<%=
-    	  link  = house.street
-    	  if house.number != nil
-    	    link  = link.concat(", ").concat(house.number.to_s)
-    	  end
-    	  if house.complement != nil && house.complement != ""
-    	    link  = link.concat(" - ").concat(house.complement)
-    	  end
-    	  if house.neightborhood != nil
-    	    link  = link.concat(" - ").concat(house.neightborhood)
-    	  end
-    	  
-    	  link_to link , house
-    	%>
- 
-    </span>
-    <div style="clear:both;"></div>
-    <span class="localizacao">
-    	<%= house.city %> - <%= house.state %> - <%= house.country %>
-    </span>
-    
-    <div style="clear:both;"></div>
-    
-    
-    <span></span>
-    <span><%= link_to 'Editar', edit_house_path(house) if can? :edit, house%></span>
-    <span><%= link_to 'Remover', house, confirm: 'Deseja remover esta casa?', method: :delete if can? :destroy, house %></span>
-    
+      <div style="float: left; position: relative;">
+        <%= image_tag house.image.url(:thumb)%>
+      </div>
+      <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
+        <span class="rua"> <%=
+ link  = house.street
+          if house.number != nil
+            link  = link.concat(", ").concat(house.number.to_s)
+          end
+          if house.complement != nil && house.complement != ""
+            link  = link.concat(" - ").concat(house.complement)
+          end
+          if house.neightborhood != nil
+            link  = link.concat(" - ").concat(house.neightborhood)
+          end
+
+          link_to link , house
+%> </span>
+        <div style="clear:both;"></div>
+        <span class="localizacao"> <%= house.city %> - <%= house.state %> - <%= house.country %> </span>
+        <div style="clear:both;"></div>
+        <span></span>
+        <span><%= link_to 'Editar', edit_house_path(house) if can? :edit, house%></span>
+        <span><%= link_to 'Remover', house, confirm: 'Deseja remover esta casa?', method: :delete if can? :destroy, house %></span>
+      </div>
+      <div></div>
+      <div style="clear:both;"></div>
     </div>
-    <div></div>
-    
-    <div style="clear:both;"></div>
-    
-</div>
-<% end %>
-<%end%>
-
-<br />
-
-</div>
-<%= link_to 'Nova casa', new_house_path %>
+    <% end %>
+    <%end%>
+    <br />
+  </div>
+  <%= link_to 'Nova casa', new_house_path %>
 </div>
