@@ -1,10 +1,13 @@
 <div style="margin: 2%">
-<div style="float: right;margin-right: 55%;font-family: Trebuchet MS; color: #BD2026">
+	<div style="float: left">
+<%= image_tag @user.avatar.url(:medium)%>
+</div>
+<div style="float: left;margin-right: 55%;font-family: Trebuchet MS; color: #BD2026">
 <h1 style="font-size: 20pt"><%= @user.name %></h1>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>Telefone: <%= @user.telefone if @user.telefone %></p>
 </div>
-<%= image_tag @user.avatar.url(:medium)%>
+
 <h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
 
 <% if @negociations.empty? %>
