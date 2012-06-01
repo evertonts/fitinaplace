@@ -17,3 +17,5 @@ gem "launchy", ">= 2.0.5", :group => :test
 gem "devise", ">= 2.1.0.rc"
 gem "paperclip", "~> 2.7"
 gem "cancan", "~> 1.6.7"
+gem 'execjs'
+gem 'therubyracer'
