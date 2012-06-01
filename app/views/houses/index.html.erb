@@ -1,13 +1,10 @@
 <div>
-<div class="listagemcinza">
-<h2>Casas</h2>
-
-
-<% @houses.each do |house| %>
-<% if house.user_id == current_user.id %>
-    
+  <div class="listagemcinza">
+    <h2>Casas</h2>
+    <% @houses.each do |house| %>
+    <% if house.user_id == current_user.id %>
     <div class="linha">
-    	
+
     	<div style="float: left; position: relative;"><%= image_tag house.image.url(:thumb)%></div>
     <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
     <span class="rua">
@@ -52,4 +49,5 @@
 <br />
 
 </div>
+
 </div>
