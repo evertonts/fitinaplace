@@ -4,4 +4,4 @@
 
 <p>Clique no link abaixo para desbloquear sua conta</p>
 
-<p><%= link_to 'Desbloquear minha conta', "http://107.22.232.217:3000"(@resource, :unlock_token => @resource.unlock_token) %></p>
+<p><%= link_to 'Desbloquear minha conta', confirmation_url(@resource, :unlock_token => @resource.unlock_token) %></p>
