@@ -22,7 +22,7 @@ class OfferingsController < ApplicationController
   def show
     
     @offering = Offering.find_by_id(params[:id])
-    @resource = Resource.find @offering.space_id
+    @resource = Resource.find @offering.resource_id
     @house = House.find @resource.house_id
     @question = Question.new
     @negociation = Negociation.new

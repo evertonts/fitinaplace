@@ -31,7 +31,7 @@
     <% @negociations.each do |negociation| %>
     <% offering = Offering.find negociation.offering_id
       event = Event.find offering.event_id
-      space = Resource.find offering.space_id
+      space = Resource.find offering.resource_id
       user = User.find offering.user_id %>
     <tr>
       <% if negociation.status == true %> <td>Reservado</td>
@@ -58,7 +58,7 @@
     <% for offering in  @offerings%>
     <tr>
       <% event = Event.find offering.event_id%> <td> <%= event.name%> </td>
-      <% space = Resource.find offering.space_id%> <td><%= space.description.to 200 %></td>
+      <% space = Resource.find offering.resource_id%> <td><%= space.description.to 200 %></td>
       <td> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
     </tr>
     <% end%>

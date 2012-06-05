@@ -1,5 +1,6 @@
 class House < ActiveRecord::Base
-   validates_presence_of :street, :number, :neightborhood, :city,:state, :country
+  has_many :resource, :dependent => :destroy
+   validates_presence_of :street, :number, :neightborhood, :city,:state, :country, :image
    validates :number, :numericality => true
    belongs_to :user
    

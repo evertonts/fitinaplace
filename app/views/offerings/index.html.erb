@@ -5,7 +5,7 @@
 	<div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
 		<h1 style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026; margin-left: 6%"%></h1>
 		<% @offerings.each do |offering| %>
-		<% @resource  = Resource.find offering.space_id%>
+		<% @resource  = Resource.find offering.resource_id%>
 		<% @house = House.find @resource.house_id%>
 		<div class="linha">
 			<div style="float: left; position: relative;width: 15%;">
@@ -54,26 +54,4 @@
 	<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
 </div>
 <div style="clear:both"></div>
-</div> <!--<table>
-<tr>
-<th>Event_id</th>
-<th>Space_id</th>
-<th>Price</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-
-<% @offerings.each do |offering| %>
-<tr>
-<td><%= offering.event_id %></td>
-<td><%= offering.space_id %></td>
-<td><%= offering.price %></td>
-<td><%= link_to 'Show', offering if can? :show, offering %></td>
-<td><%= link_to 'Edit', edit_offering_path(offering) if can? :edit, offering %></td>
-<td><%= link_to 'Destroy', offering, confirm: 'Are you sure?', method: :delete if can? :destroy, offering %></td>
-</tr>
-<% end %>
-</table> -->
-<br />
-<!--<%= link_to 'New Offering', new_offering_path %>-->
+</div> 
