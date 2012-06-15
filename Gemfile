@@ -18,6 +18,6 @@ gem "devise", ">= 2.1.0.rc"
 gem "paperclip", "~> 2.7"
 gem "cancan", "~> 1.6.7"
 gem "mysql2"
-
+gem 'passenger', "~> 3.0.12"
 gem 'mongrel', '>= 1.2.0.pre2'
 gem 'dispatcher'
