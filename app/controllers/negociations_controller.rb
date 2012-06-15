@@ -51,7 +51,8 @@ class NegociationsController < ApplicationController
       @negociation.offering_id = params[:offering_id]
       @negociation.user_id = current_user.id
       @negociation.save
-
+      offering = Offering.find params[:offering_id]
+      InterestMailer.alert_interest(@negociation).deliver
       redirect_to offerings_path + "/" + params[:offering_id].to_s, :flash => {:info => 'Negociation was successfully created.'}
     else
       flash[:error] = "You already have a pending negociation in progress"
@@ -95,6 +96,7 @@ class NegociationsController < ApplicationController
         tmp = Negociation.find id
         tmp.status = true
         tmp.save
+        InterestMailer.alert_reserve(tmp).deliver
       end
     end
     redirect_to negociations_path(:offering_id => params[:offering_id])
