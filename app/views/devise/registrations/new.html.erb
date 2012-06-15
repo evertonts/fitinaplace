@@ -1,7 +1,7 @@
 <div>
 <div class="form_normal">
 <h2 class="titulo" style="margin-left: 40px">Cadastre-se</h2>
-
+<p style="margin-left: 40px;color: #B84848;padding: 0;font-size: 14px;">* Caso não receba o email de confirmação,verifique a pasta de Spam.</p>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => 'form_interno'}) do |f| %>
   <%= devise_error_messages! %>
 	<div class="field"><%= f.label 'Nome: *' %>&nbsp;
