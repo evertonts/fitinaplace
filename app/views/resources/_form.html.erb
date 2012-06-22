@@ -1,4 +1,4 @@
-<%= form_for(@resource) do |f| %>
+<%= form_for(@resource, :html =>{:class => 'form_interno'}) do |f| %>
 <% if @resource.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
@@ -14,80 +14,69 @@
 
 <%= hidden_field_tag :house_id, params[:house_id].to_i %>
 <div class="field">
-	<%= f.label :breakfast %>
-	<br />
+	<%= f.label 'Café da manhã:' %>
 	<%= f.check_box :breakfast %>
 </div>
 <div class="field">
-	<%= f.label :lunch %>
-	<br />
+	<%= f.label 'Almoço: ' %>
 	<%= f.check_box :lunch %>
 </div>
 <div class="field">
-	<%= f.label :dinner %>
-	<br />
+	<%= f.label 'Jantar: ' %>
 	<%= f.check_box :dinner %>
 </div>
 <div class="field">
-	<%= f.label :private_bathroon %>
-	<br />
+	<%= f.label 'Banheiro individual: ' %>
 	<%= f.check_box :private_bathroon %>
 </div>
 <div class="field">
-	<%= f.label :private_space %>
-	<br />
+	<%= f.label 'Espaço privativo: ' %>
 	<%= f.check_box :private_space %>
 </div>
 <div class="field">
-	<%= f.label :parking_spaces %>
-	<br />
+	<%= f.label 'Estacionamento: ' %>&nbsp;
 	<%= f.number_field :parking_spaces %>
 </div>
 <div class="field">
-	<%= f.label :place %>
-	<br />
+	<%= f.label 'Cômodo: ' %>&nbsp;
 	<%= f.text_field :place %>
 </div>
 
-
-
 <div class="field">
-	<%= f.label :description %>
-	<br />
+	<%= f.label 'Descrição: ' %>&nbsp;
 	<%= f.text_field :description %>
 </div>
 <div class="field">
-	<%= f.label :picture %>
-	<br />
-	<%= f.text_field :picture %>
-</div>
-<div class="field">
-	<%= f.label :vacancies %>
-	<br />
+	<%= f.label 'Vagas: ' %>&nbsp;
 	<%= f.number_field :vacancies %>
 </div>
+
 <%= f.fields_for :assets do |asset|%>
 <% if asset.object.new_record? %>
 		<div class="field">
+    	<%= f.label 'Fotos: ' %>&nbsp;
+
 		<%= asset.file_field :image%>
 	</div>
 <%end%>
 <%end%>
-
-<div>
+<br />
+<i>(Marque as fotos que deseja excluir)</i>
+<div class="field">
 <%= f.fields_for :assets do |asset|%>
 	<% unless asset.object.new_record? %>
 	
-	<div>
+	<div class="field">
 		<%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original))%>
-		<%= asset.check_box :_destroy %>
+		<%= asset.check_box :_destroy, :style => "margin-left: -130px;"%>
 	</div>
 	<% end %>
 <%end%>
 </div>
 
+<br />
 <div class="actions">
-	<%= f.submit %>
+	<%= f.submit ''%>
 </div>
 
 <% end %>

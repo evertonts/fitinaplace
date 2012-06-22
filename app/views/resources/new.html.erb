@@ -1,5 +1,80 @@
-<h1>New resource</h1>
 
-<%= render 'form' %>
+<div class="form_normal">
+<h2 class="titulo" style="margin-left: 40px">Novo Recurso</h2>
 
-<%= link_to 'Back', resources_path %>
+
+<%= form_for(@resource, :html =>{:class => 'form_interno'}) do |f| %>
+<% if @resource.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+	<ul>
+		<% @resource.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= hidden_field_tag :house_id, params[:house_id].to_i %>
+<div class="field">
+	<%= f.label 'Café da manhã:' %>
+	<%= f.check_box :breakfast %>
+</div>
+<div class="field">
+	<%= f.label 'Almoço: ' %>
+	<%= f.check_box :lunch %>
+</div>
+<div class="field">
+	<%= f.label 'Jantar: ' %>
+	<%= f.check_box :dinner %>
+</div>
+<div class="field">
+	<%= f.label 'Banheiro individual: ' %>
+	<%= f.check_box :private_bathroon %>
+</div>
+<div class="field">
+	<%= f.label 'Espaço privativo: ' %>
+	<%= f.check_box :private_space %>
+</div>
+<div class="field">
+	<%= f.label 'Estacionamento: ' %>&nbsp;
+	<%= f.number_field :parking_spaces %>
+</div>
+<div class="field">
+	<%= f.label 'Cômodo: ' %>&nbsp;
+	<%= f.text_field :place %>
+</div>
+
+<div class="field">
+	<%= f.label 'Descrição: ' %>&nbsp;
+	<%= f.text_field :description %>
+</div>
+<div class="field">
+	<%= f.label 'Vagas: ' %>&nbsp;
+	<%= f.number_field :vacancies %>
+</div>
+
+<%= f.fields_for :assets do |asset|%>
+<% if asset.object.new_record? %>
+		<div class="field">
+    	<%= f.label 'Fotos: ' %>&nbsp;
+
+		<%= asset.file_field :image%>
+	</div>
+<%end%>
+<%end%>
+<br />
+
+
+<br />
+<div class="actions">
+	<%= f.submit ''%>
+</div>
+
+<% end %>
+
+
+
+</div>

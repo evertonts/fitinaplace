@@ -10,7 +10,7 @@ class OfferingsController < ApplicationController
     else
       @offerings = Offering.find_all_by_event_id params[:event_id]
     end
-
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offerings }
@@ -20,10 +20,14 @@ class OfferingsController < ApplicationController
   # GET /offerings/1
   # GET /offerings/1.json
   def show
+    
     @offering = Offering.find_by_id(params[:id])
+    @resource = Resource.find @offering.resource_id
+    @house = House.find @resource.house_id
     @question = Question.new
     @negociation = Negociation.new
     @questions = @offering.questions
+    @event = Event.find @offering.event_id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @offering }
@@ -70,7 +74,7 @@ class OfferingsController < ApplicationController
 
     respond_to do |format|
       if @offering.save
-        format.html { redirect_to @offering, notice: 'Offering was successfully created.' }
+        format.html { redirect_to @offering, notice: 'Oferta criada com sucesso.' }
         format.json { render json: @offering, status: :created, location: @offering }
       else
         format.html { render action: "new" }
@@ -86,7 +90,7 @@ class OfferingsController < ApplicationController
 
     respond_to do |format|
       if @offering.update_attributes(params[:offering])
-        format.html { redirect_to @offering, notice: 'Offering was successfully updated.' }
+        format.html { redirect_to @offering, notice: 'Oferta atualizada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

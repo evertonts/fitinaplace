@@ -22,6 +22,10 @@ class Ability
            o.try(:event).user == user
          end
          
+         can :update, Offering do |o|
+           o.try(:event).try(:user) == user
+         end
+         
          can :destroy, Offering do |o|
            o.try(:event).try(:user) == user
          end
@@ -30,6 +34,9 @@ class Ability
          
          for classe in classes 
            can :create, classe
+           can :update, classe do |c|
+             c.try(:user) == user
+           end
            can :update, classe do |c|
              c.try(:user) == user
            end

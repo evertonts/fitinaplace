@@ -3,5 +3,5 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :description, :address, :city, :state
   has_many :offerings
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" }
 end

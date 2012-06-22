@@ -45,7 +45,7 @@ class ResourcesController < ApplicationController
     @resource.house_id = params[:house_id]
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
+        format.html { redirect_to @resource, notice: 'Recurso criado com sucesso.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.update_attributes(params[:resource])
-        format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
+        format.html { redirect_to @resource, notice: 'Recurso atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

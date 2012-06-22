@@ -1,0 +1,3 @@
+class ComofuncionaController < ApplicationController
+  
+end

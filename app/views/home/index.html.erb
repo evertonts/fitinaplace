@@ -1,29 +1,29 @@
 <div style="margin-top: 30px; margin-left: 20px;">
-	<div style="background-image:url('/resources/images/Moldura-para-caixa-de-busca.png');background-repeat: no-repeat; height: 228px;width: 460px; float: left; margin-right: 15px">
-		<%= form_tag events_path, :method => 'get' do %>
-		<div style="padding-left: 30px; padding-top: 30px; font-size: 20pt; color: #A80713; font-weight: bold">
-			Aonde:
-		</div>
-		<br />
-		<%= text_field_tag :search, params[:search], :style => "margin-left: 6%; width: 83%"%>
-		<br />
-		<br />
-		<%= submit_tag "Buscar", :name => nil, :style => "margin-right: 10%; float: right;"%>
-		<% end %>
-	</div>
-	<div style="float:left; font-size: 20pt; font-weight: bold">
-		<div style="color: #A80713"><img src="/resources/images/icone-de-listagem-vermelho.png" style="margin-left: 10px; margin-bottom: 5px;"/> Como funciona
-		</div>
-		<div style="color: #A80713"><img src="/resources/images/icone-de-listagem-vermelho.png" style="margin-left: 10px; margin-bottom: 5px;" /> Cadastrar-se
-		</div>
-		<div style="margin-bottom: 10px"></div>
-		<%= render :partial => "login"%>
-	</div>
-	<div style="clear: both;"></div>
+  <div class="container_aonde">
+    <%= form_tag events_path, :method => 'get' do %>
+    <div style="padding-left: 30px; padding-top: 30px; font-size: 20pt; color: #A80713; font-weight: bold">
+      Aonde:
+    </div>
+    <br />
+    <%= text_field_tag :search, params[:search], :style => "margin-left: 6%; width: 83%"%>
+    <br />
+    <br />
+    <%= image_submit_tag '/resources/images/botao-01.png', :name => nil, :style => "margin-right: 10%; float: right;"%>
+    <% end %>
+  </div>
+  <div style="float:right; font-size: 20pt; font-weight: bold; padding-right: 30px; width:500px">
+    <div style="color: #A80713"><img src="/resources/images/icone-de-listagem-vermelho.png" style="margin-left: 10px; margin-bottom: 5px;"/> <%= link_to("Como Funciona", "/comofunciona") %>
+    </div>
+    <div style="color: #A80713"><img src="/resources/images/icone-de-listagem-vermelho.png" style="margin-left: 10px; margin-bottom: 5px;" /> <%= link_to('Cadastrar-se', new_user_registration_path, :class => :red)  %>
+    </div>
+    <div style="margin-bottom: 10px"></div>
+    <%= render :partial => "login"%>
+  </div>
+  <div style="clear: both;"></div>
 </div>
-<div style="border: 1px solid #A80713; border-radius: 10px; margin: 10px; padding: 10px; color: #A80713; font-size: 20pt; font-weight: bold;">
-	Destaques
-	<div>
-		<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
-	</div>
+<div style="border: 1px solid #A80713; border-radius: 10px; margin: 25px; padding: 10px; color: #A80713; font-size: 20pt; font-weight: bold;">
+  Destaques
+  <div>
+    <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+  </div>
 </div>

@@ -1,32 +1,39 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
+<div>
+<div class="form_normal">
+<h2 class="titulo" style="margin-left: 40px">Cadastre-se</h2>
+<p style="margin-left: 40px;color: #B84848;padding: 0;font-size: 14px;">* Caso não receba o email de confirmação,verifique a pasta de Spam.</p>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => 'form_interno'}) do |f| %>
   <%= devise_error_messages! %>
-	<p><%= f.label :name %><br />
-	<%= f.text_field :name %></p>
+	<div class="field"><%= f.label 'Nome: *' %>&nbsp;
+	<%= f.text_field :name %></div>
 
-	<p><%= f.label :rg %><br />
-	<%= f.text_field :rg %></p>
+	<div class="field"><%= f.label 'Rg: *' %>&nbsp;
+	<%= f.text_field :rg %></div>
 
-	<p><%= f.label :cpf %><br />
-	<%= f.text_field :cpf %></p>
+	<div class="field"><%= f.label 'CPF: *' %>&nbsp;
+	<%= f.text_field :cpf %></div>
 
-	<p><%= f.label :telefone %><br />
-	<%= f.text_field :telefone %></p>
+	<div class="field"><%= f.label 'Telefone: *' %>&nbsp;
+	<%= f.text_field :telefone %></div>
 
-  <div><%= f.label :email %><br />
+  <div class="field"><%= f.label 'Email: *' %>&nbsp;
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
+  <div class="field"><%= f.label 'Senha: *' %>&nbsp;
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="field"><%= f.label 'Confirmação de senha: *' %>&nbsp;
+  <%= f.password_field :password_confirmation %></div><br />
 	
-	<p><%= f.label :Foto %><br />
-	<%= f.file_field :avatar %></p>
+	<div class="field"><%= f.label 'Foto: *'%>
+	<%= f.file_field :avatar %></div><br />
 
-  <div><%= f.submit "Sign up" %></div>
+  <div class="actions" style="margin-left: 149px"><%= f.submit "" %></div>
 <% end %>
-
+<br/>
+<div style="margin-left: 40px">
 <%= render :partial => "devise/shared/links" %>
+</div>
+</div>
+	
+

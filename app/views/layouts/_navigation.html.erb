@@ -1,33 +1,29 @@
-<%= link_to "Fitinaplace", root_path, :class => 'brand' %>
-
+<div style="background-color: #BD2026;">
 <ul class="nav">
 	<li>
-    <%= link_to('Events', events_path)  %>
+    <%= link_to(image_tag('/resources/images/botao-04.png'), user_path(current_user.id))%>
     </li>
-  <% if user_signed_in? %>
+	<li>
+    <%= link_to(image_tag('/resources/images/botao-10.png'),events_path)%>
+    </li>
     <li>
-    <%= link_to('Houses', houses_path) %>
+    <%= link_to(image_tag('/resources/images/botao-12.png'), houses_path) %>
     </li>
-    <%end%>
-  <% if user_signed_in? %>
     <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+    <%= link_to(image_tag('/resources/images/botao-13.png'), destroy_user_session_path, :method=>'delete') %>        
     </li>
-  <% else %>
     <li>
-    <%= link_to('Login', new_user_session_path)  %>  
+    <%= link_to(image_tag('/resources/images/botao-14.png'), edit_user_registration_path) %>
     </li>
-  <% end %>
-  <% if user_signed_in? %>
+    
     <li>
-    <%= link_to('Edit account', edit_user_registration_path) %>
+    	<div style="float:right; padding-right: 5%; padding-top: 1%;">
+        <%= form_tag events_path, :method => 'get' do %>
+		<%= text_field_tag :search, params[:search] %>
+		<!--<%= image_submit_tag '/resources/images/botao-01.png', :name => nil%>-->
+		<%= submit_tag 'Buscar', :name => nil%>
+		<% end %>
+		</div>
     </li>
-  <% else %>
-    <li>
-    <%= link_to('Sign up', new_user_registration_path)  %>
-    </li>
-  <% end %>
-  
-
-
 </ul>
+</div>
