@@ -24,7 +24,13 @@ describe HousesController do
   # House. As you add validations to House, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { street: "123",
+      number: "123",
+      complement: "",
+      neightborhood: "123",
+      city: "123",
+      state: "123",
+      country: "MyString" }
   end
   
   # This should return the minimal set of values that should be in the session
@@ -33,35 +39,41 @@ describe HousesController do
   def valid_session
     {}
   end
+  
+  before (:each) do
+    @house = FactoryGirl.create(:house)
+    @user = FactoryGirl.create(:user)
+    @house.user = @user
+    @user.houses << @house
+    sign_in @user
+  end
 
   describe "GET index" do
     it "assigns all houses as @houses" do
-      house = House.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:houses).should eq([house])
+      get :index, {}
+      @house.should_not be_nil
+      assigns(:houses).should eq(@user.houses)
     end
   end
 
   describe "GET show" do
     it "assigns the requested house as @house" do
-      house = House.create! valid_attributes
-      get :show, {:id => house.to_param}, valid_session
-      assigns(:house).should eq(house)
+      get :show, {:id => @house.to_param}
+      assigns(:house).should eq(@house)
     end
   end
 
   describe "GET new" do
     it "assigns a new house as @house" do
-      get :new, {}, valid_session
+      get :new, {}
       assigns(:house).should be_a_new(House)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested house as @house" do
-      house = House.create! valid_attributes
-      get :edit, {:id => house.to_param}, valid_session
-      assigns(:house).should eq(house)
+      get :edit, {:id => @house.to_param}
+      assigns(:house).should eq(@house)
     end
   end
 
@@ -69,18 +81,18 @@ describe HousesController do
     describe "with valid params" do
       it "creates a new House" do
         expect {
-          post :create, {:house => valid_attributes}, valid_session
+          post :create, {:house => valid_attributes}
         }.to change(House, :count).by(1)
       end
 
       it "assigns a newly created house as @house" do
-        post :create, {:house => valid_attributes}, valid_session
+        post :create, {:house => valid_attributes}
         assigns(:house).should be_a(House)
         assigns(:house).should be_persisted
       end
 
       it "redirects to the created house" do
-        post :create, {:house => valid_attributes}, valid_session
+        post :create, {:house => valid_attributes}
         response.should redirect_to(House.last)
       end
     end
@@ -89,14 +101,14 @@ describe HousesController do
       it "assigns a newly created but unsaved house as @house" do
         # Trigger the behavior that occurs when invalid params are submitted
         House.any_instance.stub(:save).and_return(false)
-        post :create, {:house => {}}, valid_session
+        post :create, {:house => {}}
         assigns(:house).should be_a_new(House)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         House.any_instance.stub(:save).and_return(false)
-        post :create, {:house => {}}, valid_session
+        post :create, {:house => {}}
         response.should render_template("new")
       end
     end
@@ -105,42 +117,37 @@ describe HousesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested house" do
-        house = House.create! valid_attributes
         # Assuming there are no other houses in the database, this
         # specifies that the House created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         House.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => house.to_param, :house => {'these' => 'params'}}, valid_session
+        put :update, {:id => @house.to_param, :house => {'these' => 'params'}}
       end
 
       it "assigns the requested house as @house" do
-        house = House.create! valid_attributes
-        put :update, {:id => house.to_param, :house => valid_attributes}, valid_session
-        assigns(:house).should eq(house)
+        put :update, {:id => @house.to_param, :house => valid_attributes}
+        assigns(:house).should eq(@house)
       end
 
       it "redirects to the house" do
-        house = House.create! valid_attributes
-        put :update, {:id => house.to_param, :house => valid_attributes}, valid_session
-        response.should redirect_to(house)
+        put :update, {:id => @house.to_param, :house => valid_attributes}
+        response.should redirect_to(@house)
       end
     end
 
     describe "with invalid params" do
       it "assigns the house as @house" do
-        house = House.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         House.any_instance.stub(:save).and_return(false)
-        put :update, {:id => house.to_param, :house => {}}, valid_session
-        assigns(:house).should eq(house)
+        put :update, {:id => @house.to_param, :house => {}}
+        assigns(:house).should eq(@house)
       end
 
       it "re-renders the 'edit' template" do
-        house = House.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         House.any_instance.stub(:save).and_return(false)
-        put :update, {:id => house.to_param, :house => {}}, valid_session
+        put :update, {:id => @house.to_param, :house => {}}
         response.should render_template("edit")
       end
     end
@@ -148,15 +155,13 @@ describe HousesController do
 
   describe "DELETE destroy" do
     it "destroys the requested house" do
-      house = House.create! valid_attributes
       expect {
-        delete :destroy, {:id => house.to_param}, valid_session
+        delete :destroy, {:id => @house.to_param}
       }.to change(House, :count).by(-1)
     end
 
     it "redirects to the houses list" do
-      house = House.create! valid_attributes
-      delete :destroy, {:id => house.to_param}, valid_session
+      delete :destroy, {:id => @house.to_param}
       response.should redirect_to(houses_url)
     end
   end

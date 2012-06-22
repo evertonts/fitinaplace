@@ -7,7 +7,10 @@ describe User do
       :name => "Example User",
       :email => "user@example.com",
       :password => "foobar",
-      :password_confirmation => "foobar"
+      :password_confirmation => "foobar",
+      :cpf => '111111',
+      :rg => '111111',
+      :telefone => '111'
     }
   end
   

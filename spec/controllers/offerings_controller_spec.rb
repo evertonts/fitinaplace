@@ -24,7 +24,11 @@ describe OfferingsController do
   # Offering. As you add validations to Offering, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      event_id: 1,
+      space_id: 1,
+      price: 9.99
+    }
   end
   
   # This should return the minimal set of values that should be in the session
@@ -34,34 +38,40 @@ describe OfferingsController do
     {}
   end
 
+  before (:each) do
+    @offering = FactoryGirl.create(:offering)
+    @user = FactoryGirl.create(:user)
+    @event = FactoryGirl.create(:event)
+    @offering.event = @event
+    @offering.event.user = @user
+    sign_in @user
+  end
+  
   describe "GET index" do
     it "assigns all offerings as @offerings" do
-      offering = Offering.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:offerings).should eq([offering])
+      get :index, {}
+      assigns(:offerings).should eq([@offering])
     end
   end
 
   describe "GET show" do
     it "assigns the requested offering as @offering" do
-      offering = Offering.create! valid_attributes
-      get :show, {:id => offering.to_param}, valid_session
-      assigns(:offering).should eq(offering)
+      get :show, {:id => @offering.to_param}
+      assigns(:offering).should eq(@offering)
     end
   end
 
   describe "GET new" do
     it "assigns a new offering as @offering" do
-      get :new, {}, valid_session
+      get :new, {}
       assigns(:offering).should be_a_new(Offering)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested offering as @offering" do
-      offering = Offering.create! valid_attributes
-      get :edit, {:id => offering.to_param}, valid_session
-      assigns(:offering).should eq(offering)
+      get :edit, {:id => @offering.to_param}
+      assigns(:offering).should eq(@offering)
     end
   end
 
@@ -69,18 +79,18 @@ describe OfferingsController do
     describe "with valid params" do
       it "creates a new Offering" do
         expect {
-          post :create, {:offering => valid_attributes}, valid_session
+          post :create, {:offering => valid_attributes}
         }.to change(Offering, :count).by(1)
       end
 
       it "assigns a newly created offering as @offering" do
-        post :create, {:offering => valid_attributes}, valid_session
+        post :create, {:offering => valid_attributes}
         assigns(:offering).should be_a(Offering)
         assigns(:offering).should be_persisted
       end
 
       it "redirects to the created offering" do
-        post :create, {:offering => valid_attributes}, valid_session
+        post :create, {:offering => valid_attributes}
         response.should redirect_to(Offering.last)
       end
     end
@@ -89,14 +99,14 @@ describe OfferingsController do
       it "assigns a newly created but unsaved offering as @offering" do
         # Trigger the behavior that occurs when invalid params are submitted
         Offering.any_instance.stub(:save).and_return(false)
-        post :create, {:offering => {}}, valid_session
+        post :create, {:offering => {}}
         assigns(:offering).should be_a_new(Offering)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Offering.any_instance.stub(:save).and_return(false)
-        post :create, {:offering => {}}, valid_session
+        post :create, {:offering => {}}
         response.should render_template("new")
       end
     end
@@ -105,42 +115,37 @@ describe OfferingsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested offering" do
-        offering = Offering.create! valid_attributes
         # Assuming there are no other offerings in the database, this
         # specifies that the Offering created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Offering.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => offering.to_param, :offering => {'these' => 'params'}}, valid_session
+        put :update, {:id => @offering.to_param, :offering => {'these' => 'params'}}
       end
 
       it "assigns the requested offering as @offering" do
-        offering = Offering.create! valid_attributes
-        put :update, {:id => offering.to_param, :offering => valid_attributes}, valid_session
-        assigns(:offering).should eq(offering)
+        put :update, {:id => @offering.to_param, :offering => valid_attributes}
+        assigns(:offering).should eq(@offering)
       end
 
       it "redirects to the offering" do
-        offering = Offering.create! valid_attributes
-        put :update, {:id => offering.to_param, :offering => valid_attributes}, valid_session
-        response.should redirect_to(offering)
+        put :update, {:id => @offering.to_param, :offering => valid_attributes}
+        response.should redirect_to(@offering)
       end
     end
 
     describe "with invalid params" do
       it "assigns the offering as @offering" do
-        offering = Offering.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Offering.any_instance.stub(:save).and_return(false)
-        put :update, {:id => offering.to_param, :offering => {}}, valid_session
-        assigns(:offering).should eq(offering)
+        put :update, {:id => @offering.to_param, :offering => {}}
+        assigns(:offering).should eq(@offering)
       end
 
       it "re-renders the 'edit' template" do
-        offering = Offering.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Offering.any_instance.stub(:save).and_return(false)
-        put :update, {:id => offering.to_param, :offering => {}}, valid_session
+        put :update, {:id => @offering.to_param, :offering => {}}
         response.should render_template("edit")
       end
     end
@@ -148,15 +153,13 @@ describe OfferingsController do
 
   describe "DELETE destroy" do
     it "destroys the requested offering" do
-      offering = Offering.create! valid_attributes
       expect {
-        delete :destroy, {:id => offering.to_param}, valid_session
+        delete :destroy, {:id => @offering.to_param}
       }.to change(Offering, :count).by(-1)
     end
 
     it "redirects to the offerings list" do
-      offering = Offering.create! valid_attributes
-      delete :destroy, {:id => offering.to_param}, valid_session
+      delete :destroy, {:id => @offering.to_param}
       response.should redirect_to(offerings_url)
     end
   end

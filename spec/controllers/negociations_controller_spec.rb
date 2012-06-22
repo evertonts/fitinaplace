@@ -33,35 +33,38 @@ describe NegociationsController do
   def valid_session
     {}
   end
+  
+  before (:each) do
+    @negociation = FactoryGirl.create(:negociation)
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+  end
 
   describe "GET index" do
     it "assigns all negociations as @negociations" do
-      negociation = Negociation.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:negociations).should eq([negociation])
+      get :index, {}
+      assigns(:negociations).should eq([@negociation])
     end
   end
 
   describe "GET show" do
     it "assigns the requested negociation as @negociation" do
-      negociation = Negociation.create! valid_attributes
-      get :show, {:id => negociation.to_param}, valid_session
-      assigns(:negociation).should eq(negociation)
+      get :show, {:id => @negociation.to_param}
+      assigns(:negociation).should eq(@negociation)
     end
   end
 
   describe "GET new" do
     it "assigns a new negociation as @negociation" do
-      get :new, {}, valid_session
+      get :new, {}
       assigns(:negociation).should be_a_new(Negociation)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested negociation as @negociation" do
-      negociation = Negociation.create! valid_attributes
-      get :edit, {:id => negociation.to_param}, valid_session
-      assigns(:negociation).should eq(negociation)
+      get :edit, {:id => @negociation.to_param}
+      assigns(:negociation).should eq(@negociation)
     end
   end
 
@@ -69,19 +72,19 @@ describe NegociationsController do
     describe "with valid params" do
       it "creates a new Negociation" do
         expect {
-          post :create, {:negociation => valid_attributes}, valid_session
+          post :create, {:negociation => valid_attributes}
         }.to change(Negociation, :count).by(1)
       end
 
       it "assigns a newly created negociation as @negociation" do
-        post :create, {:negociation => valid_attributes}, valid_session
+        post :create, {:negociation => valid_attributes}
         assigns(:negociation).should be_a(Negociation)
         assigns(:negociation).should be_persisted
       end
 
-      it "redirects to the created negociation" do
-        post :create, {:negociation => valid_attributes}, valid_session
-        response.should redirect_to(Negociation.last)
+      it "redirects to the offering path" do
+        post :create, {:negociation => valid_attributes}
+        response.should redirect_to(offerings_path + "/")
       end
     end
 
@@ -89,15 +92,15 @@ describe NegociationsController do
       it "assigns a newly created but unsaved negociation as @negociation" do
         # Trigger the behavior that occurs when invalid params are submitted
         Negociation.any_instance.stub(:save).and_return(false)
-        post :create, {:negociation => {}}, valid_session
+        post :create, {:negociation => {}}
         assigns(:negociation).should be_a_new(Negociation)
       end
 
-      it "re-renders the 'new' template" do
+      it "go to the offering path" do
         # Trigger the behavior that occurs when invalid params are submitted
         Negociation.any_instance.stub(:save).and_return(false)
-        post :create, {:negociation => {}}, valid_session
-        response.should render_template("new")
+        post :create, {:negociation => {}}
+        response.should redirect_to(offerings_path + "/")
       end
     end
   end
@@ -111,18 +114,18 @@ describe NegociationsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Negociation.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => negociation.to_param, :negociation => {'these' => 'params'}}, valid_session
+        put :update, {:id => negociation.to_param, :negociation => {'these' => 'params'}}
       end
 
       it "assigns the requested negociation as @negociation" do
         negociation = Negociation.create! valid_attributes
-        put :update, {:id => negociation.to_param, :negociation => valid_attributes}, valid_session
+        put :update, {:id => negociation.to_param, :negociation => valid_attributes}
         assigns(:negociation).should eq(negociation)
       end
 
       it "redirects to the negociation" do
         negociation = Negociation.create! valid_attributes
-        put :update, {:id => negociation.to_param, :negociation => valid_attributes}, valid_session
+        put :update, {:id => negociation.to_param, :negociation => valid_attributes}
         response.should redirect_to(negociation)
       end
     end
@@ -132,7 +135,7 @@ describe NegociationsController do
         negociation = Negociation.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Negociation.any_instance.stub(:save).and_return(false)
-        put :update, {:id => negociation.to_param, :negociation => {}}, valid_session
+        put :update, {:id => negociation.to_param, :negociation => {}}
         assigns(:negociation).should eq(negociation)
       end
 
@@ -140,7 +143,7 @@ describe NegociationsController do
         negociation = Negociation.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Negociation.any_instance.stub(:save).and_return(false)
-        put :update, {:id => negociation.to_param, :negociation => {}}, valid_session
+        put :update, {:id => negociation.to_param, :negociation => {}}
         response.should render_template("edit")
       end
     end
@@ -150,13 +153,13 @@ describe NegociationsController do
     it "destroys the requested negociation" do
       negociation = Negociation.create! valid_attributes
       expect {
-        delete :destroy, {:id => negociation.to_param}, valid_session
+        delete :destroy, {:id => negociation.to_param}
       }.to change(Negociation, :count).by(-1)
     end
 
     it "redirects to the negociations list" do
       negociation = Negociation.create! valid_attributes
-      delete :destroy, {:id => negociation.to_param}, valid_session
+      delete :destroy, {:id => negociation.to_param}
       response.should redirect_to(negociations_url)
     end
   end

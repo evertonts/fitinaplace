@@ -2,12 +2,12 @@
 
 FactoryGirl.define do
   factory :house do
-    street ""
-    number ""
+    street "123"
+    number "123"
     complement ""
-    neightborhood ""
-    city ""
-    state ""
+    neightborhood "123"
+    city "123"
+    state "123"
     country "MyString"
   end
 end
