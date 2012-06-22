@@ -1,0 +1,39 @@
+body {
+	background-color: #DBD9D9;
+	margin-top: 0px;
+	font-family: "Trebuchet MS";
+}
+#header, #container, #footer, #background {
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#background{
+	width: 80%;
+}
+
+.redline {
+	background-color: #A80713;
+	height: 5px;
+}
+
+#background{
+	background-color: #FFFFFF;
+	
+}
+
+#footer{
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+	font-size: 12pt;
+}
+
+#left-column{
+	float: left;
+}
+
+#right-column{
+	float:right;
+}
