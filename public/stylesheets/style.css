@@ -226,3 +226,15 @@ form.new_user div.linha label{
     float: left;
     width: 100px;
 }
+
+.tagcloud a		{line-height: 18px; list-style:none;}
+
+.tagcloud ul		{width: 100%; margin-left: -40px; line-height: 18px; list-style:none;}
+
+.tagcloud ul a		{line-height: 18px; list-style:none;}
+
+.tagcloud ul li		{width: 100%; list-style-type:none; line-height: 18px; list-style:none;}
+
+.tagcloud ul li a	{line-height: 18px; list-style:none;}
+
+

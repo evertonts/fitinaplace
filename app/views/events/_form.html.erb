@@ -19,18 +19,37 @@
     <%= f.label 'Descrição: ' %>&nbsp;
     <%= f.text_field :description %>
   </div>
+  
   <div class="field">
-    <%= f.label 'Endereço: ' %>&nbsp;
-    <%= f.text_field :address %>
+    <%= f.label 'Rua: *' %>&nbsp;
+    <%= text_field_tag :street, '', :style => "width: 60%;" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'Número: * ' %>&nbsp;
+    <%= text_field_tag :number, '', :style => "width: 15%;" %>
   </div>
   <div class="field">
-    <%= f.label 'Cidade: ' %>&nbsp;
-    <%= f.text_field :city %>
+    <%= f.label 'Complemento: * ' %>&nbsp;
+    <%= text_field_tag :complement, '', :style => "width: 15%;" %>
   </div>
   <div class="field">
-    <%= f.label 'Estado: ' %>&nbsp;
-    <%= f.text_field :state %>
+    <%= f.label 'Bairro: * ' %>&nbsp;
+    <%= text_field_tag :neightborhood, '', :style => "width: 15%;" %>
   </div>
+  <div class="field">
+    <%= f.label 'Cidade: * ' %>&nbsp;
+    <%= text_field_tag :city, '', :style => "width: 15%;" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Estado: * ' %>&nbsp;
+    <%= text_field_tag :state, '', :style => "width: 15%;" %>
+  </div>
+  <div class="field">
+    <%= f.label 'País: * ' %>&nbsp;
+    <%= text_field_tag :country, '', :style => "width: 15%;" %>
+  </div>
+
   <div class="field">
     <%= f.label 'Data: ' %>&nbsp;
     <%= f.date_select :date %>

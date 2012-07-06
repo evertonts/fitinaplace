@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -8,17 +7,80 @@
     <%= javascript_include_tag "application" %>
 
     <%= javascript_include_tag 'jquery'%>
-
+    <%= javascript_include_tag 'swfobject'%>
+    <%= javascript_include_tag 'tagcanvas'%>
+  
     <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      window.onload = function() {
+        try {
+          TagCanvas.Start('myCanvas','tags',{
+            textColour: '#A80713',
+            outlineColour: '#A80713',
+            reverse: true,
+            depth: 1.8,
+            maxSpeed: 0.03	
+          });
+        } catch(e) {
+          // something went wrong, hide the canvas container
+          document.getElementById('myCanvasContainer').style.display = 'none';
+        }
+      };
+    </script>
+
+    
+    <script type="text/javascript">
+	<!--
+	swfobject.addDomLoadEvent(function() {
+  	swfobject.embedSWF(
+  					"text_and_image_cloud.swf", "tagcloud",
+					"600", "250",
+					"10", "expressInstall.swf",
+					{
+						cloud_data:"cloud_data.xml",
+						tcolor:"0x999999",
+						tcolor2:"0x666666",
+						hicolor:"0x494949",
+						tspeed:"250",
+						fontFace:"Trebuchet MS"
+					},
+					{wmode: "window", menu: "false", quality: "best"}
+					);
+	});
+//-->
+	</script>
   </head>
   <body>
     <div style="width: 100%">
       <div id="background">
         <div id="header">
           <div class="redline"></div>
+      
           <div>
             <img src="/resources/images/Logo-1.png" alt="Fit In A Place" style="float:left;margin-bottom: 3px; margin-left: 10px; margin-top: 3px; width:30%"</img>
-            <img src="/resources/images/Header.png"style="float:right; margin: 0 10px 0 5%; margin-bottom: 15px; margin-top: 15px; width:60%" />
+		
+		
+		
+		
+	<div id="myCanvasContainer">
+      <canvas width="800" height="300" id="myCanvas">
+        <p>Anything in here will be replaced on browsers that support the canvas element</p>
+      </canvas>
+    </div>
+    <div id="tags">
+      <ul>
+        <li><a href="http://www.google.com" target="_blank">[ BMW Jazz Festival ]</a></li>
+        <li><a href="/fish">[ Red Bull Pape Wing ]</a></li>
+        <li><a href="/chips">[ Rock in Rio ]</a></li>
+        <li><a href="/salt">[ Copa do mundo ]</a></li>
+        <li><a href="/vinegar">[ Olimpiadas ]</a></li>
+         <li><a href="http://www.google.com" target="_blank">[ BMW Jazz Festival ]</a></li>
+        <li><a href="/fish">[ Red Bull Pape Wing ]</a></li>
+        <li><a href="/chips">[ Rock in Rio ]</a></li>
+        <li><a href="/salt">[ Copa do mundo ]</a></li>
+        <li><a href="/vinegar">[ Olimpiadas ]</a></li>
+      </ul>
+    </div>
           </div>
           <div style="clear:both;"></div>
           <div class="redline"></div>
@@ -26,6 +88,7 @@
         <div style="clear: both;"></div>
 
         <div id="container">
+        	    
           <%= yield %>
         </div>
 

@@ -1,0 +1,15 @@
+:config_script:
+:environment: development
+:pid_file: log/mongrel.pid
+:num_processors: 1024
+:docroot: public
+:timeout: 0
+:host: 127.0.0.1
+:mime_map:
+:port: 3000
+:daemon: false
+:cwd: /home//makoto/Aptana Studio 3 Workspace/fitinaplace
+:includes:
+- mongrel
+:debug: false
+:log_file: log/mongrel.server-erro.log

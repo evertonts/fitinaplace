@@ -2,7 +2,13 @@
 	<div style="position: relative; float: left">
 		<%= image_tag @event.avatar.url(:medium)%>
 	</div>
-	
+	<div style="float: right; padding-right: 30px">
+	<iframe src="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+") %>&output=embed"
+	width="425" height="350">
+	<a href="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+")%>"
+	Click here to view our location on Google Maps</a>.
+	</iframe>
+	</div>
 <div style="margin-left: 20px; position: relative; float: left"> 
 <p id="notice">
 	<%= notice %>
@@ -11,6 +17,7 @@
 	<b>Nome:</b>
 	<%= @event.name %>
 </p>
+<% if @event.address_id.nil? %> 
 <p>
 	<b>Endereço:</b>
 	<%= @event.address %>
@@ -23,6 +30,20 @@
 	<b>Estado:</b>
 	<%= @event.state %>
 </p>
+<% else %>
+<p>
+	<b>Endereço:</b>
+	<%= @address.street + ", " + @address.number.to_s %>
+</p>
+<p>
+	<b>Cidade:</b>
+	<%= @address.city %>
+</p>
+<p>
+	<b>Estado:</b>
+	<%= @address.state %>
+</p>
+<% end %>
 <p>
 	<b>Data:</b>
 	<%= @event.date %>
@@ -42,6 +63,7 @@
 		<%= @event.description %>
 	</div>
 	
+  <p>
 <br />
 <% if user_signed_in? %>
 <div style="margin-left: 20px">

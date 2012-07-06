@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615143237) do
+ActiveRecord::Schema.define(:version => 20120706160159) do
 
-  create_table "address", :force => true do |t|
+  create_table "addresses", :force => true do |t|
     t.string   "street"
     t.integer  "number"
     t.string   "complement"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120615143237) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "address_id"
   end
 
   create_table "houses", :force => true do |t|
