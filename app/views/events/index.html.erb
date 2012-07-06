@@ -1,5 +1,5 @@
-<div >
-	<div class="listagemcinza">
+<div id= "main2" role="main"   >
+
 		<h1 >Eventos </h1>
 		<% @events.each do |event| %>
 			<!-- <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
@@ -19,17 +19,19 @@
 					<!--  <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %>-->
 			</div>
 		<%end%>
-	</div>
-	<div class="destaquelateral">
-		Destaques
-		<div>
-			<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
-		</div>
-		<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
-	</div>
+
 	<div style="clear:both"></div>
 </div>
 <br />
 <% if user_signed_in? %>
 <%= link_to 'Criar um novo evento', new_event_path, :style => "margin-left: 3%" %>
 <%end%> 
+</div>
+
+<div class="destaquelateral" style="width: 250px;">
+		<h2> Destaques </h2>
+		<div>
+			<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+		</div>
+		<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+</div>

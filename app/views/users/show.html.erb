@@ -1,5 +1,6 @@
+<div id="main" role="main">
 <div style="margin: 2%">
-  <div style="float: left; width: 100%">
+  <div style="float: left;">
   <div style="float: left">
     <%= image_tag @user.avatar.url(:medium)%>
   </div>
@@ -21,7 +22,7 @@
     <%= link_to "Clique aqui", events_path %>  </a> para checar eventos.
   </p>
   <% else %>
-  <table class="user" width="90%">
+  <table class="user">
     <tr>
       <th >Reservado</th>
       <th >Nome</th>
@@ -49,7 +50,7 @@
     <%= link_to "Clique aqui", events_path %>  </a> para checar novos eventos e ofertar hospedagens.
   </p>
   <% else %>
-  <table class="user" width="90%">
+  <table class="user">
     <tr>
       <th >Evento</th>
       <th width="70%">Espaço</th>
@@ -65,4 +66,5 @@
     <%end%>
   </table>
   <br />
+</div>
 </div>
