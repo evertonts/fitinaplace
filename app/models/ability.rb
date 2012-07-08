@@ -19,10 +19,6 @@ class Ability
          can :create, Offering
          
          can :update, Offering do |o|
-           o.try(:event).user == user
-         end
-         
-         can :update, Offering do |o|
            o.try(:event).try(:user) == user
          end
          

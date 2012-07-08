@@ -11,4 +11,4 @@ Feature: Update House
 	Scenario: User can't update other's person house
 		Given I am logged in
 		When I try to edit other person's house
-		Then I should see an access denied message
+		Then I should see my home page

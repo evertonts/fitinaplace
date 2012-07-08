@@ -4,13 +4,13 @@ end
 
 def new_house
   visit '/houses/new'
-  fill_in "Street", :with => @house[:street]
-  fill_in "Number", :with => @house[:number]
-  fill_in "City", :with => @house[:city]
-  fill_in "State", :with => @house[:state]
-  fill_in "Neightborhood", :with => @house[:neightborhood]
-  fill_in "Country", :with => @house[:country]
-  click_button "Create House"
+  fill_in "house_street", :with => @house[:street]
+  fill_in "house_number", :with => @house[:number]
+  fill_in "house_city", :with => @house[:city]
+  fill_in "house_state", :with => @house[:state]
+  fill_in "house_neightborhood", :with => @house[:neightborhood]
+  fill_in "house_country", :with => @house[:country]
+  click_button ""
 end
 
 def create_other_user
@@ -37,8 +37,8 @@ end
 When /^I edit this house$/ do
   house = House.last
   visit "/houses/#{house.id}/edit"
-  fill_in "Street", :with => "Rua 2"
-  click_button "Update House"
+  fill_in "house_street", :with => "Rua 2"
+  click_button ""
   
 end
 
@@ -50,9 +50,13 @@ When /^I try to edit other person's house$/ do
 end
 
 Then /^I should see an house created message$/ do
-  page.should have_content "House was successfully created"
+  page.should have_content "Casa criada com sucesso."
 end
 
 Then /^I should see an house updated message$/ do
-  page.should have_content "House was successfully updated."
+  page.should have_content "Casa foi atualizada com sucesso."
+end
+
+Then /^I should see my home page$/ do
+  page.should have_content "Minhas ofertas"
 end
