@@ -1,4 +1,10 @@
 <div class="form_normal" style="width: 60%">
+	
+
+<%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+<%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+<%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+
 <h2 class="titulo" style="margin-left: 40px">Entrar</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form_interno'}) do |f| %>
