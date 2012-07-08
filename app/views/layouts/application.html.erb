@@ -6,9 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 		<link href="/stylesheets/lightbox.css" rel="stylesheet" />
 		<%= javascript_include_tag "application" %>
-
 		<%= javascript_include_tag 'jquery'%>
-		
 		 <%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -25,14 +23,15 @@
 					<%= render 'layouts/navigationdeslog' %>
 					<%end%>
 			</header>
-			<div id="main" role="main">
+			
 				<%= yield %>
-			</div>
-			<div id="footer" style="clear: both" >
-			<span style="margin: 20px" >
-    <%= link_to("About", "/about")%>
-    </span> <span><%= link_to("FAQ", "/faq")%></span> <span><%= link_to("Termos de Uso", "/termosdeuso")%></span> <span><%= link_to("Termos de Segurança", "/termosdeseguro")%></span>
-			</div>
+				
+			<footer id="footer" style="clear: both" >
+				<span style="margin: 20px" ><%= link_to("About", "/about")%></span>
+				<span><%= link_to("FAQ", "/faq")%></span> 
+				<span><%= link_to("Termos de Uso", "/termosdeuso")%></span> 
+				<span><%= link_to("Termos de Segurança", "/termosdeseguro")%></span>
+			</footer>
 			<div class="redline"></div>
 		</div>
 		</div> <!--! end of #container -->

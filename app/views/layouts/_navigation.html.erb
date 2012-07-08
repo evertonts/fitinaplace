@@ -1,4 +1,4 @@
-<div style="background-color: #BD2026;">
+<div style="background-color: #BD2026; ">
 <ul class="nav">
 	<li>
     <%= link_to(image_tag('/resources/images/botao-04.png'), user_path(current_user.id))%>
@@ -17,7 +17,7 @@
     </li>
     
     <li>
-    	<div style="float:right; padding-right: 5%; padding-top: 1%;">
+    	<div style="float: righ; margin-top: 7px; margin-right: 10px;">
         <%= form_tag events_path, :method => 'get' do %>
 		<%= text_field_tag :search, params[:search] %>
 		<!--<%= image_submit_tag '/resources/images/botao-01.png', :name => nil%>-->
