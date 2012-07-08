@@ -7,20 +7,20 @@ Feature: Sign in
       Given I do not exist as a user
       When I sign in with valid credentials
       Then I see an invalid login message
-        And I should be signed out
+        And I should be in the sign in page
 
     Scenario: User has not confirmed account
       Given I exist as an unconfirmed user
       And I am not logged in
       When I sign in with valid credentials
       Then I see an unconfirmed account message
-      And I should be signed out
+      And I should be in the sign in page
 
     Scenario: User signs in successfully
       Given I exist as a user
         And I am not logged in
       When I sign in with valid credentials
-      Then I see a successful sign in message
+      Then I should see my home page
       When I return to the site
       Then I should be signed in
 
@@ -29,13 +29,13 @@ Feature: Sign in
       And I am not logged in
       When I sign in with a wrong email
       Then I see an invalid login message
-      And I should be signed out
+      And I should be in the sign in page
       
     Scenario: User enters wrong password
       Given I exist as a user
       And I am not logged in
       When I sign in with a wrong password
       Then I see an invalid login message
-      And I should be signed out
+      And I should be in the sign in page
 
       

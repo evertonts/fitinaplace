@@ -1,4 +1,8 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 ### UTILITY METHODS ###
+
 
 def create_visitor
   @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
@@ -32,14 +36,14 @@ end
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "Name", :with => @visitor[:name]
-  fill_in "Email", :with => @visitor[:email]
-  fill_in "Password", :with => @visitor[:password]
-  fill_in "Password confirmation", :with => @visitor[:password_confirmation]
-  fill_in "Cpf", :with => @visitor[:cpf]
-  fill_in "Rg", :with => @visitor[:rg]
-  fill_in "Telefone", :with => @visitor[:telefone]
-  click_button "Sign up"
+  fill_in "user_name", :with => @visitor[:name]
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  fill_in "user_cpf", :with => @visitor[:cpf]
+  fill_in "user_rg", :with => @visitor[:rg]
+  fill_in "user_telefone", :with => @visitor[:telefone]
+  click_button ""
   find_user
 end
 
@@ -127,10 +131,10 @@ When /^I sign in with a wrong password$/ do
 end
 
 When /^I edit my account details$/ do
-  click_link "Edit account"
-  fill_in "Name", :with => "newname"
-  fill_in "Current password", :with => @visitor[:password]
-  click_button "Update"
+  click_link "edit_user"
+  fill_in "user_name", :with => "newname"
+  fill_in "user_current_password", :with => @visitor[:password]
+  click_button ""
 end
 
 When /^I look at the list of users$/ do
@@ -139,58 +143,60 @@ end
 
 ### THEN ###
 Then /^I should be signed in$/ do
-  page.should have_content "Logout"
-  page.should_not have_content "Sign up"
-  page.should_not have_content "Login"
+  page.should have_content "Minhas ofertas"
 end
 
 Then /^I should be signed out$/ do
-  page.should have_content "Sign up"
-  page.should have_content "Login"
+  page.should have_content "Cadastrar-se"
   page.should_not have_content "Logout"
 end
 
 Then /^I see an unconfirmed account message$/ do
-  page.should have_content "You have to confirm your account before continuing."
+  page.should have_content "Antes de continuar, confirme a sua conta."
 end
 
 Then /^I see a successful sign in message$/ do
-  page.should have_content "Signed in successfully."
+  page.should have_content "Login efetuado com sucesso!"
 end
 
 Then /^I should see a successful sign up message$/ do
-  page.should have_content "A message with a confirmation link has been sent to your email address."
+  page.should have_content "Uma mensagem de confirmação foi mandada para o seu email."
 end
 
 Then /^I should see an invalid email message$/ do
-  page.should have_content "Email is invalid"
+  page.should have_content "Email não é válido"
 end
 
 Then /^I should see a missing password message$/ do
-  page.should have_content "Password can't be blank"
+  page.should have_content "Senha não pode ficar em branco"
 end
 
 Then /^I should see a missing password confirmation message$/ do
-  page.should have_content "Password doesn't match confirmation"
+  page.should have_content "Senha não está de acordo com a confirmação"
 end
 
 Then /^I should see a mismatched password message$/ do
-  page.should have_content "Password doesn't match confirmation"
+  page.should have_content "Senha não está de acordo com a confirmação"
 end
 
 Then /^I should see a signed out message$/ do
-  page.should have_content "Signed out successfully."
+  page.should have_content "Saiu com sucesso."
 end
 
 Then /^I see an invalid login message$/ do
-  page.should have_content "Invalid email or password."
+  page.should have_content "E-mail ou senha inválidos."
 end
 
 Then /^I should see an account edited message$/ do
-  page.should have_content "You updated your account successfully."
+  page.should have_content "Sua conta foi atualizada com sucesso."
 end
 
 Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
 end
+
+Then /^I should be in the sign in page$/ do
+  page.should have_content "Criar uma conta"
+end
+

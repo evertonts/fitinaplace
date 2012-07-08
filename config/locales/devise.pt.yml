@@ -6,8 +6,8 @@ pt:
       already_confirmed: "já foi confirmado"
       not_locked: "não foi bloqueado"
       not_saved:
-        one: "Não foi possível salvar %{resource}: 1 erro"
-        other: "Não foi possível salvar %{resource}: %{count} erros."
+        one: "Não foi possível salvar o usuário: 1 erro"
+        other: "Não foi possível salvar o usuário: %{count} erros."
 
   devise:
     failure:
@@ -33,11 +33,11 @@ pt:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
     registrations:
       signed_up: 'Login efetuado com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.'
-      signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
+      signed_up_but_unconfirmed: 'Uma mensagem de confirmação foi mandada para o seu email.'
       signed_up_but_inactive: 'Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada.'
       signed_up_but_locked: 'Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada.'
       updated: 'Sua conta foi atualizada com sucesso.'
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      update_needs_confirmation: "Sua conta foi atualizada com sucesso, por favor click no link enviado em seu email para confirma-lo"
       destroyed: 'Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
     unlocks:
       send_instructions: 'Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.'

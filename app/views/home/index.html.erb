@@ -1,5 +1,9 @@
 <div style="margin-top: 30px; margin-left: 20px;">
   <div class="container_aonde">
+	
+		<%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+		<%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+		<%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
     <%= form_tag events_path, :method => 'get' do %>
     <div style="padding-left: 30px; padding-top: 30px; font-size: 20pt; color: #A80713; font-weight: bold">
       Aonde:
