@@ -4,19 +4,19 @@ end
 
 def new_event
   visit '/events/new'
-  fill_in "Name", :with => @event[:name]
-  fill_in "Description", :with => @event[:name]
-  fill_in "Address", :with => @event[:name]
-  fill_in "City", :with => @event[:name]
-  fill_in "State", :with => @event[:name]
-  click_button "Create Event"
+  fill_in "event_name", :with => @event[:name]
+  fill_in "event_description", :with => @event[:name]
+  fill_in "event_address", :with => @event[:name]
+  fill_in "event_city", :with => @event[:name]
+  fill_in "event_state", :with => @event[:name]
+  click_button ""
 end
 
 def edit_event
   event = Event.last
   visit "/events/#{event.id}/edit"
-  fill_in "Name", :with => @event[:name]
-  click_button "Update Event"
+  fill_in "event_name", :with => @event[:name]
+  click_button ""
   
 end
 
@@ -42,7 +42,7 @@ When /^I create a new event$/ do
 end
 
 Then /^I should see an event created message$/ do
-  page.should have_content "Event was successfully created"
+  page.should have_content "O Evento foi criado com sucesso."
 end
 
 When /^I edit this event$/ do
@@ -50,7 +50,7 @@ When /^I edit this event$/ do
 end
 
 Then /^I should see an event updated message$/ do
-  page.should have_content "Event was successfully updated."
+  page.should have_content "O Evento foi atualizado com sucesso."
 end
 
 When /^I try to edit other person's event$/ do
@@ -62,4 +62,8 @@ end
 
 Then /^I should see an access denied message$/ do
   page.should have_content "Access denied"
+end
+
+Then /^I should not see the edit page$/ do
+  page.should_not have_content "Editar evento"
 end

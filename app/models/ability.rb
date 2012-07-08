@@ -37,9 +37,6 @@ class Ability
            can :update, classe do |c|
              c.try(:user) == user
            end
-           can :update, classe do |c|
-             c.try(:user) == user
-           end
            can :destroy, classe do |c|
              c.try(:user) == user
            end

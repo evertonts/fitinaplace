@@ -11,5 +11,5 @@ Feature: Update Event
 	Scenario: User can't update other's person event
 		Given I am logged in
 		When I try to edit other person's event
-		Then I should see an access denied message
+		Then I should not see the edit page
 		

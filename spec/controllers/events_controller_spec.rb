@@ -43,6 +43,7 @@ describe EventsController do
   before (:each) do
     @event = FactoryGirl.create(:event)
     @user = FactoryGirl.create(:user)
+    @event.user = @user
     sign_in @user
   end 
 
@@ -117,7 +118,7 @@ describe EventsController do
         # Assuming there are no other events in the database, this
         # specifies that the Event created on the previous line
         # receives the :update_attributes message with whatever params are
-        # submitted in the request.
+        # submitted in the request.        
         Event.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, {:id => @event.to_param, :event => {'these' => 'params'}}
       end
