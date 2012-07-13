@@ -9,10 +9,9 @@ class HousesController < ApplicationController
     @aux = House.all
     @houses = []
     for house in @aux
-
       if house.user_id == current_user.id 
-      @houses << house 
-    end
+        @houses << house 
+      end
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +23,7 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @house = House.find(params[:id])
+    @address = Address.find @house.address_id unless @house.address_id.nil?
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @house }
@@ -52,6 +52,15 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:house])
     @house.user_id = current_user.id
+    @address = Address.new
+    @address.city = params[:city]
+    @address.street = params[:street]
+    @address.number = params[:number]
+    @address.complement = params[:complement] unless params[:complement].blank?
+    @address.neightborhood = params[:neightborhood]
+    @address.state = params[:state]
+    @address.save
+    @house.address_id = @address.id
     respond_to do |format|
       if @house.save
         format.html { redirect_to @house, notice: 'Casa criada com sucesso.' }
@@ -67,7 +76,21 @@ class HousesController < ApplicationController
   # PUT /houses/1.json
   def update
     @house = House.find(params[:id])
-
+    unless @house.address_id.nil?
+      @address = Address.find @house.address_id
+    else
+      @address = Address.new
+    end
+    @address.city = params[:city]
+    @address.street = params[:street]
+    @address.number = params[:number]
+    @address.complement = params[:complement] unless params[:complement].blank?
+    @address.neightborhood = params[:neightborhood]
+    @address.state = params[:state]
+    @address.country = params[:country] unless params[:country].blank?
+    @address.save
+    
+    @house.address_id = @address.id
     respond_to do |format|
       if @house.update_attributes(params[:house])
         format.html { redirect_to @house, notice: 'Casa foi atualizada com sucesso.' }

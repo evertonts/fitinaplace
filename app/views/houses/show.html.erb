@@ -4,7 +4,16 @@
 <div style="position: relative; float: left; margin-left: 20px">
 	<%= image_tag @house.image.url(:medium)%>
 </div>
+
+<div style="float: right; padding-right: 30px">
+	<iframe src="http://maps.google.com.br/maps?q=<%= @house.get_address.gsub(/[ ]/, "+") %>&output=embed"
+	width="425" height="350">
+	<a href="http://maps.google.com.br/maps?q=<%= @house.get_address.gsub(/[ ]/, "+")%>"
+	Click here to view our location on Google Maps</a>.
+	</iframe>
+</div>
 <div style="margin-left: 347px">
+<% if @house.address_id.nil? %> 
 <p>
 	<b>Rua:</b>
 	<%= @house.street %>
@@ -33,6 +42,20 @@
 	<b>País:</b>
 	<%= @house.country %>
 </p>
+<% else %>
+<p>
+	<b>Endereço:</b>
+	<%= @address.street + ", " + @address.number.to_s %>
+</p>
+<p>
+	<b>Cidade:</b>
+	<%= @address.city %>
+</p>
+<p>
+	<b>Estado:</b>
+	<%= @address.state %>
+</p>
+<% end %>
 </div><br />
 <div style="margin-left: 20px">
 <%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |

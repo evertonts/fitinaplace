@@ -8,6 +8,7 @@
     	<div style="float: left; position: relative;"><%= image_tag house.image.url(:thumb)%></div>
     <div style="margin-left: 5px;position: relative; float:left;width: 75%;">
     <span class="rua">
+      <% if house.address_id.nil? %>
     	<%=
     	  link  = house.street
     	  if house.number != nil
@@ -22,11 +23,18 @@
     	  
     	  link_to link , house
     	%>
- 
+      <% else %>
+        <% address = Address.find house.address_id %>
+      	<%= link_to  address, house%>
+      <% end %>
     </span>
     <div style="clear:both;"></div>
     <span class="localizacao">
-    	<%= house.city %> - <%= house.state %> - <%= house.country %>
+        <% if house.address_id.nil? %>
+    	  <%= house.city %> - <%= house.state %> - <%= house.country %>
+        <% else %>
+          <%= address.city %> - <%= address.state %> - <%= address.country %>
+        <% end %>
     </span>
     
     <div style="clear:both;"></div>

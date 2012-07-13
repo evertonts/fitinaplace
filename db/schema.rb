@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120706160159) do
+ActiveRecord::Schema.define(:version => 20120713183555) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120706160159) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "address_id"
   end
 
   create_table "negociations", :force => true do |t|
