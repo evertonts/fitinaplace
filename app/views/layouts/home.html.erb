@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'jquery'%>
     <%= javascript_include_tag 'swfobject'%>
     <%= javascript_include_tag 'tagcanvas'%>
-  
+
     <%= csrf_meta_tags %>
     <script type="text/javascript">
       window.onload = function() {
@@ -28,59 +28,40 @@
       };
     </script>
 
-    
-    <script type="text/javascript">
-	<!--
-	swfobject.addDomLoadEvent(function() {
-  	swfobject.embedSWF(
-  					"text_and_image_cloud.swf", "tagcloud",
-					"600", "250",
-					"10", "expressInstall.swf",
-					{
-						cloud_data:"cloud_data.xml",
-						tcolor:"0x999999",
-						tcolor2:"0x666666",
-						hicolor:"0x494949",
-						tspeed:"250",
-						fontFace:"Trebuchet MS"
-					},
-					{wmode: "window", menu: "false", quality: "best"}
-					);
-	});
-//-->
-	</script>
+
+
   </head>
   <body>
     <div style="width: 100%">
       <div id="background">
         <div id="header">
           <div class="redline"></div>
-      
+
           <div>
             <img src="/resources/images/Logo-1.png" alt="Fit In A Place" style="float:left;margin-bottom: 3px; margin-left: 10px; margin-top: 3px; width:30%"</img>
-		
-		
-		
-		
-	<div id="myCanvasContainer">
-      <canvas width="800" height="300" id="myCanvas">
-        <p>Anything in here will be replaced on browsers that support the canvas element</p>
-      </canvas>
-    </div>
-    <div id="tags">
-      <ul>
-        <li><a href="http://www.google.com" target="_blank">[ BMW Jazz Festival ]</a></li>
-        <li><a href="/fish">[ Red Bull Pape Wing ]</a></li>
-        <li><a href="/chips">[ Rock in Rio ]</a></li>
-        <li><a href="/salt">[ Copa do mundo ]</a></li>
-        <li><a href="/vinegar">[ Olimpiadas ]</a></li>
-         <li><a href="http://www.google.com" target="_blank">[ BMW Jazz Festival ]</a></li>
-        <li><a href="/fish">[ Red Bull Pape Wing ]</a></li>
-        <li><a href="/chips">[ Rock in Rio ]</a></li>
-        <li><a href="/salt">[ Copa do mundo ]</a></li>
-        <li><a href="/vinegar">[ Olimpiadas ]</a></li>
-      </ul>
-    </div>
+
+
+
+
+            <div id="myCanvasContainer">
+              <canvas width="700" height="200" id="myCanvas">
+                <p>Anything in here will be replaced on browsers that support the canvas element</p>
+              </canvas>
+            </div>
+            <div id="tags">
+              <ul>
+                <li><a href="http://www.google.com" target="_blank">[ BMW Jazz Festival ]</a></li>
+                <li><a href="/fish">[ Red Bull Pape Wing ]</a></li>
+                <li><a href="/chips">[ Rock in Rio ]</a></li>
+                <li><a href="/salt">[ Copa do mundo ]</a></li>
+                <li><a href="/vinegar">[ Olimpiadas ]</a></li>
+                <li><a href="http://www.google.com" target="_blank">[ BMW Jazz Festival ]</a></li>
+                <li><a href="/fish">[ Red Bull Pape Wing ]</a></li>
+                <li><a href="/chips">[ Rock in Rio ]</a></li>
+                <li><a href="/salt">[ Copa do mundo ]</a></li>
+                <li><a href="/vinegar">[ Olimpiadas ]</a></li>
+              </ul>
+            </div>
           </div>
           <div style="clear:both;"></div>
           <div class="redline"></div>
@@ -88,7 +69,7 @@
         <div style="clear: both;"></div>
 
         <div id="container">
-        	    
+
           <%= yield %>
         </div>
 
