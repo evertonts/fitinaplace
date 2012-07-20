@@ -1,18 +1,18 @@
-<div style="border-radius: 10px; background-color: #A80713; padding: 10px; color:white; font-size: 20pt;">
-  <h2 style="color:white">Login</h2>
+
+  <h2 style="color:white padding:0px">Login</h2>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="linha">
-    <label for="email">e-mail:</label><%= f.email_field :email, :style => "width: 330px;margin-right: 20px;"%>
+  <div style="float: left; width: 100%; margin-bottom: 10px;" class="linha">
+    <label style="width: 15%" for="email">e-mail:</label><%= f.email_field :email,:autocomplete =>:off, :style => "width: 85%;" %>
   </div>
-  <div class="linha">
+  <div>
     <div style="float: left; width: 80%">
-      <label for="password">senha:</label>
-      <%= f.password_field :password, :style => "width: 65%" %>
+      <label style="width: 15%" for="password">senha:</label>
+      <%= f.password_field :password, :style => "width: 80%;" %>
     </div>
-    <div style="float: right; width: 15%;margin-right: 20px">
+    <div style="float: left; width: 10%; border-left: 10px;">
       <%= f.submit "Entrar", :type => :image, :src => "/resources/images/botao-03.png"%>
     </div>
   </div>
   <br />
   <% end %>
-</div>
+
