@@ -24,6 +24,7 @@ class HousesController < ApplicationController
   def show
     @house = House.find(params[:id])
     @address = Address.find @house.address_id unless @house.address_id.nil?
+    @resources = @house.resources
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @house }
@@ -59,6 +60,7 @@ class HousesController < ApplicationController
     @address.complement = params[:complement] unless params[:complement].blank?
     @address.neightborhood = params[:neightborhood]
     @address.state = params[:state]
+    @address.country = params[:country]
     @address.save
     @house.address_id = @address.id
     respond_to do |format|

@@ -1,64 +1,89 @@
 <p id="notice">
-	<%= notice %>
+  <%= notice %>
 </p>
 <div style="position: relative; float: left; margin-left: 20px">
-	<%= image_tag @house.image.url(:medium)%>
+  <%= image_tag @house.image.url(:medium)%>
 </div>
 
 <div style="float: right; padding-right: 30px">
-	<iframe src="http://maps.google.com.br/maps?q=<%= @house.get_address.gsub(/[ ]/, "+") %>&output=embed"
-	width="425" height="350">
-	<a href="http://maps.google.com.br/maps?q=<%= @house.get_address.gsub(/[ ]/, "+")%>"
-	Click here to view our location on Google Maps</a>.
-	</iframe>
+  <iframe src="http://maps.google.com.br/maps?q=<%= @house.get_address.gsub(/[ ]/, "+") %>&output=embed"
+          width="425" height="350">
+    <a href="http://maps.google.com.br/maps?q=<%= @house.get_address.gsub(/[ ]/, "+")%>"
+       Click here to view our location on Google Maps</a>.
+  </iframe>
 </div>
 <div style="margin-left: 347px">
-<% if @house.address_id.nil? %> 
-<p>
-	<b>Rua:</b>
-	<%= @house.street %>
-</p>
-<p>
-	<b>Número:</b>
-	<%= @house.number %>
-</p>
-<p>
-	<b>Complemento:</b>
-	<%= @house.complement %>
-</p>
-<p>
-	<b>Bairro:</b>
-	<%= @house.neightborhood %>
-</p>
-<p>
-	<b>Cidade:</b>
-	<%= @house.city %>
-</p>
-<p>
-	<b>Estado:</b>
-	<%= @house.state %>
-</p>
-<p>
-	<b>País:</b>
-	<%= @house.country %>
-</p>
-<% else %>
-<p>
-	<b>Endereço:</b>
-	<%= @address.street + ", " + @address.number.to_s %>
-</p>
-<p>
-	<b>Cidade:</b>
-	<%= @address.city %>
-</p>
-<p>
-	<b>Estado:</b>
-	<%= @address.state %>
-</p>
-<% end %>
+  <% if @house.address_id.nil? %>
+    <p>
+      <b>Rua:</b>
+      <%= @house.street %>
+    </p>
+    <p>
+      <b>Número:</b>
+      <%= @house.number %>
+    </p>
+    <p>
+      <b>Complemento:</b>
+      <%= @house.complement %>
+    </p>
+    <p>
+      <b>Bairro:</b>
+      <%= @house.neightborhood %>
+    </p>
+    <p>
+      <b>Cidade:</b>
+      <%= @house.city %>
+    </p>
+    <p>
+      <b>Estado:</b>
+      <%= @house.state %>
+    </p>
+    <p>
+      <b>País:</b>
+      <%= @house.country %>
+    </p>
+  <% else %>
+    <p>
+      <b>Endereço:</b>
+      <%= @address.street + ", " + @address.number.to_s %>
+    </p>
+    <p>
+      <b>Cidade:</b>
+      <%= @address.city %>
+    </p>
+    <p>
+      <b>Estado:</b>
+      <%= @address.state %>
+    </p>
+  <% end %>
 </div><br />
+
+
 <div style="margin-left: 20px">
-<%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
-<%= link_to 'Mostrar recursos', resources_path(:house_id => @house.id) %>|
-<%= link_to 'Editar', edit_house_path(@house) %> 
+  <%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
+  <%= link_to 'Mostrar recursos', resources_path(:house_id => @house.id) %>|
+  <%= link_to 'Editar', edit_house_path(@house) %>
+</div>
+<div class="listagemcinza" style="width: 90%">
+  <% @resources.each do |resource| %>
+
+    <div class="linha">
+      <div style="float: left; position: relative;width: 35%;">
+        <%= image_tag(resource.assets.first.image.url(:thumb))%>
+      </div>
+      <div style="margin-left: 5px;position: relative; float:left;width: 64%; text-align: justify">
+        <span class="rua"><%= link_to resource.place, resource %></span>
+        <span >
+          <p style="text-align: justify">
+            <%= resource.description.to 200 %>
+          </p></span>
+      </div>
+      <div style="clear:both;"></div>
+      <span></span>
+      <span><%= link_to 'Editar', edit_resource_path(resource) %></span>
+      <span><%= link_to 'Remover', resource, confirm: 'Deseja remover este recurso?', method: :delete %></span>
+    </div>
+    <div></div>
+    <div style="clear:both;"></div>
+  <% end %>
 </div>

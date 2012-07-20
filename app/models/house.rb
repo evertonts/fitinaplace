@@ -1,10 +1,9 @@
 class House < ActiveRecord::Base
-  has_many :resource, :dependent => :destroy
-   validates_presence_of :image
-   belongs_to :user
-   has_one :address
-   
-   has_attached_file :image, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" }
+  has_many :resources, :dependent => :destroy
+  validates_presence_of :image
+  belongs_to :user
+  has_one :addresss
+  has_attached_file :image, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" }
    
   def get_address
     unless self.address_id.nil?
