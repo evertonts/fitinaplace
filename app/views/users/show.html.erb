@@ -1,72 +1,91 @@
 <div id="main" role="main" style="width: 90%">
-<div style="margin: 2%">
-  <div style="float: left;">
-  <div style="float: left">
-    <%= image_tag @user.avatar.url(:medium)%>
+  <div style="margin: 2%">
+    <div style="float: left;">
+      <div style="float: left">
+        <%= image_tag @user.avatar.url(:medium)%>
+      </div>
+      <div style="float: left;font-family: Trebuchet MS; color: #BD2026">
+        <h1 style="font-size: 20pt"><%= @user.name %></h1>
+        <p>
+          Email: <%= @user.email if @user.email %>
+        </p>
+        <p>
+          Telefone: <%= @user.telefone if @user.telefone %>
+        </p>
+      </div>
+    </div>
+
+    <div style="float: left">
+      <h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
+      <% if @negociations.empty? %>
+        <p>
+          Você não tem nenhuma negociação em andamento.
+          <%= link_to "Clique aqui", events_path %>  </a> para checar eventos.
+        </p>
+      <% else %>
+        <table class="user">
+          <tr>
+            <th >Reservado</th>
+            <th >Nome</th>
+            <th width="60%">Descrição</th>
+            <th> Email de Contato </th>
+          </tr>
+          <% @negociations.each do |negociation| %>
+            <% offering = Offering.find negociation.offering_id
+            event = Event.find offering.event_id
+            space = Resource.find offering.resource_id
+            user = User.find offering.user_id %>
+            <tr>
+              <% if negociation.status == true %> <td>Reservado</td>
+              <% else %> <td>Aguardando</td>
+              <%end%> <td><%= event.name %></td>
+              <td><%= space.description.to 200 %></td>
+              <td> <%= user.email unless negociation.status == false %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %> <h3 style="font-family: Trebuchet MS; color: #BD2026;font-size: 20pt"> Minhas ofertas: </h3>
+      <% if @offerings.empty? %>
+        <p>
+          Você não está ofertando nenhum lugar.
+          <%= link_to "Clique aqui", events_path %> para checar novos eventos e ofertar hospedagens.
+        </p>
+      <% else %>
+        <table class="user">
+          <tr>
+            <th >Evento</th>
+            <th width="70%">Espaço</th>
+            <th >Interessados</th>
+          </tr>
+          <% for offering in  @offerings%>
+            <tr>
+              <% event = Event.find offering.event_id%> <td> <%= event.name%> </td>
+              <% space = Resource.find offering.resource_id%> <td><%= space.description.to 200 %></td>
+              <td> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
+            </tr>
+          <% end%>
+        <%end%>
+      </table>
+      <br />
+
+      <h3 class="titulo"> Comentários </h3>
+      <% @comments.each do |comment| %>
+        <% commenter = User.find comment.commenter_id %>
+        <div class="listagemcampobranco" style="padding: 5px">
+          <h4> <%= commenter.name %> disse:</h4>
+          <p> <%= comment.comment %></p>
+          <p> Nota: <%= comment.grade %></p>
+        </div>
+      <% end %>
+      <div style="margin: 5%">
+        <%= form_for (@comment) do |f| %>
+          <%= hidden_field_tag "user_id", params[:id] %>
+          <%= f.text_area :comment, :style => "width: 100%; height: 100px; margin-top: 3%"%>
+          <br />
+          <%= f.number_field :grade %>
+          <%= f.submit "Enviar", :style => "float:right"%>
+        <%end%>
+      </div>
+    </div>
   </div>
-  <div style="float: left;font-family: Trebuchet MS; color: #BD2026">
-    <h1 style="font-size: 20pt"><%= @user.name %></h1>
-    <p>
-      Email: <%= @user.email if @user.email %>
-    </p>
-    <p>
-      Telefone: <%= @user.telefone if @user.telefone %>
-    </p>
-  </div>
-  </div>
-  
-  <div style="float: left">
-  <h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
-  <% if @negociations.empty? %>
-  <p>
-    Você não tem nenhuma negociação em andamento.
-    <%= link_to "Clique aqui", events_path %>  </a> para checar eventos.
-  </p>
-  <% else %>
-  <table class="user">
-    <tr>
-      <th >Reservado</th>
-      <th >Nome</th>
-      <th width="60%">Descrição</th>
-      <th> Email de Contato </th>
-    </tr>
-    <% @negociations.each do |negociation| %>
-    <% offering = Offering.find negociation.offering_id
-      event = Event.find offering.event_id
-      space = Resource.find offering.resource_id
-      user = User.find offering.user_id %>
-    <tr>
-      <% if negociation.status == true %> <td>Reservado</td>
-      <% else %> <td>Aguardando</td>
-      <%end%> <td><%= event.name %></td>
-      <td><%= space.description.to 200 %></td>
-      <td> <%= user.email unless negociation.status == false %></td>
-    </tr>
-    <% end %>
-  </table>
-  <% end %> <h3 style="font-family: Trebuchet MS; color: #BD2026;font-size: 20pt"> Minhas ofertas: </h3>
-  <% if @offerings.empty? %>
-  <p>
-    Você não está ofertando nenhum lugar.
-    <%= link_to "Clique aqui", events_path %>  </a> para checar novos eventos e ofertar hospedagens.
-  </p>
-  <% else %>
-  <table class="user">
-    <tr>
-      <th >Evento</th>
-      <th width="70%">Espaço</th>
-      <th >Interessados</th>
-    </tr>
-    <% for offering in  @offerings%>
-    <tr>
-      <% event = Event.find offering.event_id%> <td> <%= event.name%> </td>
-      <% space = Resource.find offering.resource_id%> <td><%= space.description.to 200 %></td>
-      <td> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
-    </tr>
-    <% end%>
-    <%end%>
-  </table>
-  <br />
-  </div>
-</div>
 </div>

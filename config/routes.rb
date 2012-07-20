@@ -6,7 +6,7 @@ Fitinaplace::Application.routes.draw do
   resources :resources
 
   resources :offerings
-
+  resources :comments, :only => :create
   resources :events
   resources :houses
   resources :questions
