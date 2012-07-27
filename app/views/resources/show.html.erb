@@ -1,40 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-	<p style="margin-left: 40px;"><em style="font-size: 20pt;  font-weight: bold"> Detalhes do Recurso</em>
-		<%= link_to 'Editar', edit_resource_path(@resource) , :style => "margin-left: 20px"%> </p>
-	<div style="margin: 10px 45px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right; text-align: justify">
-		
-	<%=@resource.description%>
-	
-	</div>
-	<div style= "margin-left: 40px; padding: 10px 10 px; float: left">
-	<p> Banheiro privado: <% if @resource.private_bathroon == true%> Sim <%else%> Não <%end%>  </p>
- 	<p> Café da manhã: <% if @resource.breakfast == true%> Sim <%else%> Não <%end%> </p>
-	<p> Almoço: <% if @resource.lunch == true%> Sim <%else%> Não <%end%> </p>
-	<p> Jantar: <% if @resource.dinner == true%> Sim <%else%> Não <%end%> </p>
-	<p> Espaço privado: <% if @resource.private_space == true%> Sim <%else%> Não <%end%>  </p>
-	<p> Estacionamento: <%= @resource.parking_spaces %> </p>
+  <p style="margin-left: 40px;"><em style="font-size: 20pt;  font-weight: bold"> Detalhes do Recurso</em>
+    <%= link_to 'Editar', edit_resource_path(@resource) , :style => "margin-left: 20px"%> </p>
+  <div style="margin: 10px 45px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right; text-align: justify">
+
+    <%=@resource.description%>
+
+  </div>
+  <div style= "margin-left: 40px; padding: 10px 10 px; float: left">
+    <p> Banheiro privado: <% if @resource.private_bathroon == true%> Sim <%else%> Não <%end%>  </p>
+    <p> Café da manhã: <% if @resource.breakfast == true%> Sim <%else%> Não <%end%> </p>
+    <p> Almoço: <% if @resource.lunch == true%> Sim <%else%> Não <%end%> </p>
+    <p> Jantar: <% if @resource.dinner == true%> Sim <%else%> Não <%end%> </p>
+    <p> Espaço privado: <% if @resource.private_space == true%> Sim <%else%> Não <%end%>  </p>
+    <p> Estacionamento: <%= @resource.parking_spaces %> </p>
     <p> Cômodo: <%= @resource.place %> </p>
-	<p> Vagas: <%= @resource.vacancies %> </p>
-    
-	</div>
+    <p> Vagas: <%= @resource.vacancies %> </p>
+
+  </div>
 </div>
 
 
 <%= form_for(@resource) do |f| %>
-<div class="listagemcinza" style="width: 94%;">
-	<%= f.fields_for :assets do |asset|%>
-
-	<% unless asset.object.new_record? %>
-
-	<%= link_to(image_tag(asset.object.image.url(:thumb), :height => 120, :width => 180, :style  => "margin: 2%") ,asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
-
-	<% end %>
-
-	<%end%>
-</div>
+  <div class="listagemcinza" style="width: 94%;">
+    <%= f.fields_for :assets do |asset|%>
+      <% unless asset.object.new_record? %>
+        <%= link_to(image_tag(asset.object.image.url(:thumb), :height => 120, :width => 180, :style  => "margin: 2%") ,asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
+      <% end %>
+    <%end%>
+  </div>
 <%end%>
+
+
+
+<%= render "upload" %>
 
 
 

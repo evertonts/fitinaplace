@@ -1,31 +1,31 @@
 <div>
-	<div class="listagemcinza">
-		<h1>Recursos</h1>
-		<% @resources.each do |resource| %>
-		<% if params[:house_id].to_i == resource.house_id  %>
-		<div class="linha">
-			<div style="float: left; position: relative;width: 35%;">
-				<%= image_tag(resource.assets.first.image.url(:thumb))%>
-			</div>
-			<div style="margin-left: 5px;position: relative; float:left;width: 64%; text-align: justify">
-				<span class="rua"><%= link_to resource.place, resource %></span>
-				<span >
-					<p style="text-align: justify">
-						<%= resource.description.to 200 %>
-					</p></span>
-			</div>
-			<div style="clear:both;"></div>
-			<span></span>
-			<span><%= link_to 'Editar', edit_resource_path(resource) %></span>
-			<span><%= link_to 'Remover', resource, confirm: 'Deseja remover este recurso?', method: :delete %></span>
-		</div>
-		<div></div>
-		<div style="clear:both;"></div>
-		<% end %>
-	<% end %>
-	</div>
-	<br />
-	
+  <div class="listagemcinza">
+    <h1>Recursos</h1>
+    <% @resources.each do |resource| %>
+      <% if params[:house_id].to_i == resource.house_id  %>
+        <div class="linha">
+          <div style="float: left; position: relative;width: 35%;">
+            <%= image_tag(resource.assets.first.image.url(:thumb)) unless resource.assets.first.nil?%>
+          </div>
+          <div style="margin-left: 5px;position: relative; float:left;width: 64%; text-align: justify">
+            <span class="rua"><%= link_to resource.place, resource %></span>
+            <span >
+              <p style="text-align: justify">
+                <%= resource.description.to 200 %>
+              </p></span>
+          </div>
+          <div style="clear:both;"></div>
+          <span></span>
+          <span><%= link_to 'Editar', edit_resource_path(resource) %></span>
+          <span><%= link_to 'Remover', resource, confirm: 'Deseja remover este recurso?', method: :delete %></span>
+        </div>
+        <div></div>
+        <div style="clear:both;"></div>
+      <% end %>
+    <% end %>
+  </div>
+  <br />
+
 
 </div>
 </div> 
