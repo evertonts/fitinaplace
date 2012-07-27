@@ -12,6 +12,12 @@
         <p>
           Telefone: <%= @user.telefone if @user.telefone %>
         </p>
+        <h4>Avaliação</h4>
+        <form>
+          <% (1..5).each do |i| %>
+            <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
+          <% end %>
+        </form>
       </div>
     </div>
 
@@ -20,7 +26,7 @@
       <% if @negociations.empty? %>
         <p>
           Você não tem nenhuma negociação em andamento.
-          <%= link_to "Clique aqui", events_path %>  </a> para checar eventos.
+          <%= link_to "Clique aqui", events_path %>  para checar eventos.
         </p>
       <% else %>
         <table class="user">
@@ -71,21 +77,37 @@
       <h3 class="titulo"> Comentários </h3>
       <% @comments.each do |comment| %>
         <% commenter = User.find comment.commenter_id %>
-        <div class="listagemcampobranco" style="padding: 5px">
-          <h4> <%= commenter.name %> disse:</h4>
-          <p> <%= comment.comment %></p>
-          <p> Nota: <%= comment.grade %></p>
-        </div>
+        <% unless comment.comment.blank? %>
+          <div class="listagemcampobranco" style="padding: 5px">
+            <h4> <%= commenter.name %> disse:</h4>
+            <form>
+              <% (1..5).each do |i| %>
+                <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == comment.grade  %>/>
+              <% end %>
+            </form>
+            <br/>
+            <p> <%= comment.comment %></p>
+
+          </div>
+        <% end %>
       <% end %>
-      <div style="margin: 5%">
-        <%= form_for (@comment) do |f| %>
-          <%= hidden_field_tag "user_id", params[:id] %>
-          <%= f.text_area :comment, :style => "width: 100%; height: 100px; margin-top: 3%"%>
+
+    </div>
+    <div style="margin: 5%">
+      <h2 class="titulo" style="float: left"> Dê sua opinião</h2>
+      <%= form_for (@comment) do |f| %>
+        <%= hidden_field_tag "user_id", params[:id] %>
+        <div style="margin-left: 3%">
+          <%= f.text_area :comment, :style => "width: 90%; height: 100px;"%>
           <br />
-          <%= f.number_field :grade %>
-          <%= f.submit "Enviar", :style => "float:right"%>
+          <div>
+            <%= f.label "Nota:", :class => "fit_red", :style => "float:left"%>
+            <% (1..5).each do |i| %>
+              <input name="star1" type="radio" class="star" value="<%= i %>"/>
+            <% end %>
+            <%= f.submit "Enviar"%>
+          </div>
         <%end%>
       </div>
     </div>
   </div>
-</div>
