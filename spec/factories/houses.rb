@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :house do
+    id 1
     street "123"
     number "123"
     complement ""

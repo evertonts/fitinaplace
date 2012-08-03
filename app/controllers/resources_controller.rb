@@ -26,6 +26,14 @@ class ResourcesController < ApplicationController
   def new
     @resource = Resource.new
     @resource.assets.build
+    
+    if params[:house_id]
+      @house = House.find params[:house_id]
+    else
+      redirect_to root_path
+      return
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @resource }
@@ -42,7 +50,9 @@ class ResourcesController < ApplicationController
   # POST /resources.json
   def create
     @resource = Resource.new(params[:resource])
-    @resource.house_id = params[:house_id]
+    @house = House.find params[:house_id] unless params[:house_id].nil?
+    @resource.house = @house
+    
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Recurso criado com sucesso.' }

@@ -17,7 +17,6 @@ def edit_event
   visit "/events/#{event.id}/edit"
   fill_in "event_name", :with => @event[:name]
   click_button ""
-  
 end
 
 def create_user

@@ -5,5 +5,5 @@ Feature: Create House
 	Scenario: User create House
 		Given I am logged in
 		When I create a new house
-		Then I should see an house created message
+		Then I should see a house created message
 	

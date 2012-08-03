@@ -11,6 +11,7 @@ def new_house
   fill_in "house_neightborhood", :with => @house[:neightborhood]
   fill_in "house_country", :with => @house[:country]
   click_button ""
+  
 end
 
 def create_other_user
@@ -49,11 +50,13 @@ When /^I try to edit other person's house$/ do
   try_to_edit_others_house
 end
 
-Then /^I should see an house created message$/ do
+Then /^I should see a house created message$/ do
+  #House.first.city.should == "Teste"  
+  #House.last.city.should == "Teste"  
   page.should have_content "Casa criada com sucesso."
 end
 
-Then /^I should see an house updated message$/ do
+Then /^I should see a house updated message$/ do
   page.should have_content "Casa foi atualizada com sucesso."
 end
 

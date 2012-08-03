@@ -6,7 +6,7 @@ Feature: Update House
 		Given I am logged in
 		When I create a new house
 		And I edit this house
-		Then I should see an house updated message
+		Then I should see a house updated message
 		
 	Scenario: User can't update other's person house
 		Given I am logged in
