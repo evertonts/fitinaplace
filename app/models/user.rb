@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :rg, :email, :cpf, :telefone,:name
+  validates_presence_of :rg, :email, :cpf, :telefone, :name
   validates_uniqueness_of  :email, :cpf,  :case_sensitive => false
 
   has_many :houses

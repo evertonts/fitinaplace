@@ -221,3 +221,25 @@ pt:
                 confirmation: "Senha não está de acordo com a confirmação"
               current_password:
                 blank: "Senha atual não pode ficar em branco"
+          
+          house:
+            not_saved: 
+              one: "Não foi possivel salvar a casa: 1 erro"
+              other: "Não foi possivel salvar a casa: %{count} erros"
+            attributes:
+              street:
+                blank: "Rua não pode ficar em branco"
+              number:
+                blank: "Numero não pode ficar em branco"
+                not_a_number: "Numero inválido"
+              neightborhood:
+                blank: "Bairro não pode ficar em branco"
+              state:
+                blank: "Estado não pode ficar em branco"
+              country:
+                blank: "País não pode ficar em branco"
+              city:
+                blank: "Cidade não pode ficar em branco"
+                
+              
+                            
