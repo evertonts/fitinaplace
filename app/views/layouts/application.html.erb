@@ -1,35 +1,40 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Fitinaplace</title>
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<%= stylesheet_link_tag    "application", :media => "all" %>
-		
-
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Fit In A Place</title>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+		<link href="/stylesheets/lightbox.css" rel="stylesheet" />
 		<%= javascript_include_tag "application" %>
-
 		<%= javascript_include_tag 'jquery'%>
-		
-		<script type="text/javascript" src="/javascripts/scriptaculous.js?load=effects,builder"></script>
-		<%= csrf_meta_tags %>
+		 <%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div id="container" class="container">
-			<header>
-				<%= render 'layouts/navigation' %>
-				<%- flash.each do |name, msg| -%>
-				<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-				<%- end -%>
+		<div style="min-width: 100%">
+		<div id="background">
+			<div id="container" class="container">
+				<header>
+					<div class="redline"></div>
+					<img src="/resources/images/Logo-2.png" alt="Fit In A Place" style="margin-bottom: 3px; margin-left: 19px; margin-top: 3px;"</img>
+					<img src="/resources/images/Header.png"style=" margin-left: 100px; margin-bottom: 15px; margin-top: 15px" />
+					<% if user_signed_in? %>
+					<%= render 'layouts/navigation' %>
+					<%else%>
+					<%= render 'layouts/navigationdeslog' %>
+					<%end%>
 			</header>
-			<div id="main" role="main">
+			
 				<%= yield %>
-			</div>
-			<footer></footer>
+				
+			<footer id="footer" style="clear: both" >
+				<span style="margin: 20px" ><%= link_to("About", "/about")%></span>
+				<span><%= link_to("FAQ", "/faq")%></span> 
+				<span><%= link_to("Termos de Uso", "/termosdeuso")%></span> 
+				<span><%= link_to("Termos de Segurança", "/termosdeseguro")%></span>
+			</footer>
+			<div class="redline"></div>
 		</div>
-		<!--! end of #container -->
+		</div> <!--! end of #container -->
+		</div>
 	</body>
 </html>

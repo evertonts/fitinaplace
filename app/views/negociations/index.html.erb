@@ -1,27 +1,41 @@
-<h1>Listing negociations</h1>
+<div class="form_normal" style="width: 60%">
+<h1 class="titulo"> Negociações </h1>
 
-<table>
+<div class="listagemcampobranco">
+<%= form_tag :action => :update_status do %>
+<table class="user">
   <tr>
-    <th>Status</th>
-    <th>User</th>
-    <th>Offering</th>
-    <th></th>
-    <th></th>
+    <th> Status</th>
+    <th> Nome</th>
+    <th> Email </th>
+    <th> Oferta</th>
     <th></th>
   </tr>
+
 
 <% @negociations.each do |negociation| %>
+	<%
+	user = User.find negociation.user_id
+	offering = Offering.find negociation.offering_id
+	%>
   <tr>
-    <td><%= negociation.status %></td>
-    <td><%= negociation.user_id %></td>
-    <td><%= negociation.offering_id %></td>
-    <td><%= link_to 'Show', negociation %></td>
-    <td><%= link_to 'Edit', edit_negociation_path(negociation) %></td>
-    <td><%= link_to 'Destroy', negociation, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= check_box_tag "selected[]", negociation.id, negociation.status%></td>
+    
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td> <%=offering.titulo%></td>
+    <td><%= link_to 'Deletar Negociação', negociation, confirm: 'Você tem certeza que deseja apagar esta negociação?', method: :delete %></td>
   </tr>
 <% end %>
+
+<%= hidden_field_tag :offering_id, params[:offering_id].to_i %>
+
 </table>
 
-<br />
 
-<%= link_to 'New Negociation', new_negociation_path %>
+</div>
+
+<%= submit_tag "Atualizar", :style => "margin-left: 45px; margin-top: 10px"%>
+
+<% end %>
+</div>

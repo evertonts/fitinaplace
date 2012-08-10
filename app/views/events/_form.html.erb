@@ -1,6 +1,5 @@
-<%= form_for(@event, :html => {:multipart => true}) do |f| %>
-  
-	<% if @event.errors.any? %>
+<%= form_for(@event, :html => {:multipart => true,:class => 'form_interno' }) do |f| %>
+  <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
@@ -13,33 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label 'Nome: ' %>&nbsp;
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label 'Descrição: ' %>&nbsp;
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label 'Endereço: ' %>&nbsp;
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
+    <%= f.label 'Cidade: ' %>&nbsp;
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state %><br />
+    <%= f.label 'Estado: ' %>&nbsp;
     <%= f.text_field :state %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label 'Data: ' %>&nbsp;
     <%= f.date_select :date %>
   </div>
   
-  <p><%= f.label :Foto %><br />
-	<%= f.file_field :avatar %></p>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field"><%= f.label 'Foto: ' %>&nbsp;
+	<%= f.file_field :avatar %></div>
+  <div class="actions" style="margin-left: 10px">
+  	<br />
+    <%= f.submit ''%>
   </div>
 <% end %>

@@ -1,0 +1,149 @@
+/*Comum*/
+html, body
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: #ccc;
+}
+#Tudo
+{
+    background-color:   #fff;
+    width:              990px;
+    margin:             0 auto;
+    border-bottom:      5px solid #A80713;
+}
+#Tudo header
+{
+    border-top:     5px solid #A80713;
+    border-bottom:  5px solid #A80713;
+    width:          990px;
+    height:         180px;
+}
+#Tudo aside
+{
+    width:   970px;
+    padding: 10px;
+}
+#Tudo footer
+{
+    width:              970px;
+    height:             40px;
+    margin:             0 auto;
+    background-color:   #ccc;
+    margin-top:         10px;
+    margin-bottom:      10px;
+}
+.clear
+{
+    clear: both;
+}
+/*Home*/
+#busca
+{
+    height:             250px;
+    width:              480px;
+    border-radius:      15px;
+    background-color:   #A80713;
+    margin:             0 auto;
+    float:              left;
+    margin-right:       10px;
+    margin-left:        10px;
+    margin-bottom:      10px;
+    margin-top:         10px;
+}
+#buscaBorda
+{
+    height:             230px;
+    width:              460px;
+    background-color:   #fff;
+    position:           absolute;
+    margin-top:         10px;
+    margin-left:        10px;
+    border-radius:      10px;
+    position:           absolute;
+}
+#buscaVertical
+{
+    height:             250px;
+    width:              380px;
+    background-color:   #fff;
+    position:           absolute;
+    margin-left:        50px;
+}
+#buscaHorizontal
+{
+    height:             150px;
+    width:              480px;
+    background-color:   #fff;
+    position:           absolute;
+    margin-top:         50px;
+}
+#buscaConteudo
+{
+    height:             230px;
+    width:              460px;
+    background-color:   #fff;
+    position:           absolute;
+    margin-top:         10px;
+    margin-left:        10px;
+    border-radius:      10px;
+    position:           absolute;
+}
+#links
+{
+    height:             100px;
+    width:              480px;
+    margin:             0 auto;
+    float:              left;
+    margin-bottom:      10px;
+    margin-top:         10px;
+    background-color:   #ccc;
+}
+#login
+{
+    height:             140px;
+    width:              480px;
+    border-radius:      15px;
+    background-color:   #A80713;
+    margin:             0 auto;
+    float:              left;
+    margin-bottom:      20px;
+}
+#destaques
+{
+    margin-bottom:  10px;
+    margin-left:    10px;
+    width:          966px;
+    border:         2px solid #A80713;
+    border-radius:  5px;
+    height:         200px;
+}
+/* Eventos */
+aside#destaques
+{
+    max-width:      286px;
+    border:         2px solid #A80713;
+    float:          left;
+    margin-top:     10px;
+    margin-left:    10px;
+    min-height:     380px;
+    border-radius:  15px;
+}
+/* Eventos e Demais */
+nav#Menu
+{   
+    width:            990px;
+    height:           40px;
+    background-color: #A80713;
+}
+div#main
+{
+    width:              650px;
+    margin-left:        10px;
+    margin-top:         10px;
+    margin-bottom:      10px;
+    border-radius:      15px;
+    background-color:   #F4F2F2;
+    min-height:         400px;
+    float:              left;
+}

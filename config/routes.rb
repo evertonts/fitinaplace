@@ -1,5 +1,7 @@
 Fitinaplace::Application.routes.draw do
-  resources :negociations
+  resources :negociations do
+    post :update_status, :on => :collection
+  end
 
   resources :resources
 
@@ -8,7 +10,12 @@ Fitinaplace::Application.routes.draw do
   resources :events
   resources :houses
   resources :questions
-
+  resources :comofunciona
+  resources :about
+  resources :faq
+  resources :termosdeuso
+  resources :termosdeseguro
+  
   authenticated :user do
     root :to => 'home#index'
   end

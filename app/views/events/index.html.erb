@@ -1,33 +1,38 @@
-<h1>Listing events</h1>
+<div id= "main2" role="main"   >
+	<div class="listagemcinza" style="width: 95%">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+		<h1 >Eventos </h1>
+		<% @events.each do |event| %>
+			<!-- <li style="list-style-image: url('/resources/images/icone-de-listagem-vermelho.png')">
+			<%= link_to event.name, event if can? :show, event %>
+			</li>-->
+			
+			<div class="linha">
+				<span><%= link_to event.name, event if can? :show, event %></span>
+					<div></div>
+					<div style="float: left; width: 80%; text-align: justify">
+						<%= event.description.to 500 %>
+					</div>
+					<div style="float: right">
+						<%= image_tag event.avatar.url(:thumb)%>
+					</div>
+					<div style="clear:both"></div>
+					<!--  <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %>-->
+			</div>
+		<%end%>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.description %></td>
-    <td><%= event.address %></td>
-    <td><%= event.city %></td>
-    <td><%= event.state %></td>
-    <td><%= event.date %></td>
-    <td><%= link_to 'Show', event if can? :show, event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) if can? :edit, event %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %></td>
-  </tr>
-<% end %>
-</table>
-
+	<div style="clear:both"></div>
+</div>
 <br />
+<% if user_signed_in? %>
+<%= link_to 'Criar um novo evento', new_event_path, :style => "margin-left: 3%" %>
+<%end%> 
+</div>
 
-<%= link_to 'New Event', new_event_path %>
+<div class="destaquelateral" style="width: 250px;">
+		<h2> Destaques </h2>
+		<div>
+			<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+		</div>
+		<img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+</div>

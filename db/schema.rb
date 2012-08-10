@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504140523) do
+ActiveRecord::Schema.define(:version => 20120615143237) do
+
+  create_table "address", :force => true do |t|
+    t.string   "street"
+    t.integer  "number"
+    t.string   "complement"
+    t.string   "neightborhood"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "assets", :force => true do |t|
     t.integer  "resource_id"
@@ -25,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120504140523) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -46,8 +58,12 @@ ActiveRecord::Schema.define(:version => 20120504140523) do
     t.string   "state"
     t.string   "country"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "negociations", :force => true do |t|
@@ -60,11 +76,12 @@ ActiveRecord::Schema.define(:version => 20120504140523) do
 
   create_table "offerings", :force => true do |t|
     t.integer  "event_id"
-    t.integer  "space_id"
-    t.decimal  "price",      :precision => 10, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "resource_id"
+    t.decimal  "price",       :precision => 10, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.integer  "user_id"
+    t.string   "titulo"
   end
 
   create_table "questions", :force => true do |t|

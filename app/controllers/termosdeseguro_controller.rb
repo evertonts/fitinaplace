@@ -1,0 +1,3 @@
+class TermosdeseguroController < ApplicationController
+  
+end
