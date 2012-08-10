@@ -25,7 +25,7 @@ Then /^I should see a resource created message$/ do
   page.should have_content "Recurso criado com sucesso."
 end
 
-Then /^I should not see an the new message page$/ do
+Then /^I should not see the new resource page$/ do
   page.should_not have_content "Novo Recurso"
 end
 

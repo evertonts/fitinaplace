@@ -10,4 +10,4 @@ Feature: Create Resources
 	Scenario: User should not be able to create a resource without a house
 		Given I am logged in
 		When I try to create a new resource without a house
-		Then I should see an error message
+		Then I should not see the new resource page

@@ -1,7 +1,7 @@
-<div id="main" role="main">
-	
-<div style="margin: 2%"
-	
+
+<div id="main" role="main" style="width: 90%">
+<div style="margin: 2%">
+
   <div style="float: left;">
   <div style="float: left">
     <%= image_tag @user.avatar.url(:medium)%>
@@ -17,6 +17,7 @@
   </div>
   </div>
   
+  <div style="float: left">
   <h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
   <% if @negociations.empty? %>
   <p>
@@ -68,5 +69,6 @@
     <%end%>
   </table>
   <br />
+  </div>
 </div>
 </div>

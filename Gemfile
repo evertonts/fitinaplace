@@ -21,3 +21,5 @@ gem "mysql2"
 gem 'passenger', "~> 3.0.12"
 gem 'mongrel', '>= 1.2.0.pre2'
 gem 'dispatcher'
+gem 'execjs'
+gem 'therubyracer'
