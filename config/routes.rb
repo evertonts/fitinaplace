@@ -4,6 +4,9 @@ Fitinaplace::Application.routes.draw do
   end
 
   resources :resources
+  resources :busca do
+    post :search, :on => :collection
+  end
 
   resources :offerings
 
