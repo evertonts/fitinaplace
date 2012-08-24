@@ -15,6 +15,7 @@ Fitinaplace::Application.routes.draw do
   resources :faq
   resources :termosdeuso
   resources :termosdeseguro
+  resources :cadastroefetuado
   
   authenticated :user do
     root :to => 'home#index'

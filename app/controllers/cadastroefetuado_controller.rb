@@ -1,0 +1,3 @@
+class CadastroefetuadoController < ApplicationController
+  
+end
