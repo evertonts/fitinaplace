@@ -1,0 +1,13 @@
+<section id="Login">
+    <h1>LOGIN</h1>
+    <%= form_for(resource, :as => resource_name, :class => "formAligns", :url => session_path(resource_name)) do |f| %>
+    <table>
+        <tr>
+            <td style="width:20%"><label for="email" >E-MAIL:</label></td><td colspan="2" style="width:80% "><%= f.email_field :email,:autocomplete =>:off, :style => "float:left; width: 100%" %></td>
+        </tr>
+        <tr>
+            <td style="width:20%"><label for="password">SENHA:</label></td><td style="width:60%"><%= f.password_field :password, :style => "float:left; width: 95%"%></td><td style="width:20%"><%= f.submit "Entrar",  :style => "width: 100%; position: relative; float:left;"%></td>
+        </tr>
+    </table>
+    <% end %>
+</section>

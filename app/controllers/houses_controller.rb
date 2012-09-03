@@ -6,8 +6,14 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index 
-    @houses = House.find_all_by_user_id(current_user.id)
+    @aux = House.all
+    @houses = []
+    for house in @aux
 
+      if house.user_id == current_user.id 
+      @houses << house 
+    end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @houses }

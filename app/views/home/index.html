@@ -1,0 +1,46 @@
+<!-- Header -->
+<header>
+    <!-- Logo -->
+    <div id="Logo" class="float-left">
+        <img src="images/logo.png"/>
+    </div>
+    <!-- Login -->
+    <div id="Login" class="float-right">
+        <%= render :partial => "login"%>
+    </div>
+    <!-- Ilustration -->
+    <div id="Ilustration" class="clear"></div>
+    <!-- Seach -->
+    <div id="Seach" class="clear">
+        <section id="Seach">
+            <%= form_tag events_path, :method => 'get' do  %>
+            <div class="float-left" style="width: 120px; margin-right:20px; ">
+                <label style="float: left; display:inline; font-size: 30px; color: #A80713;">ONDE:</label>
+            </div>
+            <div class="float-left" style="width: 350px">    
+                <%= text_field_tag :search, params[:search], :style => "width: 100%; border: 3px solid #A80713; font-size: 25px" %>
+                <%= image_submit_tag '/resources/images/botao-01.png', :name => nil  %>
+            </div>
+            <% end %>
+        </section>
+    </div>
+
+</header>
+<!-- Contents -->
+<div id="Conteudo" class="clear">
+    <h1>Conteudo</h1>
+</div>
+<!-- Highlights -->
+<div id="Highlights">
+    <section id="Highlights">
+        <h1>Destaque</h1>
+        <div class="centralizer">
+            <img src="images/home/bmw.png"/>
+            <img src="images/home/copa.png"/>
+            <img src="images/home/lola.png"/>
+            <img src="images/home/rockinrio.png"/>
+            <img src="images/home/swu.png"/>
+        </div>
+        <div style="background-color: #A80713; height: 10px;"></div>
+    </section>
+</div>

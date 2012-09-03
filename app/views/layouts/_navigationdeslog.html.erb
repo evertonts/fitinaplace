@@ -1,29 +1,7 @@
-<div style="background-color: #BD2026;">
-<ul class="nav">
-	<li>
-    <%= link_to(image_tag('/resources/images/Untitled-1-04.png'), "/")%>
-    </li>
-    <li>
-    <%= link_to(image_tag('/resources/images/Untitled-1-05.png'), "/comofunciona") %>
-    </li>
-	<li>
-    <%= link_to(image_tag('/resources/images/Untitled-1-10.png'),events_path)%>
-    </li>
-    <li>
-    <%= link_to(image_tag('/resources/images/Untitled-1-11.png'), "/users/sign_in") %>        
-    </li>
-    <li>
-    <%= link_to(image_tag('/resources/images/botao-07.png'), "/users/sign_up") %>
-    </li>
-    
-    <li>
-    	<div style="float: right; margin-top: 7px; margin-right: 10px;">
-        <%= form_tag events_path, :method => 'get' do %>
-		<%= text_field_tag :search, params[:search] %>
-		<!--<%= image_submit_tag '/resources/images/botao-01.png', :name => nil%>-->
-		<%= submit_tag 'Buscar', :name => nil%>
-		<% end %>
-		</div>
-    </li>
+<ul class="menu-horizontal">
+    <li><%= link_to("home", "/")%></li>
+    <li><%= link_to("como funciona", "/comofunciona") %></li>
+    <li><%= link_to("eventos",events_path)%></li>    
+    <li><%= link_to("login", "/users/sign_in") %></li>
+    <li><%= link_to("cadastre-se", "/users/sign_up") %></li>
 </ul>
-</div>

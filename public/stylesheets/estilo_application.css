@@ -1,0 +1,140 @@
+/* BASE */
+
+body
+{
+    font-family: "Trebuchet MS";
+}
+
+hgroup, h1, h2, h3, h4, h5, h6
+{
+    color: #AA0A00;
+}
+
+nav
+{
+    background-color: #AA0A00;
+    height: 30px;
+    width: 100%;
+    font-size: 13px;
+}
+
+header
+{
+    width: 980px;
+    padding: 0px;
+    margin: 0 auto;
+    margin-top: 10px; 
+}
+
+div#Logo
+{
+    margin-left: 50px;
+    width: 880px;
+    padding: 20px 50px;
+    border-bottom: 2px solid #AA0A00;
+    margin: 0 auto;
+}
+
+#Login
+{
+    width: 360px;
+    margin-right: 50px;
+}
+
+
+footer#Footer
+{
+    height: 100px;
+    background-color: #888;
+    padding: 20px 0px;
+    font-family: helvetica;
+}
+
+
+/*-- First Menu --*/
+
+nav#First-Menu ul
+{
+    font-family: helvetica;
+}
+
+nav#First-Menu ul li
+{
+
+}
+
+nav#First-Menu ul li a
+{
+    color: #FFF;
+}
+
+
+/*-- Footer --*/
+
+footer#Footer ul
+{
+
+}
+
+footer#Footer ul li
+{
+
+}
+
+footer#Footer ul li a
+{
+    color: #FFF;
+}
+
+div#LineFooter
+{
+    height: 2px;
+    background-color: #CCC;
+    margin: 20px 50px;
+}
+
+
+div#HowItWorks
+{
+
+}
+
+div.application
+{
+    width: 880px;
+    padding: 20px 50px 50px;
+    margin: 0 auto; 
+}
+
+div.application
+{
+    
+}
+
+div.application p
+{
+    text-align: justify;
+}
+
+/* H1 Main*/
+
+h1.main
+{
+    color: #FFF;
+}
+div.h1Base
+{
+    background-color: #AA0A00;
+    display: inline-block;
+}
+
+div.h1Horizontal
+{
+    background-color: #FFF;
+}
+
+.formAligns input, 
+.form_interno input
+{
+    border: 2px solid #CCC;
+}

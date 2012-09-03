@@ -1,40 +1,44 @@
-<!doctype html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Fit In A Place</title>
-		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
-		<link href="/stylesheets/lightbox.css" rel="stylesheet" />
-		<%= javascript_include_tag "application" %>
-		<%= javascript_include_tag 'jquery'%>
-		 <%= csrf_meta_tags %>
-	</head>
-	<body>
-		<div style="min-width: 100%">
-		<div id="background">
-			<div id="container" class="container">
-				<header>
-					<div class="redline"></div>
-					<img src="/resources/images/Logo-2.png" alt="Fit In A Place" style="margin-bottom: 3px; margin-left: 19px; margin-top: 3px;"</img>
-					<img src="/resources/images/Header.png"style=" margin-left: 100px; margin-bottom: 15px; margin-top: 15px" />
-					<% if user_signed_in? %>
-					<%= render 'layouts/navigation' %>
-					<%else%>
-					<%= render 'layouts/navigationdeslog' %>
-					<%end%>
-			</header>
-			
-				<%= yield %>
-				
-			<footer id="footer" style="clear: both" >
-				<span style="margin: 20px" ><%= link_to("About", "/about")%></span>
-				<span><%= link_to("FAQ", "/faq")%></span> 
-				<span><%= link_to("Termos de Uso", "/termosdeuso")%></span> 
-				<span><%= link_to("Termos de Segurança", "/termosdeseguro")%></span>
-			</footer>
-			<div class="redline"></div>
-		</div>
-		</div> <!--! end of #container -->
-		</div>
-	</body>
+<!DOCTYPE>
+<html lang="pt-br">
+    <head>
+        <!--[if lte IE 8]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <!--[if lt  IE 9]><script src="dist/html5shiv.js"></script><![endif]-->
+        <meta charset="utf-8"/>
+        <script sype="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"> </script>
+        <script sype="text/javascript" src="../javascript/main.js"> </script>
+        <link href="../stylesheets/reset.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../stylesheets/estilo_application.css" rel="stylesheet" type="text/css" media="all" />
+        <title>Fit in a Place - Home</title>
+        <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag 'jquery'%>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+            <!-- Menu -->
+            <nav id="First-Menu">
+                <% if user_signed_in? %>
+                <%= render 'layouts/navigation' %>
+                <%else%>
+                <%= render 'layouts/navigationdeslog' %>
+                <%end%>
+            </nav>
+            <div id="Logo">
+                <img src="../images/logo.png"/>
+            </div>
+            <%= yield %>
+            <footer id="Footer" class="clear">
+                <ul class="menu-horizontal">
+                    <li><%= link_to("About", "/about")%></li>
+                    <li><%= link_to("FAQ", "/faq")%></li>
+                    <li><%= link_to("Termos de Uso", "/termosdeuso")%></li>
+                    <li><%= link_to("Termos de Segurança", "/termosdeseguro")%></li>
+                </ul>
+                <div id="LineFooter"></div>
+                <% if user_signed_in? %>
+                <%= render 'layouts/navigation' %>
+                <%else%>
+                <%= render 'layouts/navigationdeslog' %>
+                <%end%>
+            </footer>
+    </body>
 </html>

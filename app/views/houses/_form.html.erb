@@ -1,4 +1,4 @@
-<%= form_for(@house, :html => { :class => 'form_interno'}) do |f| %>
+<%= form_for(@house,  :class => "formAligns", :html => { :class => 'form_interno'}) do |f| %>
   <% if @house.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>

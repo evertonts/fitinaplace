@@ -1,4 +1,5 @@
-<div style="margin-left: 20px;">
+<div id="main" role="main" class="application">
+<div>
 	<div style="position: relative; float: left">
 		<%= image_tag @event.avatar.url(:medium)%>
 	</div>
@@ -52,4 +53,5 @@
 | <%= link_to 'Editar', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
 <%end%>
 <%end%>
+</div>
 </div>
