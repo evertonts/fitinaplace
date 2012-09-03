@@ -11,35 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label 'Nome: ' %>&nbsp;
-    <%= f.text_field :name %>
+  <div class="letra_vermelha">
+    <%= f.label 'Nome: '%>&nbsp;
+    <%= f.text_field :name , :style=>"border-color: #A80713;"%>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Descrição: ' %>&nbsp;
-    <%= f.text_field :description %>
+    <%= f.text_field :description , :style=>"border-color: #A80713;"%>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Endereço: ' %>&nbsp;
-    <%= f.text_field :address %>
+    <%= f.text_field :address, :style=>"border-color: #A80713;" %>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Cidade: ' %>&nbsp;
-    <%= f.text_field :city %>
+    <%= f.text_field :city , :style=>"border-color: #A80713;"%>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Estado: ' %>&nbsp;
-    <%= f.text_field :state %>
+    <%= f.text_field :state, :style=>"border-color: #A80713;" %>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Data: ' %>&nbsp;
-    <%= f.date_select :date %>
+    <%= f.date_select :date , :style=>"border-color: #A80713;"%>
   </div>
   
-  <div class="field"><%= f.label 'Foto: ' %>&nbsp;
-	<%= f.file_field :avatar %></div>
+  <div class="letra_vermelha"><%= f.label 'Foto: ' %>&nbsp;
+	<%= f.file_field :avatar , :style=>"border-color: #A80713;"%></div>
   <div class="actions" style="margin-left: 10px">
   	<br />
-    <%= f.submit ''%>
+    <%= f.submit 'Enviar dados', :style=>"background-color:#A80713; color:white;width: 120px;
+height: 40px;margin-left: 180px;border-radius: 10px;"%>
   </div>
 <% end %>
