@@ -1,11 +1,22 @@
+# encoding: UTF-8
 class BuscaController < ApplicationController
 
   def index
-    @busca_dropdown = [["Evento", "event"], ["Cidade", "city"]]
-    unless params[:query].blank? or params[:table].blank?
-      if params[:table] == 'event'
-        @events = Event.find_by_sql("select * from events where description like '%#{params[:query]}%' or name like '%#{params[:query]}%' or address like '%#{params[:query]}%' or city like '%#{params[:query]}%' or state like '%#{params[:query]}%'")
+    @busca_dropdown = [["Nome", "name"], ["Descrição", "description"], ["Cidade", "city"]]
+    selecionados = params[:selecionados]
+    puts selecionados
+    query = params[:query]
+
+    unless query.blank? or selecionados.blank?
+      sql = "select * from events where "
+      puts query
+      selecionados.each do |s|
+        sql << "#{s} like '%#{query}%' or "
       end
+      sql = sql.to (sql.size - 4)
+      puts sql
+      @events = Event.find_by_sql sql
     end
+
   end
 end

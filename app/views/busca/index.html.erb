@@ -1,8 +1,31 @@
-<%= form_tag(busca_index_path, :method => "get", :multipart => true) do %>
-  <%= label_tag(:query, "Buscar:") %>
-  <%= text_field_tag(:query) %>
-  <% @busca_dropdown.each do |d| %>
-    <%= check_box_tag d[0], d[1], false %>
-  <% end  %>
-  <%= submit_tag("Enviar") %>
+<div class="listagemcinza" style="width: 95%">
+  <%= form_tag(busca_index_path, :method => "get", :multipart => true) do %>
+    <%= label_tag(:query, "Buscar:") %>
+    <%= text_field_tag(:query) %>
+    <% @busca_dropdown.each do |d| %>
+      <%= label_tag(d[1], d[0]) %>
+      <%= check_box_tag 'selecionados[]', d[1], false %>
+    <% end  %>
+    <%= submit_tag("Enviar") %>
+
+  <% end %>
+
+  <% unless @events.blank? %>
+
+    <% @events.each do |event| %>
+
+      <div class="linha">
+        <span><%= link_to event.name, event if can? :show, event %></span>
+        <div></div>
+        <div style="float: left; width: 80%; text-align: justify">
+          <%= event.description.to 500 %>
+        </div>
+        <div style="float: right">
+          <%= image_tag event.avatar.url(:thumb)%>
+        </div>
+        <div style="clear:both"></div>
+        <!--  <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %>-->
+      </div>
+    <%end%>
+  </div>
 <% end %>
