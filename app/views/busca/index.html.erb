@@ -1,8 +1,0 @@
-<%= form_tag(busca_index_path, :method => "get", :multipart => true) do %>
-  <%= label_tag(:query, "Buscar:") %>
-  <%= text_field_tag(:query) %>
-  <% @busca_dropdown.each do |d| %>
-    <%= check_box_tag d[0], d[1], false %>
-  <% end  %>
-  <%= submit_tag("Enviar") %>
-<% end %>
