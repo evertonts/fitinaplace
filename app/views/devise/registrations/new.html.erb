@@ -1,6 +1,7 @@
 <div id="main" role="main" class="application">
     <div>
         <h1>Cadastre-se</h1>
+        <div class="linha"/>
         <p class="letra_vermelha">*Caso não receba o email de confirmação,verifique a pasta de Spam.</p>
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),  :class => "formAligns", :html => { :multipart => true, :class => 'form_interno'}) do |f| %>
         <%= devise_error_messages! %>
