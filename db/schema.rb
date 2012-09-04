@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615143237) do
+ActiveRecord::Schema.define(:version => 20120720160716) do
 
-  create_table "address", :force => true do |t|
+  create_table "addresses", :force => true do |t|
     t.string   "street"
     t.integer  "number"
     t.string   "complement"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20120615143237) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "commenter_id"
+    t.text     "comment"
+    t.integer  "grade"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -47,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120615143237) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "address_id"
   end
 
   create_table "houses", :force => true do |t|
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120615143237) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "address_id"
   end
 
   create_table "negociations", :force => true do |t|

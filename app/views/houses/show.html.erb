@@ -1,43 +1,43 @@
 <div id="main" role="main" class="application">
-<p id="notice">
-	<%= notice %>
-</p>
-<div style="position: relative; float: left; margin-left: 20px">
-	<%= image_tag @house.image.url(:medium)%>
+  <p id="notice">
+    <%= notice %>
+  </p>
+  <div style="position: relative; float: left; margin-left: 20px">
+    <%= image_tag @house.image.url(:medium)%>
+  </div>
+  <div style="margin-left: 347px">
+    <p>
+      <b>Rua:</b>
+      <%= @house.street %>
+    </p>
+    <p>
+      <b>Número:</b>
+      <%= @house.number %>
+    </p>
+    <p>
+      <b>Complemento:</b>
+      <%= @house.complement %>
+    </p>
+    <p>
+      <b>Bairro:</b>
+      <%= @house.neightborhood %>
+    </p>
+    <p>
+      <b>Cidade:</b>
+      <%= @house.city %>
+    </p>
+    <p>
+      <b>Estado:</b>
+      <%= @house.state %>
+    </p>
+    <p>
+      <b>País:</b>
+      <%= @house.country %>
+    </p>
+  </div><br />
+  <div style="margin-left: 20px">
+    <%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
+    <%= link_to 'Mostrar recursos', resources_path(:house_id => @house.id) %>|
+    <%= link_to 'Editar', edit_house_path(@house) %>
+  </div>
 </div>
-<div style="margin-left: 347px">
-<p>
-	<b>Rua:</b>
-	<%= @house.street %>
-</p>
-<p>
-	<b>Número:</b>
-	<%= @house.number %>
-</p>
-<p>
-	<b>Complemento:</b>
-	<%= @house.complement %>
-</p>
-<p>
-	<b>Bairro:</b>
-	<%= @house.neightborhood %>
-</p>
-<p>
-	<b>Cidade:</b>
-	<%= @house.city %>
-</p>
-<p>
-	<b>Estado:</b>
-	<%= @house.state %>
-</p>
-<p>
-	<b>País:</b>
-	<%= @house.country %>
-</p>
-</div><br />
-<div style="margin-left: 20px">
-<%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
-<%= link_to 'Mostrar recursos', resources_path(:house_id => @house.id) %>|
-<%= link_to 'Editar', edit_house_path(@house) %> 
-</div>
-/<div>
