@@ -214,6 +214,7 @@ pt:
               email:
                 blank: "Email não pode ficar em branco"
                 invalid: "Email não é válido"
+                taken: Esse endereço de email já está cadastrado no sistema
               name:
                 blank: "Nome não pode ficar em branco"
               password:
@@ -221,7 +222,9 @@ pt:
                 confirmation: "Senha não está de acordo com a confirmação"
               current_password:
                 blank: "Senha atual não pode ficar em branco"
-          
+              cpf:
+                taken: Esse CPF já está cadastrado no sistema
+                
           house:
             not_saved: 
               one: "Não foi possivel salvar a casa: 1 erro"
@@ -240,6 +243,21 @@ pt:
                 blank: "País não pode ficar em branco"
               city:
                 blank: "Cidade não pode ficar em branco"
-                
-              
+          
+          event:  
+            not_saved: 
+              one: "Não foi possivel salvar o evento: 1 erro"
+              other: "Não foi possivel salvar o evento: %{count} erros"
+            attributes:
+              name:
+                blank: "Nome não pode ficar em branco"
+              description:
+                blank: "Descrição não pode ficar em branco"
+              address:
+                blank: "Endereço não pode ficar em branco"
+              state:
+                blank: "Estado não pode ficar em branco"
+              city:
+                blank: "Cidade não pode ficar em branco"
+        <<: *errors
                             

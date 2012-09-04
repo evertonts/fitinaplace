@@ -1,6 +1,6 @@
 class CreateAdminUser < ActiveRecord::Migration
   def up
-    user = User.new(:name => "Admin", :email => "everton2x4@gmail.com", :cpf => "00000000001", 
+    user = User.new(:name => "Admin", :email => "kotoshimoda@gmail.com", :cpf => "00000000001", 
       :rg => "000000000", :telefone => "00000000", :password => "Clhafe03", :password_confirmation => "Clhafe03", :role => :admin)
     user.save!
   end

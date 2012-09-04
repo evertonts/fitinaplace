@@ -10,7 +10,7 @@ admin = User.create! :name => 'First User', :email => 'user@example.com', :passw
   :password_confirmation => 'please', :cpf => "1", :rg => "1", :telefone => "1", :role => "admin",
   :confirmed_at => DateTime.now
   
-user  User.create! :name => 'First User', :email => 'user2@example.com', :password => 'please', 
+user = User.create! :name => 'First User', :email => 'user2@example.com', :password => 'please', 
     :password_confirmation => 'please', :cpf => "12", :rg => "12", :telefone => "1", :role => "site_user",
     :confirmed_at => DateTime.now
     
