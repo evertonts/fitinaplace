@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @offerings = Offering.find_all_by_event_id @event.id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

@@ -59,7 +59,7 @@
   </div>
   <p style="margin-left: 20px; font-weight: bold; font-size: 20pt" >Descrição</p>
 
-  <div style="margin: 10px 10px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 90%; height: 250px">
+  <div style="margin: 10px 10px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 90%">
 
     <%= @event.description %>
   </div>
@@ -74,6 +74,38 @@
       <% if current_user.id== @event.user_id%>
         | <%= link_to 'Editar', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
       <%end%>
+    </div>
+
+    <div >
+
+      <h1> Fit in...</h1>
+
+      <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
+        <% @offerings.each do |offering| %>
+          <% @resource  = Resource.find offering.resource_id%>
+          <% @house = House.find @resource.house_id%>
+          <div class="linha">
+            <div style="float: left; position: relative;width: 15%;">
+              <%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
+            </div>
+            <div style="margin-left: 5px;position: relative; float:left;width: 55%;">
+              <span class="rua"><%= link_to offering.titulo, offering if can? :show, offering %></span>
+              <span >
+                <p style="text-align: justify">
+                  <%= @resource.description.to 150 %>
+                </p></span>
+            </div>
+            <div style="float: right;width: 25%">
+              <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b>
+            </div>
+            <div style="clear:both;"></div>
+          </div>
+
+        <%end%>
+      </div>
+      <br />
+
     <%end%>
   </div>
+
 </div>
