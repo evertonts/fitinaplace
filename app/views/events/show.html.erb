@@ -1,70 +1,61 @@
 <div id="main" role="main" class="application">
+  <h1> <%= @event.name %></h1>
   <div style="margin-left: 20px;">
     <div style="position: relative; float: left">
-      <%= image_tag @event.avatar.url(:medium)%>
+      <%= image_tag @event.avatar.url(:medium), :width=>"200", :height=>"200"%>
     </div>
     <div style="float: right; padding-right: 30px">
+
       <iframe src="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+") %>&output=embed"
-              width="425" height="350">
+              width="200" height="200">
         <a href="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+")%>"
            Click here to view our location on Google Maps</a>.
       </iframe>
     </div>
-    <div style="margin-left: 20px; position: relative; float: left">
-      <p id="notice">
-        <%= notice %>
-      </p>
-      <p>
-        <b>Nome:</b>
-        <%= @event.name %>
-      </p>
-      <% if @event.address_id.nil? %>
-        <p>
-          <b>Endereço:</b>
-          <%= @event.address %>
-        </p>
-        <p>
-          <b>Cidade:</b>
-          <%= @event.city %>
-        </p>
-        <p>
-          <b>Estado:</b>
-          <%= @event.state %>
-        </p>
-      <% else %>
-        <p>
-          <b>Endereço:</b>
-          <%= @address.street + ", " + @address.number.to_s %>
-        </p>
-        <p>
-          <b>Cidade:</b>
-          <%= @address.city %>
-        </p>
-        <p>
-          <b>Estado:</b>
-          <%= @address.state %>
-        </p>
-      <% end %>
-      <p>
-        <b>Data:</b>
-        <%= @event.date %>
-      </p>
-      <p></p>
 
-
+    <div style="padding:20px">
+      <%= @event.description %>
     </div>
-
-
     <div style="clear: both;"></div>
   </div>
-  <p style="margin-left: 20px; font-weight: bold; font-size: 20pt" >Descrição</p>
 
-  <div style="margin: 10px 10px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 90%">
+  <div style="margin-left: 20px; position: relative;">
+    <p id="notice">
+      <%= notice %>
+    </p>
 
-    <%= @event.description %>
+    <% if @event.address_id.nil? %>
+      <p>
+        <b>Endereço:</b>
+        <%= @event.address %>
+      </p>
+      <p>
+        <b>Cidade:</b>
+        <%= @event.city %>
+      </p>
+      <p>
+        <b>Estado:</b>
+        <%= @event.state %>
+      </p>
+    <% else %>
+      <p>
+        <b>Endereço:</b>
+        <%= @address.street + ", " + @address.number.to_s %>
+      </p>
+      <p>
+        <b>Cidade:</b>
+        <%= @address.city %>
+      </p>
+      <p>
+        <b>Estado:</b>
+        <%= @address.state %>
+      </p>
+    <% end %>
+    <p>
+      <b>Data:</b>
+      <%= @event.date %>
+    </p>
   </div>
-
-
   <br />
   <% if user_signed_in? %>
     <div style="margin-left: 20px">
@@ -75,11 +66,9 @@
         | <%= link_to 'Editar', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
       <%end%>
     </div>
-
+  <br/>
+    <h1> Fit in...</h1>
     <div >
-
-      <h1> Fit in...</h1>
-
       <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
         <% @offerings.each do |offering| %>
           <% @resource  = Resource.find offering.resource_id%>
