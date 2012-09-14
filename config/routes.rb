@@ -4,6 +4,7 @@ Fitinaplace::Application.routes.draw do
   end
 
   resources :resources
+  resources :messages, :only => :create
 
   resources :offerings
 

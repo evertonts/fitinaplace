@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904145746) do
+ActiveRecord::Schema.define(:version => 20120904163946) do
 
   create_table "address", :force => true do |t|
     t.string   "street"
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "text"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "negociations", :force => true do |t|

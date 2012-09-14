@@ -1,0 +1,8 @@
+<p>Envie uma mensagem para esse usuário</p>
+
+<%= form_for @message do |f|%>
+	<%= f.label :text, "Mensagem" %>
+	<%= f.text_area :text, :size => "30x5"%>
+	<%= hidden_field_tag :recipient_id, @user.id %>
+	<%= f.submit "Enviar" %>
+<% end%>

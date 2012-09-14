@@ -68,6 +68,14 @@
     <%end%>
   </table>
   <br />
+	
+	<% unless @user == current_user%>
+		<%= render :partial => "messages/send_user_message"%>
+	<% end %>
+	
+	<% if @user == current_user%>
+		<%= render :partial => "messages/show_user_messages"%>
+	<% end %>
   </div>
 </div>
 </div>
