@@ -13,21 +13,22 @@
   
   
   <%= hidden_field_tag :event_id, params[:event_id].to_i %>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Espaço: ' %>&nbsp;
     <%= f.select :resource_id, options_for_select(@select) %>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label :'Título da oferta: *' %>&nbsp;
-    <%= f.text_field :titulo %>
+    <%= f.text_field :titulo , :style => "width: 15%;border-color: #A80713;" %>
   </div>
  
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Preço: *' %>&nbsp;
-    <%= f.text_field :price %>
+    <%= f.text_field :price , :style => "width: 15%;border-color: #A80713;" %>
   </div>
   <br />
-  <div class="actions" style="margin-left: 10px;">
-    <%= f.submit ''%>
+  <div class="actions">
+      <%= f.submit 'Enviar dados', :style=>"background-color:#A80713; color:white;width: 120px;
+height: 40px;margin-left: 180px;border-radius: 10px;"%>
   </div>
 <% end %>

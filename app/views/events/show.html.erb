@@ -10,7 +10,7 @@
            Click here to view our location on Google Maps</a>.
       </iframe>
     </div>
-    <div style="margin-left: 20px; position: relative; float: left">
+    <div style=" position: relative; float: left">
       <p id="notice">
         <%= notice %>
       </p>
@@ -76,19 +76,20 @@
       <%end%>
     </div>
 
-    <div >
-
+  <div style="margin-left: 20px">
+      <br/><br/>
       <h1> Fit in...</h1>
+      <br/>
 
       <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
         <% @offerings.each do |offering| %>
           <% @resource  = Resource.find offering.resource_id%>
           <% @house = House.find @resource.house_id%>
-          <div class="linha">
+        <div class="linha" style="border-bottom:2px solid #AA0A00; height: 120px">
             <div style="float: left; position: relative;width: 15%;">
               <%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
             </div>
-            <div style="margin-left: 5px;position: relative; float:left;width: 55%;">
+            <div style="margin-left: 5px;position: relative; float:left;width: 55%;border-right:3px solid #AA0A00;">
               <span class="rua"><%= link_to offering.titulo, offering if can? :show, offering %></span>
               <span >
                 <p style="text-align: justify">
@@ -98,9 +99,10 @@
             <div style="float: right;width: 25%">
               <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b>
             </div>
+            
             <div style="clear:both;"></div>
           </div>
-
+          <br/>
         <%end%>
       </div>
       <br />

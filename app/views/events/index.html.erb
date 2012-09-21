@@ -3,8 +3,9 @@
 
         <h1>Eventos</h1>
         <% @events.each do |event| %>
+        <br />
         <div class="linha">
-            <span><%= link_to event.name, event if can? :show, event, :style=>"color: red" %></span>
+          <span><%= link_to event.name, event if can? :show, event, {:class=>"linkum"}%></span>
             <div></div>
             <div style="float: left; width: 80%; text-align: justify">
                 <%= event.description.to 500 %>

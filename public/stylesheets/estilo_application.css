@@ -27,14 +27,16 @@ header
     margin-top: 10px; 
 }
 
+
 div#Logo
 {
     margin-left: 50px;
     width: 880px;
     padding: 20px 50px;
-    border-bottom: 2px solid #AA0A00;
+    border-bottom: 4px solid #AA0A00;
     margin: 0 auto;
 }
+
 
 #Login
 {
@@ -142,4 +144,22 @@ div.h1Horizontal
 
 .letra_vermelha{
     color: #A80713;
+}
+
+a.linkum:link {
+color:#999999;
+text-decoration:none;
+}
+a.linkum:visited {
+color:#999999;
+text-decoration:none;
+}
+a.linkum:hover {
+color:#000000;
+text-decoration:underline;
+}
+a.linkum:active {
+color:#00FF00;
+text-decoration:underline;
+background-color:#000000;
 }
