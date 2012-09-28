@@ -76,3 +76,6 @@ db/*.sqlite3
 .project
 
 .rvmrc
+
+config/database.yml
+log/

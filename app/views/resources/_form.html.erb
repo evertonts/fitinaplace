@@ -1,16 +1,16 @@
 <%= form_for(@resource, :html =>{:class => 'form_interno'}) do |f| %>
-<% if @resource.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
-	<ul>
-		<% @resource.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
+  <% if @resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+      <ul>
+        <% @resource.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <%= hidden_field_tag :house_id, params[:house_id].to_i %>
 <div class="field">
@@ -42,38 +42,32 @@
 	<%= f.text_field :place %>
 </div>
 
-<div class="field">
-	<%= f.label 'Descrição: ' %>&nbsp;
-	<%= f.text_field :description %>
-</div>
-<div class="field">
-	<%= f.label 'Vagas: ' %>&nbsp;
-	<%= f.number_field :vacancies %>
-</div>
+  <div class="field">
+    <%= f.label 'Descrição: ' %>&nbsp;
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label 'Vagas: ' %>&nbsp;
+    <%= f.number_field :vacancies %>
+  </div>
 
-<%= f.fields_for :assets do |asset|%>
-<% if asset.object.new_record? %>
-		<div class="field">
-    	<%= f.label 'Fotos: ' %>&nbsp;
 
-		<%= asset.file_field :image%>
-	</div>
-<%end%>
-<%end%>
-<br />
-<i>(Marque as fotos que deseja excluir)</i>
-<div class="field">
-<%= f.fields_for :assets do |asset|%>
-	<% unless asset.object.new_record? %>
-	
-	<div class="field">
-		<%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original))%>
-		<%= asset.check_box :_destroy, :style => "margin-left: -130px;"%>
-	</div>
-	<% end %>
-<%end%>
-</div>
+  
+  <br />
+  <div class="field" style="padding-left: 40px">
+      <i>(Marque as fotos que deseja excluir)</i>
+    <%= f.fields_for :assets do |asset|%>
+      <% unless asset.object.new_record? %>
 
+    <div class="field" >
+          <%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original))%>
+          <%= asset.check_box :_destroy%>
+        </div>
+      <% end %>
+    <%end%>
+  </div>
+
+  <br />
 <br />
 <div class="actions">
 	  <%= f.submit 'Enviar dados', :style=>"background-color:#A80713; color:white;width: 120px;

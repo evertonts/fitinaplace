@@ -23,3 +23,5 @@ gem 'mongrel', '>= 1.2.0.pre2'
 gem 'dispatcher'
 gem 'execjs'
 gem 'therubyracer'
+gem 'devise-encryptable'
+gem "friendly_id", "~> 4.0.1"

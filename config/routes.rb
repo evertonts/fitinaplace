@@ -4,12 +4,14 @@ Fitinaplace::Application.routes.draw do
   end
 
   resources :resources
+
   resources :busca do
     post :search, :on => :collection
   end
 
+  resources :assets, :only => :create
   resources :offerings
-
+  resources :comments, :only => :create
   resources :events
   resources :houses
   resources :questions

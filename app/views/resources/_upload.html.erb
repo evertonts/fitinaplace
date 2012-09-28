@@ -1,0 +1,10 @@
+<div class="listagemcinza" style="float: left; padding: 15px; margin-top: 20px;">
+
+  <h1 class="titulo"> Upload de fotos</h1>
+  <%= form_for @asset do |f| %>
+    <%= hidden_field_tag :resource_id, @resource.id %>
+    <%= f.file_field :image %>
+    <br/>
+    <%= f.submit "Enviar" %>
+  <% end %>
+</div>

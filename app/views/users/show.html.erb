@@ -13,9 +13,14 @@
         <p>
           Telefone: <%= @user.telefone if @user.telefone %>
         </p>
+        <h4>Avaliação</h4>
+        <form>
+          <% (1..5).each do |i| %>
+            <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
+          <% end %>
+        </form>
       </div>
     </div>
-
     <div style="float: left">
       <h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
       <% if @negociations.empty? %>
@@ -40,6 +45,7 @@
               <% if negociation.status == true %> <td>Reservado</td>
               <% else %> <td>Aguardando</td>
               <%end%> <td style="text-align: center"><%= event.name %></td>
+
               <td><%= space.description.to 200 %></td>
               <td> <%= user.email unless negociation.status == false %></td>
             </tr>
@@ -68,6 +74,42 @@
         <%end%>
       </table>
       <br />
+
+      <h3 class="titulo"> Comentários </h3>
+      <% @comments.each do |comment| %>
+        <% commenter = User.find comment.commenter_id %>
+        <% unless comment.comment.blank? %>
+          <div class="listagemcampobranco" style="padding: 5px">
+            <h4> <%= commenter.name %> disse:</h4>
+            <form>
+              <% (1..5).each do |i| %>
+                <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == comment.grade  %>/>
+              <% end %>
+            </form>
+            <br/>
+            <p> <%= comment.comment %></p>
+
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+    <div style="margin: 5%">
+      <h2 class="titulo" style="float: left"> Dê sua opinião</h2>
+      <%= form_for (@comment) do |f| %>
+        <%= hidden_field_tag "user_id", params[:id] %>
+        <div style="margin-left: 3%">
+          <%= f.text_area :comment, :style => "width: 90%; height: 100px;"%>
+          <br />
+          <div>
+            <%= f.label "Nota:", :class => "fit_red", :style => "float:left"%>
+            <% (1..5).each do |i| %>
+              <input name="star1" type="radio" class="star" value="<%= i %>"/>
+            <% end %>
+            <%= f.submit "Enviar"%>
+          </div>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>

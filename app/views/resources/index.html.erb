@@ -5,7 +5,7 @@
       <% if params[:house_id].to_i == resource.house_id  %>
         <div class="linha">
           <div style="float: left; position: relative;width: 35%;">
-            <%= image_tag(resource.assets.first.image.url(:thumb))%>
+            <%= image_tag(resource.assets.first.image.url(:thumb)) unless resource.assets.first.nil?%>
           </div>
           <div style="margin-left: 5px;position: relative; float:left;width: 64%; text-align: justify">
             <span class="rua"><%= link_to resource.place, resource %></span>
@@ -25,6 +25,4 @@
     <% end %>
   </div>
   <br />
-
-
 </div>
