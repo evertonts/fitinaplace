@@ -68,9 +68,7 @@
   <br />
   <% if user_signed_in? %>
     <div style="margin-left: 20px">
-      <%= link_to 'Adicionar oferta', new_offering_path(:event_id => @event.id) %> |
-
-      <%= link_to 'Mostrar ofertas disponíveis', offerings_path(:event_id => @event.id) %>
+      <%= link_to 'Adicionar oferta', new_offering_path(:event_id => @event.id) %>
       <% if current_user.id== @event.user_id%>
         | <%= link_to 'Editar', edit_event_path(@event) %> <!--<%= link_to 'Back', events_path %>-->
       <%end%>
