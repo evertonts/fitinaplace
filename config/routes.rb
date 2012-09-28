@@ -4,9 +4,9 @@ Fitinaplace::Application.routes.draw do
   end
 
   resources :resources
-
+  resources :assets, :only => :create
   resources :offerings
-
+  resources :comments, :only => :create
   resources :events
   resources :houses
   resources :questions

@@ -1,235 +1,241 @@
 body 
 {
-	background-color: #DBD9D9;
-	margin-top: 0px;
-	font-family: "Trebuchet MS";
-	text-align: justify;
+    background-color: #DBD9D9;
+    margin-top: 0px;
+    font-family: "Trebuchet MS";
+    text-align: justify;
 }
 
 #header, #container, #footer, #background 
 {
-	background-color: #ffffff;
-	margin-left: auto;
-	margin-right: auto;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul.nav 
 {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 ul.nav li 
 {
-  display: inline;
+    display: inline;
 }
 
 #background
 {
-	width: 990px;
+    width: 990px;
 }
 
 .redline {
-	background-color: #A80713;
-	height: 5px;
+    background-color: #A80713;
+    height: 5px;
 }
 
 table.user th {
-	color: #BD2026;
-	padding: 5px;
-	font-family: Trebuchet MS;
-	text-align: left;
+    color: #BD2026;
+    padding: 5px;
+    font-family: Trebuchet MS;
+    text-align: left;
 }
 
 table.user td {
-	padding: 5px;
-	font-family: Trebuchet MS;
-	text-align: left;
+    padding: 5px;
+    font-family: Trebuchet MS;
+    text-align: left;
 }
 
 #background{
-	background-color: #FFFFFF;
-	
+    background-color: #FFFFFF;
+
 }
 
 .container_aonde 
 {
-	background-image:url('/resources/images/Moldura-para-caixa-de-busca.png');
-	background-repeat: no-repeat;
-	height: 248px;
-	width: 500px;
-	float: left;
-	margin-right: 15px;
+    background-image:url('/resources/images/Moldura-para-caixa-de-busca.png');
+    background-repeat: no-repeat;
+    height: 248px;
+    width: 500px;
+    float: left;
+    margin-right: 15px;
 }
 .container_aonde input[type='text']
 {
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	font-size: 20pt;
-	border-color: #A80713;
-	border-style: solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20pt;
+    border-color: #A80713;
+    border-style: solid;
 }
 
 .listagemcinza
 {
-	float:left; 
-	background-color: #F4F2F2; 
-	margin-left: 3%;
-	width: 70%;
-	border-radius: 10px;
+    float:left;
+    background-color: #F4F2F2;
+    margin-left: 3%;
+    width: 70%;
+    border-radius: 10px;
 }
 
 .bordacinza{
-	margin-left: 3%;
-	background-color: #F4F2F2; 
-	border-radius: 10px;
+    margin-left: 3%;
+    background-color: #F4F2F2;
+    border-radius: 10px;
 }
 
 .titulo
 {
-	font-size: 20pt;
-	font-family: Trebuchet MS;
-	color: #BD2026;
+    font-size: 20pt;
+    font-family: Trebuchet MS;
+    color: #BD2026;
+}
+
+.fit_red
+{
+    font-family: Trebuchet MS;
+    color: #BD2026;
 }
 
 .listagemcampobranco
 {
-	background-color: white;
-	margin-left: 6%;
-	margin-right: 2%;
-	border-radius: 10px
+    background-color: white;
+    margin-left: 6%;
+    margin-right: 2%;
+    border-radius: 10px
 }
 
 .destaquelateral
 {
-	float:right;
-	border: 1px solid #A80713; 
-	border-radius: 10px; 
-	color: #A80713; 
-	font-size: 20pt; 
-	font-weight: bold;
-	margin-right: 2%;
+    float:right;
+    border: 1px solid #A80713;
+    border-radius: 10px;
+    color: #A80713;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-right: 2%;
 }
 
 
 #left-column{
-	float: left;
+    float: left;
 }
 
 #right-column{
-	float:right;
+    float:right;
 }
 
 div.field {
-  clear: both;
-  padding-top: 5px;
-  }
+    clear: both;
+    padding-top: 5px;
+}
 
 div.field label {
-  float: left;
-  width: 150px;
-  text-align: right;
-  color: #B84848;
-  height: 35px;
-  line-height: 35px;
-  padding: 0;
-  font-size: 12px;
-  }
+    float: left;
+    width: 150px;
+    text-align: right;
+    color: #B84848;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    font-size: 12px;
+}
 
 div.field input[type="text"], input[type="number"]{
-  width: 335px;
-  height: 25px;
-  text-align: left;
-  border: 1px solid #C9C7C4;
-  
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
+    width: 335px;
+    height: 25px;
+    text-align: left;
+    border: 1px solid #C9C7C4;
+
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
 } 
 
 div.form_normal{
-	padding: 0.5% 1% 5% 1%;
-	background-color: #F4F2F2; 
-	margin-left: 3%;
-	width: 70%;
-	border-radius: 10px;
-	-webkit-border-radius: 10px;
--moz-border-radius: 10px;
+    padding: 0.5% 1% 5% 1%;
+    background-color: #F4F2F2;
+    margin-left: 3%;
+    width: 70%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
 }
 
 div.form_normal form.form_interno{
-	padding-top: 5%;
-	padding-bottom: 5%;
-	background-color: white;
-	margin-left: 5%;
-	margin-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 div.form_normal h1
 {
-	 margin-left: 5%;
+    margin-left: 5%;
     margin-right: 5%;
     padding-top: 1%;
 }
 form.form_interno input[type='submit']
 {
-	background-image: url("/resources/images/botao-02.png");
-	border:none;
-	width: 117px;
-	height: 24px;
-	background-color: white;
-	 outline:none; 
-	 margin-left: 150px;
+    background-image: url("/resources/images/botao-02.png");
+    border:none;
+    width: 117px;
+    height: 24px;
+    background-color: white;
+    outline:none;
+    margin-left: 150px;
 }
 
 form.form_interno input[type='submit']:active{
-	border: none;
-	 outline:none; 
+    border: none;
+    outline:none;
 }
 
 
 div.listagemcinza div.linha{
-	padding: 3% 3% 3% 3%;
-	margin: 1% 1% 1% 1%;
-	background-color: #FFFFFF; 
-	margin-left: 2%;
-	width: 90%;
-	border-radius: 10px;
-	-webkit-border-radius: 10px;
--moz-border-radius: 10px;
-position: relative;
+    padding: 3% 3% 3% 3%;
+    margin: 1% 1% 1% 1%;
+    background-color: #FFFFFF;
+    margin-left: 2%;
+    width: 90%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    position: relative;
 }
 
 div.listagemcinza div.linha span.rua{
-	   font-size: 154%;
+    font-size: 154%;
     font-weight: bold;
     line-height: 1em;
-        color: #000000;
+    color: #000000;
     font-family: arial,sans-serif;
-    
+
 }
 
 div.listagemcinza div.linha span.localizacao{
-	 line-height: 1.4em;
-	    color: #000000;
+    line-height: 1.4em;
+    color: #000000;
     font-family: arial,sans-serif;
     font-size: 13px;
 }
 
 div.listagemcinza h1,h2{
-	    color: #BD2026;
+    color: #BD2026;
     font-family: Trebuchet MS;
     font-size: 20pt;
     margin-left: 3%;
 }
 
 form.new_user div.linha{
-  font-size: 14pt;
-  margin: 15px 10px;
+    font-size: 14pt;
+    margin: 15px 10px;
 }
 
 form.new_user div.linha label
 {
-  display: block;
+    display: block;
     float: left;
     width: 100px;
 }
@@ -258,13 +264,13 @@ form.new_user div.linha label
     min-height:         500px;
     float:              left;
     width:              640px;
- 	 padding: 				10px 20px;   
+    padding: 				10px 20px;
 }
 
 #main2 h1,
 #main2 h2
 {
-	color: #A80713;
+    color: #A80713;
 }
 
 

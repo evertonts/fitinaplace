@@ -14,7 +14,7 @@ class ResourcesController < ApplicationController
   # GET /resources/1.json
   def show
     @resource = Resource.find(params[:id])
-
+    @asset = Asset.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @resource }

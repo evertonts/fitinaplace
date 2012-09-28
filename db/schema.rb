@@ -11,9 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904145746) do
+ActiveRecord::Schema.define(:version => 20120904163946) do
 
   create_table "address", :force => true do |t|
+    t.string   "street"
+    t.integer  "number"
+    t.string   "complement"
+    t.string   "neightborhood"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "addresses", :force => true do |t|
     t.string   "street"
     t.integer  "number"
     t.string   "complement"
@@ -35,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "commenter_id"
+    t.text     "comment"
+    t.integer  "grade"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -47,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "address_id"
     t.string   "slug"
   end
 
@@ -78,6 +100,15 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "address_id"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "text"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "negociations", :force => true do |t|
