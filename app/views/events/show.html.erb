@@ -74,7 +74,7 @@
       <%end%>
     </div>
 
-  <div style="margin-left: 20px">
+    <div style="margin-left: 20px">
       <br/><br/>
       <h1> Fit in...</h1>
       <br/>
@@ -83,7 +83,7 @@
         <% @offerings.each do |offering| %>
           <% @resource  = Resource.find offering.resource_id%>
           <% @house = House.find @resource.house_id%>
-        <div class="linha" style="border-bottom:2px solid #AA0A00; height: 120px">
+            <div class="linha" style="border-bottom:2px solid #AA0A00; height: 120px">
             <div style="float: left; position: relative;width: 15%;">
               <%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
             </div>
@@ -97,7 +97,7 @@
             <div style="float: right;width: 25%">
               <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b>
             </div>
-            
+
             <div style="clear:both;"></div>
           </div>
           <br/>

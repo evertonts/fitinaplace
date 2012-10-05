@@ -24,6 +24,7 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @house = House.find(params[:id])
+    @resources = Resource.find_all_by_house_id @house.id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @house }
