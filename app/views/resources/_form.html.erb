@@ -13,40 +13,40 @@
   <% end %>
 
 <%= hidden_field_tag :house_id, params[:house_id].to_i %>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Café da manhã:' %>
 	<%= f.check_box :breakfast %>
 </div>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Almoço: ' %>
 	<%= f.check_box :lunch %>
 </div>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Jantar: ' %>
 	<%= f.check_box :dinner %>
 </div>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Banheiro individual: ' %>
 	<%= f.check_box :private_bathroon %>
 </div>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Espaço privativo: ' %>
 	<%= f.check_box :private_space %>
 </div>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Estacionamento: ' %>&nbsp;
 	<%= f.number_field :parking_spaces %>
 </div>
-<div class="field">
+<div class="letra_vermelha">
 	<%= f.label 'Cômodo: ' %>&nbsp;
 	<%= f.text_field :place %>
 </div>
 
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Descrição: ' %>&nbsp;
     <%= f.text_field :description %>
   </div>
-  <div class="field">
+  <div class="letra_vermelha">
     <%= f.label 'Vagas: ' %>&nbsp;
     <%= f.number_field :vacancies %>
   </div>
@@ -54,12 +54,12 @@
 
   
   <br />
-  <div class="field" style="padding-left: 40px">
+  <div class="letra_vermelha" style="padding-left: 40px">
       <i>(Marque as fotos que deseja excluir)</i>
     <%= f.fields_for :assets do |asset|%>
       <% unless asset.object.new_record? %>
 
-    <div class="field" >
+    <div class="letra_vermelha" >
           <%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original))%>
           <%= asset.check_box :_destroy%>
         </div>

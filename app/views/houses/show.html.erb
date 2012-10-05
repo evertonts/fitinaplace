@@ -35,16 +35,14 @@
       <%= @house.country %>
     </p>
   </div><br />
-  <div style="margin-left: 20px">
-    <%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
-    <%= link_to 'Mostrar recursos', resources_path(:house_id => @house.id) %>|
-    <%= link_to 'Editar', edit_house_path(@house) %>
-  </div>
+
 
     <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
       <br />
     <h1>Recursos</h1>
+    <br />
     <% @resources.each do |resource| %>
+    <br />
         <div class="linha"style="border-bottom:2px solid #AA0A00; height: 120px">
           <div style="float: left; position: relative;width: 35%;">
             <%= image_tag(resource.assets.first.image.url(:thumb) ,  :height => "100px", :width => "100px") unless resource.assets.first.nil?%>
@@ -52,6 +50,7 @@
           <div style="margin-left: 5px;position: relative; float:left;width: 64%; text-align: justify">
             <span class="rua"><%= link_to resource.place, resource %></span>
             <span >
+              <br />
               <p style="text-align: justify">
                 <%= resource.description.to 200 %>
               </p></span>
@@ -61,6 +60,12 @@
          </div>
         <div></div>
         <div style="clear:both;"></div>
+      
     <% end %>
+
+  </div>
+      <div style="margin-left: 20px">
+    <%= link_to 'Adicionar um novo recurso', new_resource_path(:house_id => @house.id) %> |
+    <%= link_to 'Editar Casa', edit_house_path(@house) %>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <div id="main" role="main" class="application">
   <div style="margin-left: 20px;">
-    <div style="position: relative; float: left">
-      <%= image_tag @event.avatar.url(:medium)%>
+    <div style="position: relative; float: left; width: 30%">
+      <%= image_tag @event.avatar.url(:medium), :height => '200px'%>
     </div>
     <div style="float: right; padding-right: 30px">
       <iframe src="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+") %>&output=embed"
