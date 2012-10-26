@@ -1,5 +1,5 @@
-<div id="main" role="main" class="application">
-
+<div id="main" role="main" class="form_normal">
+  <div style="margin-left: 20%;">
   <h1>Editar usuário </h1>
   <div class="linha"/>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),  :class => "formAligns", :html => { :method => :put, :multipart => true, :class =>"form_interno"}) do |f| %>
@@ -40,7 +40,7 @@
   <div style="margin-left: 40px;margin-top: 30px;">
     <h3>Cancelar minha conta</h3>
 
-    <p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %>.</p>
+    <p class="letra_vermelha">Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %>.</p>
   </div>
-
+  </div>
 </div>
