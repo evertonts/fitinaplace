@@ -10,3 +10,4 @@ License
 Instruções
 
 - Instalar o ImageMagick
+- No ubuntu é necessário instalar o pacote 'libmysqlclient-dev'
