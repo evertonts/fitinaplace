@@ -1,7 +1,7 @@
 <div id="main" role="main" class="application">
   <div style="margin-left: 20px;">
     <div style="position: relative; float: left; width: 30%">
-      <%= image_tag @event.avatar.url(:medium), :height => '200px'%>
+      <%= image_tag @event.avatar.url(:medium), :height => '300px', :width=> '350px'%>
     </div>
     <div style="float: right; padding-right: 30px">
       <iframe src="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+") %>&output=embed"
@@ -61,7 +61,7 @@
 
   <div style="margin: 10px 10px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 90%">
 
-    <%= @event.description %>
+    <%= simple_format(@event.description) %>
   </div>
 
 
@@ -76,7 +76,7 @@
 
     <div style="margin-left: 20px">
       <br/><br/>
-      <h1> Fit in...</h1>
+      <h1 style="font-size: 30;">Fit in...</h1>
       <br/>
 
       <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
