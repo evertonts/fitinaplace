@@ -233,12 +233,20 @@ ul.menu-horizontal
 ul.menu-horizontal li
 {
     float: left;
-    padding: 5px 10px;
+    
 }
 
 ul.menu-horizontal li a
 {
     display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+
+ul.menu-horizontal a:hover
+{
+    background-color: rgb(122, 7, 0);
 }
 
 input  
