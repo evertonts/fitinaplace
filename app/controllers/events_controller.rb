@@ -8,7 +8,17 @@ class EventsController < ApplicationController
     if params[:search].blank?
       @events = Event.all
     else
-      @events = Event.find_by_sql("select * from events where description like '%#{params[:search]}%' or name like '%#{params[:search]}%' or address like '%#{params[:search]}%' or city like '%#{params[:search]}%' or state like '%#{params[:search]}%'")
+      search = Event.search do
+      	fulltext params[:search] do
+      		boost_fields :name => 3.0
+      		boost_fields :description => 2.0
+      		boost_fields :city => 2.0
+      		boost_fields :state => 1.5
+      		query_phrase_slop 1
+      	end
+      end
+      
+      @events = search.results
     end
 
     respond_to do |format|
