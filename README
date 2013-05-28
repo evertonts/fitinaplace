@@ -11,3 +11,7 @@ Instruções
 
 - Instalar o ImageMagick
 - No ubuntu é necessário instalar o pacote 'libmysqlclient-dev'
+
+- Como está sendo utilizado o solr, agora é necessário iniciá-lo. Para isso rode no terminal:
+$ rake sunspot:solr:start
+$ rake sunspot:solr:reindex

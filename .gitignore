@@ -79,3 +79,5 @@ db/*.sqlite3
 
 config/database.yml
 log/
+solr/data
+solr/pids

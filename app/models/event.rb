@@ -15,4 +15,8 @@ class Event < ActiveRecord::Base
     end 
   end
   
+  searchable do
+  	text :description, :name, :city, :state
+  end
+  
 end
