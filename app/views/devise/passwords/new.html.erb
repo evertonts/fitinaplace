@@ -4,10 +4,11 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name),  :class => "formAligns", :html => { :method => :post, :class => 'form_interno' }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field"><%= f.label 'Email:' %>&nbsp;
-  <%= f.email_field :email %></div>
+  <div class="letra_vermelha"><%= f.label 'Email:' %>&nbsp;
+  <%= f.email_field :email, :style => "border-color:#A80713;" %></div>
   <br />
-  <div style="margin-left: 11px"><%= f.submit "Enviar" %></div>
+  <div style="margin-left: 11px"><%= f.submit "Enviar",:style=>"background-color:#A80713; color:white;width: 120px;
+  height: 40px;margin-left: 40px;border-radius: 10px;" %></div>
 <% end %>
 <br />
 <div style="margin-left: 40px">

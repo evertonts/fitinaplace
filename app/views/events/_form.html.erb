@@ -15,10 +15,13 @@
     <%= f.label 'Nome: '%>&nbsp;
     <%= f.text_field :name , :style=>"border-color: #A80713;"%>
   </div>
+<br />
   <div class="letra_vermelha">
     <%= f.label 'Descrição: ' %>&nbsp;
-    <%= f.text_area :description , :style=>"border-color: #A80713; size=20x10"%>
+    <br />
+    <%= f.text_area :description , :style=>"border-color: #A80713; background-color:white; margin-left: 77px; margin-top: -17px;border-style: solid;border-width: 2px;", :size => '20x10'%>
   </div>
+  <br />
   <div class="letra_vermelha">
     <%= f.label 'Endereço: ' %>&nbsp;
     <%= f.text_field :address, :style=>"border-color: #A80713;" %>
