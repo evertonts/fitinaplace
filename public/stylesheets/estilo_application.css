@@ -146,6 +146,15 @@ div.h1Horizontal
     color: #A80713;
 }
 
+.letra_vermelha label {
+    display: inline-table;
+    width: 15%;
+}
+
+.letra_vermelha input {
+    border-color: #A80713;
+}
+
 a.linkum:link {
 color:#999999;
 text-decoration:none;
@@ -162,4 +171,15 @@ a.linkum:active {
 color:#00FF00;
 text-decoration:underline;
 background-color:#000000;
+}
+
+.actions input {
+    background-color:#A80713;
+    color:white;width: 120px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.actions input:hover {
+    background-color: rgb(122, 7, 0);
 }
