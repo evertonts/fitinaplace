@@ -155,6 +155,10 @@ div.h1Horizontal
     border-color: #A80713;
 }
 
+.letra_vermelha select {
+    border: 2px solid #A80713;
+}
+
 a.linkum:link {
 color:#999999;
 text-decoration:none;
@@ -175,7 +179,8 @@ background-color:#000000;
 
 .actions input {
     background-color:#A80713;
-    color:white;width: 120px;
+    color:white;
+    width: 120px;
     height: 40px;
     border-radius: 10px;
 }

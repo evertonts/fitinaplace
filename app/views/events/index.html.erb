@@ -4,12 +4,12 @@
     <% @events.each do |event| %>
       <br />
       <div class="linha row-fluid">
-        <div class="spam9" style="float: left; text-align: justify">
+        <div class="span9">
           <span><%= link_to event.name, event if can? :show, event, {:class=>"linkum"}%></span>
           <br/>
-          <%= simple_format(event.description.to 500) %>
+          <%=  simple_format (event.description.to 500), :style => "text-align: left" %>
         </div>
-        <div class="spam3" style="float: right">
+        <div class="span3">
           <%= image_tag event.avatar.url(:thumb)%>
         </div>
       </div>
@@ -20,6 +20,7 @@
     <%= link_to 'Criar um novo evento', new_event_path %>
   <%end%>
 </div>
+
 
 <div class="destaquelateral" style="width: 250px;" hidden>
   <h2> Destaques </h2>

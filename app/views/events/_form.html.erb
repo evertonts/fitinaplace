@@ -4,46 +4,46 @@
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="letra_vermelha">
-    <%= f.label 'Nome: '%>&nbsp;
-    <%= f.text_field :name , :style=>"border-color: #A80713;"%>
-  </div>
-<br />
-  <div class="letra_vermelha">
-    <%= f.label 'Descrição: ' %>&nbsp;
-    <br />
-    <%= f.text_area :description , :style=>"border-color: #A80713; background-color:white; margin-left: 77px; margin-top: -17px;border-style: solid;border-width: 2px;", :size => '20x10'%>
+    <%= f.label 'Nome: '%>
+    <%= f.text_field :name, :style => "width: 50%" %>
   </div>
   <br />
   <div class="letra_vermelha">
-    <%= f.label 'Endereço: ' %>&nbsp;
-    <%= f.text_field :address, :style=>"border-color: #A80713;" %>
+    <%= f.label 'Descrição: ' %>
+    <%= f.text_area :description, :size => '40x10', :style => "width: 50%"%>
+  </div>
+  <br />
+  <div class="letra_vermelha">
+    <%= f.label 'Endereço: ' %>
+    <%= f.text_field :address, :style => "width: 50%" %>
   </div>
   <div class="letra_vermelha">
-    <%= f.label 'Cidade: ' %>&nbsp;
-    <%= f.text_field :city , :style=>"border-color: #A80713;"%>
+    <%= f.label 'Cidade: ' %>
+    <%= f.text_field :city%>
   </div>
   <div class="letra_vermelha">
-    <%= f.label 'Estado: ' %>&nbsp;
-    <%= f.text_field :state, :style=>"border-color: #A80713;" %>
+    <%= f.label 'Estado: ' %>
+    <%= f.text_field :state %>
   </div>
   <div class="letra_vermelha">
-    <%= f.label 'Data: ' %>&nbsp;
-    <%= f.date_select :date , :style=>"border-color: #A80713;"%>
+    <%= f.label 'Data: ' %>
+    <%= f.date_select :date, {}, :style => "width: 110px" %>
   </div>
-  
-  <div class="letra_vermelha"><%= f.label 'Foto: ' %>&nbsp;
-	<%= f.file_field :avatar , :style=>"border-color: #A80713;"%></div>
-  <div class="actions" style="margin-left: 10px">
-  	<br />
-    <%= f.submit 'Enviar dados', :style=>"background-color:#A80713; color:white;width: 120px;
-height: 40px;margin-left: 180px;border-radius: 10px;"%>
+
+  <div class="letra_vermelha">
+    <%= f.label 'Foto: ' %>
+    <%= f.file_field :avatar%></div>
+
+  <br/>
+  <div class="actions" >
+    <%= f.submit 'Enviar dados'%>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 <div id="main" role="main" class="application">
   <div class="container-fluid" >
     <div class="row-fluid">
-      <div class="spam3" style="position: relative; float: left; width: 30%">
+      <div class="span5" style="position: relative; float: left;">
         <%= image_tag @event.avatar.url(:medium), :height => '300px', :width=> '350px'%>
         <div style=" position: relative; float: left">
           <p id="notice">
@@ -44,7 +44,7 @@
           </p>
         </div>
       </div>
-      <div class="spam7" style="float: right; padding-right: 30px">
+      <div class="span6  offset1" style="float: right; padding-right: 30px">
         <iframe src="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+") %>&output=embed"
                 width="425" height="350">
           <a href="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+")%>"
