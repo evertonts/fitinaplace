@@ -179,7 +179,7 @@ img
     text-decoration: none;
 }
 
-label, button 
+ button 
 {
     cursor: pointer;
 }
