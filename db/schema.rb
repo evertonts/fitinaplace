@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904145746) do
+ActiveRecord::Schema.define(:version => 20130529183229) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.string   "country"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "cep"
   end
 
   create_table "assets", :force => true do |t|
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.text     "description",         :limit => 255
+    t.text     "description"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -131,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.integer  "house_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "address_id"
   end
 
   create_table "users", :force => true do |t|
@@ -159,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "role",                   :default => "site_user"
+    t.integer  "address_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   validates_presence_of :rg, :email, :cpf, :telefone,:name
   validates_uniqueness_of  :email, :cpf,  :case_sensitive => false
 
-  has_many :houses
+  has_many :resources
+  has_one :address
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :rg, :email, :cpf, :telefone,:name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, 
