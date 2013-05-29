@@ -1,17 +1,16 @@
 <div id="main" role="main" class="application">
-<h1>Reenviar as instruções de confirmação</h1>
+  <h1>Reenviar as instruções de confirmação</h1>
 
-<%= form_for(resource, :class => "formAligns", :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'form_interno' }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, :class => "formAligns", :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'form_interno' }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="letra_vermelha"><%= f.label :email %>&nbsp;
-  <%= f.email_field :email, :style=>"border-color:#A80713 " %></div>
+    <div class="letra_vermelha"><%= f.label :email %>
+      <%= f.email_field :email %></div>
+    <br />
+    <div class="actions"><%= f.submit "Enviar" %></div>
+  <% end %>
   <br />
-  <div class="actions" style="margin-left: 12px"><%= f.submit "Enviar",:style=>"background-color:#A80713; color:white;width: 120px;
-  height: 40px;margin-left: 40px;border-radius: 10px;" %></div>
-<% end %>
-  <br />
-<div>
-<%= render :partial => "devise/shared/links" %>
-</div>
+  <div>
+    <%= render :partial => "devise/shared/links" %>
+  </div>
 </div>
