@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.text     "description",         :limit => 255
+    t.text     "description"
     t.string   "address"
     t.string   "city"
     t.string   "state"

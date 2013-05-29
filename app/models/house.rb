@@ -3,7 +3,7 @@ class House < ActiveRecord::Base
   validates_presence_of :image
   belongs_to :user
   has_one :addresss
-  has_attached_file :image, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :image, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" },:default_url => '/assets/notFound.png'
    
   def get_address
     unless self.address_id.nil?

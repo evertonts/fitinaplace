@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :offerings
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
-  has_attached_file :avatar, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" },:default_url => '/assets/notFound.png'
   
   def get_address
     unless self.address_id.nil?
