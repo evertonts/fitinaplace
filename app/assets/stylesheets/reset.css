@@ -57,7 +57,7 @@ textarea
 {
     font-size: 100%;
     font-family: monaco, "Lucida Console", courier, mono-space;
-    background-color: #CCC;
+    border: #A80713 2px solid;
 }
 
 del 
