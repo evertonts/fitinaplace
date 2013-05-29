@@ -4,42 +4,36 @@
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),  :class => "formAligns", :html => { :method => :put, :multipart => true, :class =>"form_interno"}) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="letra_vermelha"><%= f.label "Foto:" %>&nbsp;
-      <%= f.file_field :avatar, :style=>"border-color:#A80713 " %></div><br />
+    <div class="letra_vermelha"><%= f.label "Foto:" %>
+      <%= f.file_field :avatar  %></div>
 
-    <div class="letra_vermelha"><%= f.label 'Nome:' %>&nbsp;
-      <%= f.text_field :name, :style=>"border-color:#A80713 "  %></div>
+    <div class="letra_vermelha"><%= f.label 'Nome:' %>
+      <%= f.text_field :name   %></div>
 
-    <div class="letra_vermelha"><%= f.label 'CPF:' %>&nbsp;
-      <%= f.text_field :cpf, :style=>"border-color:#A80713 "  %></div>
+    <div class="letra_vermelha"><%= f.label 'CPF:' %>
+      <%= f.text_field :cpf   %></div>
 
-    <div class="letra_vermelha"><%= f.label 'RG:' %>&nbsp;
-      <%= f.text_field :rg, :style=>"border-color:#A80713 "  %></div>
+    <div class="letra_vermelha"><%= f.label 'RG:' %>
+      <%= f.text_field :rg   %></div>
 
-    <div class="letra_vermelha"><%= f.label 'Telefone:' %>&nbsp;
-      <%= f.text_field :telefone, :style=>"border-color:#A80713 "  %></div>
+    <div class="letra_vermelha"><%= f.label 'Telefone:' %>
+      <%= f.text_field :telefone   %></div>
 
-    <div class="letra_vermelha"><%= f.label 'Email:' %>&nbsp;
-      <%= f.email_field :email, :style=>"border-color:#A80713 "  %></div>
+    <div class="letra_vermelha"><%= f.label 'Email:' %>
+      <%= f.email_field :email   %></div>
 
-    &nbsp;<i>(deixe em branco se não deseja mudá-la)</i>
-    <div class="letra_vermelha"><%= f.label 'Senha: ' %> &nbsp;
-      <%= f.password_field :password, :autocomplete => "off", :style=>"border-color:#A80713 "  %></div>
+     <i>(deixe em branco se não deseja mudá-la)</i>
+    <div class="letra_vermelha"><%= f.label 'Senha: ' %>
+      <%= f.password_field :password, :autocomplete => "off"   %></div>
 
-    <div class="letra_vermelha"><%= f.label 'Confirmação da senha:' %>&nbsp;
-      <%= f.password_field :password_confirmation, :style=>"margin-left: 5px;", :style=>"border-color:#A80713 " %></div>
+    <div class="letra_vermelha"><%= f.label 'Confirmar senha:' %>
+      <%= f.password_field :password_confirmation  %></div>
 
-    &nbsp;<i>(precisamos da sua senha atual para confirmar as mudanças)</i>
-    <div class="letra_vermelha"><%= f.label 'Senha atual:'%> &nbsp;
-      <%= f.password_field :current_password, :style=>"border-color:#A80713 "  %></div>
+     <i>(precisamos da sua senha atual para confirmar as mudanças)</i>
+    <div class="letra_vermelha"><%= f.label 'Senha atual:'%>
+      <%= f.password_field :current_password   %></div>
     <br />
-    <div class="actions"><%= f.submit "Enviar dados" , :style=>"background-color:#A80713; color:white;width: 120px;
-  height: 40px;margin-left: 180px;border-radius: 10px;"%></div>
+    <div class="actions"><%= f.submit "Enviar dados"%></div>
   <% end %>
-  <div style="margin-left: 40px;margin-top: 30px;">
-    <h3>Cancelar minha conta</h3>
-
     <p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %>.</p>
-  </div>
-
 </div>

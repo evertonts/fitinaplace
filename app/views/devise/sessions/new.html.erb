@@ -1,0 +1,24 @@
+<div id="main" role="main" class="application">
+  <h1>Entrar</h1>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),  :class => "formAligns", :html => { :class => 'form_interno'}) do |f| %>
+    <div class="letra_vermelha">
+      <%= f.label "Email: "%>
+      <%= f.email_field :email%>
+    </div>
+
+    <div class="letra_vermelha">
+      <%= f.label 'Senha: '%>
+      <%= f.password_field :password%>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+    <div class="letra_vermelha">
+      <%= f.check_box :remember_me, :style => "margin: 0" %>
+      <%= f.label "Lembrar de mim"  %>
+      </div>
+    <% end %>
+
+    <div class="actions"><%= f.submit "Entrar"%></div>
+  <% end %>
+
+  <%= render :partial => "devise/shared/links" %>
+</div>

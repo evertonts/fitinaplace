@@ -1,35 +1,30 @@
 <div id= "main2" role="main" class="application"  >
-    <div class="listagemcinza" style="width: 95%">
-
-        <h1>Eventos</h1>
-        <% @events.each do |event| %>
-        <br />
-        <div class="linha">
+  <div class="listagemcinza" style="width: 95%">
+    <h1>Eventos</h1>
+    <% @events.each do |event| %>
+      <br />
+      <div class="linha row-fluid">
+        <div class="spam9" style="float: left; text-align: justify">
           <span><%= link_to event.name, event if can? :show, event, {:class=>"linkum"}%></span>
-            <div></div>
-            <div style="float: left; width: 80%; text-align: justify">
-                <%= event.description.to 500 %>
-            </div>
-            <div style="float: right">
-                <%= image_tag event.avatar.url(:thumb)%>
-            </div>
-            <div style="clear:both"></div>
-            <!--  <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if can? :destroy, event %>-->
+          <br/>
+          <%= simple_format(event.description.to 500) %>
         </div>
-        <%end%>
-
-        <div style="clear:both"></div>
-    </div>
-    <br />
-    <% if user_signed_in? %>
-    <%= link_to 'Criar um novo evento', new_event_path, :style => "margin-left: 3%" %>
-    <%end%> 
+        <div class="spam3" style="float: right">
+          <%= image_tag event.avatar.url(:thumb)%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  <br />
+  <% if user_signed_in? %>
+    <%= link_to 'Criar um novo evento', new_event_path %>
+  <%end%>
 </div>
 
 <div class="destaquelateral" style="width: 250px;" hidden>
-    <h2> Destaques </h2>
-    <div>
-        <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
-    </div>
+  <h2> Destaques </h2>
+  <div>
     <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
+  </div>
+  <img src="/resources/images/Bmw-jazz-festival-saiba-tudo-2012-2.jpg" style="margin: 10px;" />
 </div>
