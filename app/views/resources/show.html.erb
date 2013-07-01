@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%if !notice.nil?%>
+    <div class="alert alert-success"><%= notice %></div>
+    <%end%>
 
 <div id="main" role="main" class="application">
   <p style="margin-left: 40px;"> <h1>Detalhes do Recurso </h1>

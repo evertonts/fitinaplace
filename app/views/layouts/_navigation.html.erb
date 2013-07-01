@@ -4,14 +4,7 @@
     <li><%= link_to("casas", houses_path) %></li>
     <li><%= link_to("logout", destroy_user_session_path, :method=>'delete') %></li>
     <li><%= link_to("editar conta", edit_user_registration_path) %></li>
-            <%= form_tag events_path, :method => 'get' do  %>
-            <div class="menu-horizontal">
-                <label style="float: left;  font-size: 13px; color: white; margin-top: 4.5px;">ONDE:</label>
-            </div>
-            <div class="float-left" style="width: 500px">
-                <%= text_field_tag :search, params[:search], :style => "width: 70%; border: 3px solid #A80713; font-size: 15px;margin-top: 4px;" %>
-                <%= submit_tag 'Buscar',:style => "width: 25%;color: white;background-color: #A80713;border-style: solid;border-width: 1px;margin-top: 0px;"%>
-            </div>
-            <% end %>
+          
+            
 </ul>
 

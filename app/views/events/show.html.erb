@@ -1,12 +1,13 @@
 <div id="main" role="main" class="application">
   <div class="container-fluid" >
+    <%if !notice.nil?%>
+    <div class="alert alert-success"><%= notice %></div>
+    <%end%>
     <div class="row-fluid">
       <div class="span5" style="position: relative; float: left;">
         <%= image_tag @event.avatar.url(:medium), :height => '300px', :width=> '350px'%>
         <div style=" position: relative; float: left">
-          <p id="notice">
-            <%= notice %>
-          </p>
+ 
           <p>
             <b>Nome:</b>
             <%= @event.name %>
