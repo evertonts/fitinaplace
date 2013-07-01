@@ -193,3 +193,10 @@ nav#First-Menu ul li a:hover
 {
     background-color: rgb(122, 7, 0) !important;
 }
+
+
+.field_with_errors {
+    display: inline-block;
+    background-color: #A80713;
+    border: 2px white solid;
+}

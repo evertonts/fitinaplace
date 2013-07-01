@@ -58,6 +58,7 @@
         </div>
       <% end %>
     <% end %>
+    <%= will_paginate @comments %>
   <% end %>
   <h2 class="titulo"> Dê sua opinião</h2>
   <%= form_for (@comment) do |f| %>

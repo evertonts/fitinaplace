@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @offerings = Offering.find_all_by_user_id @user.id
     @negociations = Negociation.find_all_by_user_id current_user.id
     @comment = Comment.new
-    @comments = Comment.find_all_by_user_id @user.id
+    @comments = Comment.paginate :conditions => ["user_id = ?", @user.id], :order => "id desc", :per_page => 10, :page => params[:page]
     @avg = 0.0
     i = 0.0
     @comments.each do |c|

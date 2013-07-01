@@ -1,4 +1,7 @@
-pt:   
+pt:
+  will_paginate:
+    previous_label: Anterior
+    next_label: Próximo
   date:
     abbr_day_names:
     - Dom

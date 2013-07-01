@@ -14,6 +14,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'devise-encryptable'
 gem "friendly_id", "~> 4.0.1"
+gem "will_paginate", "~> 3.0.4" 
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
