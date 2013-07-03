@@ -147,7 +147,7 @@ div.h1Horizontal
 }
 
 .letra_vermelha label {
-    display: inline-table;
+    display: inline-block;
     width: 15%;
 }
 
@@ -196,7 +196,9 @@ nav#First-Menu ul li a:hover
 
 
 .field_with_errors {
+    background-color: #F2DEDE;;
+    border: 2px #FFF solid;
+    padding: 13px;
     display: inline-block;
-    background-color: #A80713;
-    border: 2px white solid;
+    border-radius: 10px;
 }

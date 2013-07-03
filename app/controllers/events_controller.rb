@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  
   load_and_authorize_resource
   
   # GET /events
@@ -17,10 +16,9 @@ class EventsController < ApplicationController
       		query_phrase_slop 1
       	end
       end
-      
       @events = search.results
     end
-
+    @events = @events.paginate :per_page => 5, :page => params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -31,7 +29,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @offerings = Offering.find_all_by_event_id @event.id
+    @offerings = Offering.paginate :conditions => ["event_id = ?", @event.id], :per_page => 5, :page => params[:page]
     if request.path != event_path(@event)
       redirect_to @event, :event => :moved_permanently
     end

@@ -1,7 +1,7 @@
 <div id="main" role="main" class="application">
   <% if @user.id==current_user.id %>
- <%= render 'users/pessoal' %>
-   <%else%>
-  <%= render 'users/visitante' %>
-    <%end%>
+    <%= render 'users/pessoal' %>
+  <%else%>
+    <%= render 'users/visitante' %>
+  <%end%>
 </div>
