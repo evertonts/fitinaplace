@@ -1,0 +1,22 @@
+<h2 class="titulo"> <%= pluralize @total_comments, 'comentário'  %> </h2>
+<% if @comments.blank? %>
+  <p> Não há nenhum comentário </p>
+<% else %>
+  <% @comments.each do |comment| %>
+    <% commenter = User.find comment.commenter_id %>
+    <% unless comment.comment.blank? %>
+      <div class="listagemcampobranco">
+        <h4><%= commenter.name %> disse:</h4>
+        <p> <%= comment.comment %></p>
+        <form>
+          <% (1..5).each do |i| %>
+            <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled" <%= "checked=\"checked\"" if i == comment.grade  %>/>
+          <% end %>
+        </form>
+        <br/>
+        <%= comment.created_at.strftime('%d/%m/%Y %H:%M:%S')%> 
+      </div>
+    <% end %>
+  <% end %>
+  <%= will_paginate @comments %>
+<% end %>

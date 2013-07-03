@@ -11,10 +11,10 @@
       <p>
         Telefone: <%= @user.telefone if @user.telefone %>
       </p>
-      <h4>Avaliação</h4>
+      <h4> <%= pluralize @grade.to_i, 'avaliação' %> </h4>
       <form>
         <% (1..5).each do |i| %>
-          <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
+          <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
         <% end %>
       </form>
     </div>
@@ -78,23 +78,6 @@
     </table>
     <br />
 
-    <h2 class="titulo"> Comentários </h2>
-    <% @comments.each do |comment| %>
-      <% commenter = User.find comment.commenter_id %>
-      <% unless comment.comment.blank? %>
-        <div class="listagemcampobranco" style="padding: 5px">
-          <h4> <%= commenter.name %> disse:</h4>
-          <form>
-            <% (1..5).each do |i| %>
-              <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == comment.grade  %>/>
-            <% end %>
-          </form>
-          <br/>
-          <p> <%= comment.comment %></p>
-        </div>
-      <% end %>
-    <% end %>
-
-    <%= will_paginate @comments %>
+    <%= render :partial => 'comments' %>
   </div>
 </div>
