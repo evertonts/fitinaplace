@@ -1,7 +1,7 @@
 <div id="main" role="main" class="application">
-  <p id="notice">
-    <%= notice %>
-  </p>
+  <%if !notice.nil?%>
+    <div class="alert alert-success"><%= notice %></div>
+    <%end%>
   <div style="position: relative; float: left; margin-left: 20px">
     <%= image_tag @house.image.url(:medium)%>
   </div>
