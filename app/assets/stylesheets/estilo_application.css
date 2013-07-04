@@ -202,3 +202,10 @@ nav#First-Menu ul li a:hover
     display: inline-block;
     border-radius: 10px;
 }
+
+.comment {
+    background: #ECECEC;
+    padding: 13px;
+    border-radius: 10;
+    margin: 20 0;
+}

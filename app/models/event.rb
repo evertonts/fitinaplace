@@ -18,8 +18,14 @@ class Event < ActiveRecord::Base
   end
   
   searchable do
-  	text :description, :name
-    integer :address_id, :references => Address
+  	text :description, :name, :city, :state
   end
-  
+
+  def city
+    self.address.city
+  end
+
+  def state
+    self.address.state
+  end
 end

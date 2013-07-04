@@ -9,4 +9,14 @@ class CommentsController < ApplicationController
     @comment.save unless @comment.grade == 0 and @comment.comment.blank?
     redirect_to user_path(params[:user_id])
   end
+
+  def destroy
+    comment = Comment.find params[:id]
+    user_id = comment.user_id
+    comment.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(user_id) }
+      format.json { head :no_content }
+    end
+  end
 end

@@ -11,7 +11,7 @@ Fitinaplace::Application.routes.draw do
 
   resources :assets, :only => :create
   resources :offerings
-  resources :comments, :only => :create
+  resources :comments, :only => [:create, :destroy]
   resources :events
   resources :houses
   resources :questions
