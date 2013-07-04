@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904145746) do
+ActiveRecord::Schema.define(:version => 20130704161637) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -46,10 +46,7 @@ ActiveRecord::Schema.define(:version => 20120904145746) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.text     "description"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
+    t.text     "description",         :limit => 255
     t.integer  "user_id"
     t.date     "date"
     t.string   "avatar_file_name"

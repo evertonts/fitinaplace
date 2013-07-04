@@ -38,7 +38,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
+    @event = Event.new(:address => Address.new)
 
     respond_to do |format|
       format.html # new.html.erb

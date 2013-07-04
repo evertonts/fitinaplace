@@ -14,6 +14,11 @@ class Address < ActiveRecord::Base
     end
     return link
   end
+
+  def google_maps_link
+    "http://maps.google.com.br/maps?q=#{self.street}+#{self.number}+#{self.complement}+#{self.neightborhood}" +
+       "+#{self.city}+#{self.state}+#{self.country}&output=embed".gsub(/[ ]/, "+")
+  end
   
   
 end

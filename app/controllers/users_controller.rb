@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @comments = Comment.paginate :conditions => ["user_id = ?", @user.id], :order => "id desc", :per_page => 10, :page => params[:page]
     @avg = 0.0
     @grade = 0.0
-    @total_comments = @user.comments.size
+    @total_comments = @user.comments.count
     @comments.each do |c|
       unless c.grade == 0 or c.grade.nil?
         @avg += c.grade

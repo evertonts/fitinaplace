@@ -1,11 +1,13 @@
 class Event < ActiveRecord::Base
   belongs_to :user
+  belongs_to :address
   validates_presence_of :name, :description
   has_many :offerings
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
   has_attached_file :avatar, :styles => { :large => "600x600", :medium => "300x300>", :thumb => "100x100>" },:default_url => '/assets/notFound.png'
-  
+  accepts_nested_attributes_for :address
+
   def get_address
     unless self.address_id.nil?
       address = Address.find self.address_id
@@ -16,7 +18,8 @@ class Event < ActiveRecord::Base
   end
   
   searchable do
-  	text :description, :name, :city, :state
+  	text :description, :name
+    integer :address_id, :references => Address
   end
   
 end

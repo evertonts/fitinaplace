@@ -1,67 +1,47 @@
 <div id="main" role="main" class="application">
   <div class="container-fluid" >
     <%if !notice.nil?%>
-    <div class="alert alert-success"><%= notice %></div>
+      <div class="alert alert-success"><%= notice %></div>
     <%end%>
     <div class="row-fluid">
-      <div class="span5" style="position: relative; float: left;">
-        <%= image_tag @event.avatar.url(:medium), :height => '300px', :width=> '350px'%>
-        <div style=" position: relative; float: left">
- 
+      <div class="span5" >
+        <%= image_tag @event.avatar.url(:medium), :width=> '350px'%>
+        <div >
           <p>
             <b>Nome:</b>
             <%= @event.name %>
           </p>
-          <% if @event.address_id.nil? %>
-            <p>
-              <b>Endereço:</b>
-              <%= @event.address %>
-            </p>
-            <p>
-              <b>Cidade:</b>
-              <%= @event.city %>
-            </p>
-            <p>
-              <b>Estado:</b>
-              <%= @event.state %>
-            </p>
-          <% else %>
-            <p>
-              <b>Endereço:</b>
-              <%= @address.street + ", " + @address.number.to_s %>
-            </p>
-            <p>
-              <b>Cidade:</b>
-              <%= @address.city %>
-            </p>
-            <p>
-              <b>Estado:</b>
-              <%= @address.state %>
-            </p>
-          <% end %>
+          <p>
+            <b>Endereço:</b>
+            <%= @event.address.street + ", " + @event.address.number.to_s %>
+          </p>
+          <p>
+            <b>Cidade:</b>
+            <%= @event.address.city %>
+          </p>
+          <p>
+            <b>Estado:</b>
+            <%= @event.address.state %>
+          </p>
           <p>
             <b>Data:</b>
             <%= @event.date %>
           </p>
         </div>
       </div>
-      <div class="span6  offset1" style="float: right; padding-right: 30px">
-        <iframe src="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+") %>&output=embed"
-                width="425" height="350">
-          <a href="http://maps.google.com.br/maps?q=<%= @event.get_address.gsub(/[ ]/, "+")%>"
-             Click here to view our location on Google Maps</a>.
+      <div class="span6  offset1">
+        <iframe src="<%= @event.address.google_maps_link %>" width="425" height="350">
+          <a href=src="<%= @event.address.google_maps_link %>"
+             Clique aqui para ver o local no Google Maps</a>.
         </iframe>
       </div>
     </div>
-
   </div>
-  <h1 style="font-size: 20pt" >Descrição</h1>
 
-  <div style="margin: 10px 10px; padding:10px 10px; overflow:auto; padding-right: 30px; width: 90%">
-
+  <h1 >Descrição</h1>
+  <div style="margin: 10px 20px; overflow:auto; width: 90%">
     <%= simple_format(@event.description) %>
   </div>
-
 
   <br />
   <% if user_signed_in? %>
@@ -74,29 +54,27 @@
 
     <div >
       <br/><br/>
-      <h1 style="font-size: 30;">Fit in...</h1>
+      <h1>Fit in...</h1>
       <br/>
 
-      <div class="listagemcinza" style="border-radius: 0 10px 10px 10px ">
+      <div class="listagemcinza">
         <% @offerings.each do |offering| %>
           <% @resource  = Resource.find offering.resource_id%>
           <% @house = House.find @resource.house_id%>
-          <div class="linha" style="border-bottom:2px solid #AA0A00; height: 120px">
-            <div style="float: left; position: relative;width: 15%;">
+          <div class="linha row-fluid" style="border-bottom:2px solid #AA0A00; height: 120px">
+            <div class="span2">
               <%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
             </div>
-            <div style="margin-left: 5px;position: relative; float:left;width: 55%;border-right:3px solid #AA0A00;">
+            <div class="span7" style="border-right:3px solid #AA0A00;">
               <span class="rua"><%= link_to offering.titulo, offering if can? :show, offering %></span>
               <span >
-                <p style="text-align: justify">
-                  <%= @resource.description.to 150 %>
-                </p></span>
+                <%= simple_format(@resource.description.to 150) %>
+              </span>
             </div>
-            <div style="float: right;width: 25%">
+            <div class="span3" >
               <b style="font-size: 20pt; font-family: Trebuchet MS; color: #BD2026;"> R$ <%= '%.2f' % offering.price %></b>
             </div>
 
-            <div style="clear:both;"></div>
           </div>
           <br/>
         <%end%>
