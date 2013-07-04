@@ -1,3 +1,4 @@
+
 <h2 class="titulo"> <%= pluralize @total_comments, 'comentário'  %> </h2>
 <% if @comments.blank? %>
   <p> Não há nenhum comentário </p>
@@ -18,11 +19,12 @@
         <%= comment.created_at.strftime('%d/%m/%Y %H:%M:%S')%>
         <br/>
         <%= link_to "Remover", comment, confirm: 'Deseja remover este comentário?',
-          method: :delete if current_user.id == comment.commenter_id %>
-
+            method: :delete if current_user.id == comment.commenter_id %>
+        <a id="<%= "comment_edit_#{comment.id}" %>" href="#"> Editar </a>
         </div>
         <div class="span9">
-          <p> <%= comment.comment %></p>
+          <p> <%= best_in_place_if (current_user.id == comment.commenter_id), comment, :comment,
+                  :activator => "#comment_edit_#{comment.id}", :type => :textarea, :ok_button => "Atualizar", :cancel_button => "Cancelar"%></p>
         </div>
         
         
@@ -31,3 +33,10 @@
   <% end %>
   <%= will_paginate @comments %>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+</script>
