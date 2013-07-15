@@ -42,7 +42,7 @@
 
   <%= form_for (@rating) do |f| %>
     <%= hidden_field_tag "user_id", params[:id] %>
-  <div >
+    <div >
       <% (1..5).each do |i| %>
         <input name="star1" type="radio" class="star" value="<%= i %>"/>
       <% end %>
