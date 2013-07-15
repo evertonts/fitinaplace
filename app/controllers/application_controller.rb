@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   require 'cancan'
+  require 'will_paginate/array'
   protect_from_forgery
   
   rescue_from CanCan::AccessDenied do |exception|

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of  :email, :cpf,  :case_sensitive => false
 
   has_many :houses
+  has_many :comments
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :rg, :email, :cpf, :telefone,:name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, 
