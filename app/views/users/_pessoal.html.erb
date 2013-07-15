@@ -11,12 +11,12 @@
       <p>
         Telefone: <%= @user.telefone if @user.telefone %>
       </p>
-      <h4> <%= pluralize @grade.to_i, 'avaliação' %> </h4>
-      <form>
-        <% (1..5).each do |i| %>
-          <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
-        <% end %>
-      </form>
+      <h4> <%= pluralize @total_ratings, 'avaliação' %> </h4>
+        <form>
+          <% (1..5).each do |i| %>
+            <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
+          <% end %>
+        </form>
     </div>
   </div>
   <br/>
