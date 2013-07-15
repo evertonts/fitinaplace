@@ -3,7 +3,7 @@
 body
 {
     font-family: "Trebuchet MS";
-    
+
 }
 
 hgroup, h1, h2, h3, h4, h5, h6
@@ -111,7 +111,7 @@ div.application
 
 div.application
 {
-    
+
 }
 
 div.application p
@@ -160,21 +160,21 @@ div.h1Horizontal
 }
 
 a.linkum:link {
-color:#999999;
-text-decoration:none;
+    color:#999999;
+    text-decoration:none;
 }
 a.linkum:visited {
-color:#999999;
-text-decoration:none;
+    color:#999999;
+    text-decoration:none;
 }
 a.linkum:hover {
-color:#000000;
-text-decoration:underline;
+    color:#000000;
+    text-decoration:underline;
 }
 a.linkum:active {
-color:#00FF00;
-text-decoration:underline;
-background-color:#000000;
+    color:#00FF00;
+    text-decoration:underline;
+    background-color:#000000;
 }
 
 .actions input {
@@ -208,4 +208,14 @@ nav#First-Menu ul li a:hover
     padding: 13px;
     border-radius: 10;
     margin: 20 0;
+}
+
+.best_in_place textarea {
+    width: 100%
+}
+
+.best_in_place input {
+    padding: 5px;
+    margin: 5px;
+    background-color: #BBB;
 }

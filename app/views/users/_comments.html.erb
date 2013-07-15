@@ -10,24 +10,23 @@
         <div class="span3">
           <h4><%= commenter.name %> disse:</h4>
           <form>
-          <% (1..5).each do |i| %>
-            <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled"
-              <%= "checked=\"checked\"" if i == comment.grade  %>/>
-          <% end %>
-        </form>
-        <br/>
-        <%= comment.created_at.strftime('%d/%m/%Y %H:%M:%S')%>
-        <br/>
-        <%= link_to "Remover", comment, confirm: 'Deseja remover este comentário?',
+            <% (1..5).each do |i| %>
+              <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled"
+                     <%= "checked=\"checked\"" if i == comment.grade  %>/>
+            <% end %>
+          </form>
+          <br/>
+          <%= comment.created_at.strftime('%d/%m/%Y %H:%M:%S')%>
+          <br/>
+          <%= link_to "Remover", comment, confirm: 'Deseja remover este comentário?',
             method: :delete if current_user.id == comment.commenter_id %>
-        <a id="<%= "comment_edit_#{comment.id}" %>" href="#"> Editar </a>
+          <a id="<%= "comment_edit_#{comment.id}" %>" href="#"> Editar </a>
         </div>
         <div class="span9">
           <p> <%= best_in_place_if (current_user.id == comment.commenter_id), comment, :comment,
-                  :activator => "#comment_edit_#{comment.id}", :type => :textarea, :ok_button => "Atualizar", :cancel_button => "Cancelar"%></p>
+              :activator => "#comment_edit_#{comment.id}", :type => :textarea, :html_attrs => {:class => 'best_in_place'},
+              :ok_button => "Atualizar", :cancel_button => "Cancelar"%> </p>
         </div>
-        
-        
       </div>
     <% end %>
   <% end %>
@@ -36,7 +35,7 @@
 
 <script>
   $(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
-});
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+  });
 </script>
