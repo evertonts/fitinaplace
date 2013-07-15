@@ -1,113 +1,62 @@
- <div>
-    <div style="float: left;">
-      <h1><%= @user.name %></h1>
-      <div style="float: left">
-        <%= image_tag @user.avatar.url(:medium), :style=>"width: 198px;"%>
+<div>
+  <div >
+    <h1><%= @user.name %></h1>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= image_tag @user.avatar.url(:medium)%>
       </div>
-      <div style="float: right; padding-left: 20px">
-
-        <p>
-          Email: <%= @user.email if @user.email %>
-        </p>
-        <p>
-          Telefone: <%= @user.telefone if @user.telefone %>
-        </p>
-        <h4>Avaliação</h4>
+      <div class="span6">
+        <h4> <%= pluralize @grade.to_i, 'avaliação' %> </h4>
         <form>
           <% (1..5).each do |i| %>
-            <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
+            <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
           <% end %>
         </form>
       </div>
     </div>
-    <div style="float: left">
-      <h3 style="font-family: Trebuchet MS; color: #BD2026; font-size: 20pt"> Meus interesses</h3>
-      <% if @negociations.empty? %>
-        <p>
-          Você não tem nenhuma negociação em andamento.
-          <%= link_to "Clique aqui", events_path %> para checar eventos.
-        </p>
-      <% else %>
-        <table class="user">
-          <tr>
-            <th >Reservado</th>
-            <th >Nome</th>
-            <th width="60%">Descrição</th>
-            <th> Email de Contato </th>
-          </tr>
-          <% @negociations.each do |negociation| %>
-            <% offering = Offering.find negociation.offering_id
-            event = Event.find offering.event_id
-            space = Resource.find offering.resource_id
-            user = User.find offering.user_id %>
-            <tr>
-              <% if negociation.status == true %> <td>Reservado</td>
-              <% else %> <td>Aguardando</td>
-              <%end%> <td style="text-align: center"><%= event.name %></td>
-
-              <td><%= space.description.to 200 %></td>
-              <td> <%= user.email unless negociation.status == false %></td>
-            </tr>
-          <% end %>
-        </table>
-      <% end %> <h3 style="font-family: Trebuchet MS; color: #BD2026;font-size: 20pt"> Minhas ofertas: </h3>
-      <% if @offerings.empty? %>
-        <p>
-          Você não está ofertando nenhum lugar.
-          <%= link_to "Clique aqui", events_path %> para checar novos eventos e ofertar hospedagens.
-        </p>
-      <% else %>
-        <table class="user">
-          <tr>
-            <th >Evento</th>
-            <th width="70%">Espaço</th>
-            <th >Interessados</th>
-          </tr>
-          <% for offering in  @offerings%>
-            <tr>
-              <% event = Event.find offering.event_id%> <td style="text-align: center"> <%= event.name%> </td>
-              <% space = Resource.find offering.resource_id%> <td><%= space.description.to 200 %></td>
-              <td style="text-align: center"> <%= link_to "Checar interessados", negociations_path(:offering_id => offering.id) %> </td>
-            </tr>
-          <% end%>
-        <%end%>
-      </table>
-      <br />
-
-      <h3 class="titulo"> Comentários </h3>
-      <% @comments.each do |comment| %>
-        <% commenter = User.find comment.commenter_id %>
-        <% unless comment.comment.blank? %>
-          <div class="listagemcampobranco" style="padding: 5px">
-            <h4> <%= commenter.name %> disse:</h4>
-            <form>
-              <% (1..5).each do |i| %>
-                <input name="star2" type="radio" class="star" value="<%= i %>" disabled="disabled" <%= "checked=\"checked\"" if i == comment.grade  %>/>
-              <% end %>
-            </form>
-            <br/>
-            <p> <%= comment.comment %></p>
-
-          </div>
-        <% end %>
-      <% end %>
-
-    </div>
-    <div style="margin: 5%" id="comentario">
-      <h2 class="titulo" style="float: left"> Dê sua opinião</h2>
-      <%= form_for (@comment) do |f| %>
-        <%= hidden_field_tag "user_id", params[:id] %>
-        <div style="margin-left: 3%">
-          <%= f.text_area :comment, :style => "width: 90%; height: 100px;"%>
-          <br />
-          <div>
-            <%= f.label "Nota:", :class => "fit_red", :style => "float:left"%>
-            <% (1..5).each do |i| %>
-              <input name="star1" type="radio" class="star" value="<%= i %>"/>
-            <% end %>
-            <%= f.submit "Enviar"%>
-          </div>
-        <%end%>
-      </div>
-    </div>
   </div>
+
+  <h2 class="titulo"> Ofertas: </h2>
+  <% if @offerings.empty? %>
+    <p>
+      Não está ofertando nenhum lugar.
+    </p>
+  <% else %>
+    <table class="user">
+      <tr>
+        <th >Evento</th>
+        <th width="70%">Espaço</th>
+        <th >Interessados</th>
+      </tr>
+      <% for offering in  @offerings%>
+        <tr>
+          <% event = Event.find offering.event_id%> <td style="text-align: center"> <%= event.name%> </td>
+          <% space = Resource.find offering.resource_id%> <td><%= space.description.to 200 %></td>
+        </tr>
+      <% end%>
+    <%end%>
+  </table>
+  <br />
+
+  <%= render :partial => 'comments' %>
+
+  <h2 class="titulo"> Dê sua opinião</h2>
+  <%= form_for (@comment) do |f| %>
+    <%= hidden_field_tag "user_id", params[:id] %>
+    <div >
+      <%= f.text_area :comment, :style => "width: 90%; height: 100px;"%>
+      <br />
+      <div class="row-fluid">
+        <div class="span3">
+          <%= f.label "Nota:", :class => "fit_red", :style => "float:left"%>
+          <% (1..5).each do |i| %>
+            <input name="star1" type="radio" class="star" value="<%= i %>"/>
+          <% end %>
+        </div>
+        <div class="offset6 span2 actions">
+          <%= f.submit "Enviar"%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

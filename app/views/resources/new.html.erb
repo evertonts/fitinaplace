@@ -5,7 +5,7 @@
 
 <%= form_for(@resource, :html =>{:class => 'form_interno'}) do |f| %>
 <% if @resource.errors.any? %>
-<div id="error_explanation">
+<div id="error_explanation" class="alert alert-error">
 	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
 	<ul>
 		<% @resource.errors.full_messages.each do |msg| %>

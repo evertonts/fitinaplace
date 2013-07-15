@@ -1,6 +1,6 @@
 <%= form_for(@house,  :class => "formAligns", :html => { :class => 'form_interno', :style=>"border-top: 3px solid #AA0A00;"}) do |f| %>
   <% if @house.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-error">
       <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
 
       <ul>
@@ -21,7 +21,7 @@
     <%= f.text_field :number, :style => "width: 15%;" %>
   </div>
   <div class="letra_vermelha">
-    <%= f.label 'Complemento: * ' %>&nbsp;
+    <%= f.label 'Complemento: ' %>&nbsp;
     <%= f.text_field :complement, :style => "width: 15%;" %>
   </div>
   <div class="letra_vermelha">

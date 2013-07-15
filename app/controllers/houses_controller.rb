@@ -6,14 +6,8 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index 
-    @aux = House.all
-    @houses = []
-    for house in @aux
-
-      if house.user_id == current_user.id 
-      @houses << house 
-    end
-    end
+    @houses = House.paginate :conditions => ["user_id = ?", current_user.id], :order => "id asc",
+      :per_page => 10, :page => params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @houses }

@@ -22,18 +22,18 @@
     <div class="letra_vermelha"><%= f.label 'Email:' %>
       <%= f.email_field :email   %></div>
 
-     <i>(deixe em branco se não deseja mudá-la)</i>
-    <div class="letra_vermelha"><%= f.label 'Senha: ' %>
+    <i>(deixe em branco se não deseja mudá-la)</i>
+    <div class="letra_vermelha"><%= f.label 'Nova senha: ' %>
       <%= f.password_field :password, :autocomplete => "off"   %></div>
 
     <div class="letra_vermelha"><%= f.label 'Confirmar senha:' %>
       <%= f.password_field :password_confirmation  %></div>
 
-     <i>(precisamos da sua senha atual para confirmar as mudanças)</i>
+    <i>(precisamos da sua senha atual para confirmar as mudanças)</i>
     <div class="letra_vermelha"><%= f.label 'Senha atual:'%>
       <%= f.password_field :current_password   %></div>
     <br />
     <div class="actions"><%= f.submit "Enviar dados"%></div>
   <% end %>
-    <p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %>.</p>
+  <p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %>.</p>
 </div>
