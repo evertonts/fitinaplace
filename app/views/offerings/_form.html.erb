@@ -1,7 +1,7 @@
 <%= form_for(@offering,:html => {:multipart => true,:class => 'form_interno' }) do |f| %>
   <% if @offering.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
-      <h2><%= pluralize(@offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
+      <h2><%= pluralize(@offering.errors.count, "erro") %> proibiram essa oeferta de ser salva:</h2>
 
       <ul>
       <% @offering.errors.full_messages.each do |msg| %>

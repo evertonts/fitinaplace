@@ -1,7 +1,7 @@
 <%= form_for(@negociation) do |f| %>
   <% if @negociation.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
-      <h2><%= pluralize(@negociation.errors.count, "error") %> prohibited this negociation from being saved:</h2>
+      <h2><%= pluralize(@negociation.errors.count, "erro") %> proibiram essa negociação ser salva:</h2>
 
       <ul>
       <% @negociation.errors.full_messages.each do |msg| %>

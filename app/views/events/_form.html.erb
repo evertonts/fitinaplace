@@ -1,7 +1,7 @@
 <%= form_for(@event,  :class => "formAligns", :html => {:multipart => true,:class => 'form_interno' }) do |f| %>
   <% if @event.errors.any? %>
 <div id="error_explanation" class="alert alert-error">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= pluralize(@event.errors.count, "erro") %> proibiram esse evento de ser salvo:</h2>
 
       <ul>
         <% @event.errors.full_messages.each do |msg| %>
