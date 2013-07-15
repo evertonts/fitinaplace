@@ -12,7 +12,10 @@
     </div>
   <% end %>
 
-<%= hidden_field_tag :house_id, params[:house_id].to_i %>
+<div class="letra_vermelha">
+	<%= f.label 'Casa:' %>
+	<%= f.check_box :house %>
+</div>
 <div class="letra_vermelha">
 	<%= f.label 'Café da manhã:' %>
 	<%= f.check_box :breakfast %>

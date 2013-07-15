@@ -11,18 +11,20 @@
 
   </div>
   <div style= "margin-left: 40px; padding: 10px 10 px; float: left">
-    <p> Banheiro privado: <% if @resource.private_bathroon == true%> Sim <%else%> Não <%end%>  </p>
-    <p> Café da manhã: <% if @resource.breakfast == true%> Sim <%else%> Não <%end%> </p>
-    <p> Almoço: <% if @resource.lunch == true%> Sim <%else%> Não <%end%> </p>
-    <p> Jantar: <% if @resource.dinner == true%> Sim <%else%> Não <%end%> </p>
-    <p> Espaço privado: <% if @resource.private_space == true%> Sim <%else%> Não <%end%>  </p>
-    <p> Estacionamento: <%= @resource.parking_spaces %> </p>
+  	<p> Casa inteira: <%= beauty_checkbox_value(@resource.house)%> </p>
+    <p> Banheiro privado: <%= beauty_checkbox_value(@resource.private_bathroon)%> </p>
+    <p> Café da manhã: <%= beauty_checkbox_value(@resource.breakfast)%> </p>
+    <p> Almoço: <%= beauty_checkbox_value(@resource.lunch)%> </p>
+    <p> Jantar: <%= beauty_checkbox_value(@resource.dinner)%> </p>
+    <p> Espaço privado: <%= beauty_checkbox_value(@resource.private_space)%>  </p>
+    <p> Vagas de estacionamento: <%= @resource.parking_spaces %> </p>
     <p> Cômodo: <%= @resource.place %> </p>
     <p> Vagas: <%= @resource.vacancies %> </p>
 
   </div>
 
 </div>
+
 
 
 <%= form_for(@resource) do |f| %>
