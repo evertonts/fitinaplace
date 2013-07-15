@@ -9,12 +9,6 @@
       <div class="row-fluid listagemcampobranco comment">
         <div class="span3">
           <h4><%= commenter.name %> disse:</h4>
-          <form>
-            <% (1..5).each do |i| %>
-              <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled"
-                     <%= "checked=\"checked\"" if i == comment.grade  %>/>
-            <% end %>
-          </form>
           <br/>
           <%= comment.created_at.strftime('%d/%m/%Y %H:%M:%S')%>
           <br/>
