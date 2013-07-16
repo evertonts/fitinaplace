@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20130715195149) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.text     "description",         :limit => 255
+    t.text     "description"
     t.integer  "user_id"
     t.date     "date"
     t.string   "avatar_file_name"

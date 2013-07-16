@@ -1,9 +1,9 @@
-<div class="form_normal" style="width: 60%">
+<div class="application" style="width: 60%">
 <h1 class="titulo"> Negociações </h1>
 
 <div class="listagemcampobranco">
 <%= form_tag :action => :update_status do %>
-<table class="user">
+<table class="table">
   <tr>
     <th> Status</th>
     <th> Nome</th>
@@ -35,7 +35,7 @@
 
 </div>
 
-<%= submit_tag "Atualizar", :style => "margin-left: 45px; margin-top: 10px"%>
+<div class="actions"><%= submit_tag "Atualizar", :style => "margin-left: 45px; margin-top: 10px"%></div>
 
 <% end %>
 </div>

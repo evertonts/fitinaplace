@@ -1,5 +1,5 @@
 <div id= "main2" role="main" class="application"  >
-  <div class="listagemcinza" style="width: 95%">
+  <div class="listagemcinza">
     <h1>Eventos</h1>
     <% @events.each do |event| %>
       <br />
@@ -10,7 +10,7 @@
           <%=  simple_format (event.description.to 500), :style => "text-align: left" %>
         </div>
         <div class="span3">
-          <%= image_tag event.avatar.url(:thumb)%>
+          <%= image_tag event.avatar.url(:thumb), :style => "float: right"%>
         </div>
       </div>
     <%end%>
