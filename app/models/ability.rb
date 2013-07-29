@@ -12,10 +12,6 @@ class Ability
          can :read, Event
          can :read, Offering
          
-         can :read, House do |c|
-           c.try(:user) == user
-         end
-         
          can :create, Offering
          
          can :update, Offering do |o|
@@ -30,7 +26,7 @@ class Ability
            o.try(:event).try(:user) == user
          end
          
-         classes = [House, Event]
+         classes = [Event]
          
          for classe in classes 
            can :create, classe

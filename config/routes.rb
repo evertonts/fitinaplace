@@ -15,7 +15,6 @@ Fitinaplace::Application.routes.draw do
   resources :comments, :only => [:create, :destroy, :update]
   resources :ratings, :only => [:create]
   resources :events
-  resources :houses
   resources :questions
   resources :comofunciona
   resources :about
@@ -28,6 +27,5 @@ Fitinaplace::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users, :controllers => { :registrations => "registrations" }
-  devise_for :houses
   resources :users, :only => :show
 end
