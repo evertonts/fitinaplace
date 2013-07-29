@@ -6,7 +6,7 @@
         <%= image_tag @user.avatar.url(:medium)%>
       </div>
       <div class="span6">
-        <h4> <%= pluralize @grade.to_i, 'avaliação' %> </h4>
+        <h4> <%= pluralize @total_ratings, 'avaliação' %> </h4>
         <form>
           <% (1..5).each do |i| %>
             <input name="star2" type="radio" class="star" value="<%= @ratings[@avg] %>" disabled="disabled" <%= "checked=\"checked\"" if i == @avg  %>/>
@@ -38,25 +38,34 @@
   </table>
   <br />
 
-  <%= render :partial => 'comments' %>
+  <h2> Sua avaliação </h2>
 
-  <h2 class="titulo"> Dê sua opinião</h2>
-  <%= form_for (@comment) do |f| %>
+  <%= form_for (@rating) do |f| %>
     <%= hidden_field_tag "user_id", params[:id] %>
-    <div >
-      <%= f.text_area :comment, :style => "width: 90%; height: 100px;"%>
-      <br />
-      <div class="row-fluid">
-        <div class="span3">
-          <%= f.label "Nota:", :class => "fit_red", :style => "float:left"%>
-          <% (1..5).each do |i| %>
-            <input name="star1" type="radio" class="star" value="<%= i %>"/>
-          <% end %>
-        </div>
-        <div class="offset6 span2 actions">
-          <%= f.submit "Enviar"%>
-        </div>
+  <div >
+      <% (1..5).each do |i| %>
+        <input name="star1" type="radio" class="star" value="<%= i %>"/>
+      <% end %>
+      <br/>
+      <%= f.submit "Enviar"%>
+    </div>
+  <%end%>
+</div>
+
+
+<%= render :partial => 'comments' %>
+
+<h2 class="titulo"> Dê sua opinião</h2>
+<%= form_for (@comment) do |f| %>
+  <%= hidden_field_tag "user_id", params[:id] %>
+  <div >
+    <%= f.text_area :comment, :style => "width: 90%; height: 100px;"%>
+    <br />
+    <div class="row-fluid">
+      <div class="offset6 span2 actions">
+        <%= f.submit "Enviar"%>
       </div>
-    <%end%>
-  </div>
+    </div>
+  <%end%>
+</div>
 </div>

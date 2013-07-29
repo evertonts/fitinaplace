@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20130715213537) do
     t.integer  "user_id"
     t.integer  "commenter_id"
     t.text     "comment"
-    t.integer  "grade"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -95,6 +94,14 @@ ActiveRecord::Schema.define(:version => 20130715213537) do
     t.integer  "offering_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "commenter_id"
+    t.integer  "rating"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "resources", :force => true do |t|

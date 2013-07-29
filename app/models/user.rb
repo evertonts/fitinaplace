@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :resources
   has_one :address
   has_many :comments
+  has_many :ratings
 
 
   # Setup accessible (or protected) attributes for your model
