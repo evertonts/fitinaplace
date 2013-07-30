@@ -60,10 +60,9 @@
       <div class="listagemcinza">
         <% @offerings.each do |offering| %>
           <% @resource  = Resource.find offering.resource_id%>
-          <% @house = House.find @resource.house_id%>
           <div class="linha row-fluid" style="border-bottom:2px solid #AA0A00; height: 120px">
             <div class="span2">
-              <%= image_tag @house.image.url(:thumb),  :height => "100px", :width => "100px"%>
+              <%= image_tag @resource.picture,  :height => "100px", :width => "100px"%>
             </div>
             <div class="span7" style="border-right:3px solid #AA0A00;">
               <span class="rua"><%= link_to offering.titulo, offering if can? :show, offering %></span>

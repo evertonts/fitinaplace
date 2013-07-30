@@ -23,7 +23,6 @@ class OfferingsController < ApplicationController
     
     @offering = Offering.find_by_id(params[:id])
     @resource = Resource.find @offering.resource_id
-    @house = House.find @resource.house_id
     @question = Question.new
     @negociation = Negociation.new
     @questions = @offering.questions
@@ -38,13 +37,13 @@ class OfferingsController < ApplicationController
   # GET /offerings/new.json
   def new
     @offering = Offering.new
-    @houses = House.find_all_by_user_id current_user.id
+    @resources = Resource.find_all_by_user_id current_user.id
     @select = []
-    @houses.each do |h|
-      resources = Resource.find_all_by_house_id h.id
-      resources.each do |resource|
-        @select << [h.street + ", " + h.number.to_s + " - " + resource.place, resource.id]
-      end
+    @resources.each do |resource|
+      addresses = Address.find_all_by_id resource.address_id
+      addresses.each do |address|
+        @select << [address.street + ", " + address.number.to_s + " - " + resource.place, resource.id]
+    end
     end
     respond_to do |format|
       format.html # new.html.erb

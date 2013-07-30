@@ -1,27 +1,31 @@
 <%if !notice.nil?%>
-    <div class="alert alert-success"><%= notice %></div>
-    <%end%>
+  <div class="alert alert-success"><%= notice %></div>
+<%end%>
 
 <div id="main" role="main" class="application">
   <p style="margin-left: 40px;"> <h1>Detalhes do Recurso </h1>
-    <%= link_to 'Editar', edit_resource_path(@resource) , :style => "margin-left: 20px"%> </p>
-  <div style="padding:10px 10px; overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right; text-align: justify">
+  <%= link_to 'Editar', edit_resource_path(@resource) , :style => "margin-left: 20px"%> </p>
+<div style="overflow:auto; padding-right: 30px; width: 65%; height: 200px;float: right; text-align: justify">
+  <b>Descrição: </b>
+  <%=@resource.description%>
 
-    <%=@resource.description%>
+</div>
+<div style= "margin-left: 40px; padding: 10px 10 px; float: left">
+  <p>
+    <b>Endereço:</b>
+    <%= @resource.address.street + ", " + @resource.address.number.to_s %>
+  </p>
+  <p> <b> Casa inteira: </b><%= beauty_checkbox_value(@resource.house)%> </p>
+  <p> <b>Banheiro privado: </b><%= beauty_checkbox_value(@resource.private_bathroon)%> </p>
+  <p> <b> Café da manhã: </b><%= beauty_checkbox_value(@resource.breakfast)%> </p>
+  <p> <b> Almoço: </b><%= beauty_checkbox_value(@resource.lunch)%> </p>
+  <p> <b> Jantar: </b><%= beauty_checkbox_value(@resource.dinner)%> </p>
+  <p> <b> Espaço privado: </b><%= beauty_checkbox_value(@resource.private_space)%>  </p>
+  <p> <b> Vagas de estacionamento: </b><%= @resource.parking_spaces %> </p>
+  <p> <b> Cômodo: </b><%= @resource.place %> </p>
+  <p> <b> Vagas: </b><%= @resource.vacancies %> </p>
 
-  </div>
-  <div style= "margin-left: 40px; padding: 10px 10 px; float: left">
-  	<p> Casa inteira: <%= beauty_checkbox_value(@resource.house)%> </p>
-    <p> Banheiro privado: <%= beauty_checkbox_value(@resource.private_bathroon)%> </p>
-    <p> Café da manhã: <%= beauty_checkbox_value(@resource.breakfast)%> </p>
-    <p> Almoço: <%= beauty_checkbox_value(@resource.lunch)%> </p>
-    <p> Jantar: <%= beauty_checkbox_value(@resource.dinner)%> </p>
-    <p> Espaço privado: <%= beauty_checkbox_value(@resource.private_space)%>  </p>
-    <p> Vagas de estacionamento: <%= @resource.parking_spaces %> </p>
-    <p> Cômodo: <%= @resource.place %> </p>
-    <p> Vagas: <%= @resource.vacancies %> </p>
-
-  </div>
+</div>
 
 </div>
 
@@ -31,7 +35,7 @@
   <div class="listagemcinza" style="width: 94%;">
     <%= f.fields_for :assets do |asset|%>
       <% unless asset.object.new_record? %>
-    <br />
+        <br />
         <%= link_to(image_tag(asset.object.image.url(:thumb), :height => 120, :width => 180, :style  => "margin: 2%") ,asset.object.image.url(:original),:rel => 'lightbox[makoto]')%>
       <% end %>
     <%end%>
@@ -40,7 +44,7 @@
 
 
 <div style="margin-left: 25%;">
-<%= render "upload" %>
+  <%= render "upload" %>
 </div>
 
 
