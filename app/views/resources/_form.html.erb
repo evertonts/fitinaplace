@@ -1,103 +1,139 @@
-<%= form_for(@resource, :html =>{:multipart => true,:class => 'form_interno'}) do |f| %>
-<% if @resource.errors.any? %>
-<div id="error_explanation" class="alert alert-error">
-	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
-	<ul>
-		<% @resource.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
+<%= form_for(@resource, :html =>{:multipart => true,:class => 'form_interno form-horizontal'}) do |f| %>
+  <% if @resource.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+      <ul>
+        <% @resource.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= hidden_field_tag :house_id, params[:house_id].to_i %>
-<div class="letra_vermelha">
-	<%= f.label 'Café da manhã:' %>
-	<%= f.check_box :breakfast %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Almoço: ' %>
-	<%= f.check_box :lunch %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Jantar: ' %>
-	<%= f.check_box :dinner %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Banheiro individual: ' %>
-	<%= f.check_box :private_bathroon %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Espaço privativo: ' %>
-	<%= f.check_box :private_space %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Estacionamento: ' %>&nbsp;
-	<%= f.number_field :parking_spaces %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Cômodo: ' %>&nbsp;
-	<%= f.text_field :place %>
-</div>
+  <%= hidden_field_tag :house_id, params[:house_id].to_i %>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Café da manhã:', :class => "control-label" %>
+    <div class="controls">
+      <%= f.check_box :breakfast %>
+    </div>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Almoço: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.check_box :lunch %>
+    </div>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Jantar: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.check_box :dinner %>
+    </div>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Banheiro individual: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.check_box :private_bathroon %>
+    </div>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Espaço privativo: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.check_box :private_space %>
+    </div>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Estacionamento: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.number_field :parking_spaces %>
+    </div>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Cômodo: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :place %>
+    </div>
 
-<div class="letra_vermelha">
-	<%= f.label 'Descrição: ' %>&nbsp;
-	<%= f.text_field :description %>
-</div>
-<div class="letra_vermelha">
-	<%= f.label 'Vagas: ' %>&nbsp;
-	<%= f.number_field :vacancies %>
-</div>
+  </div>
 
-<%= f.fields_for :address do |g| %>
-      <div class="letra_vermelha">
-        <%= g.label 'Rua: *' %>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Descrição: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :description %>
+    </div>
+
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Vagas: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.number_field :vacancies %>
+    </div>
+
+  </div>
+
+  <%= f.fields_for :address do |g| %>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Rua: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :street, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Número: *' %>
+
+    </div>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Número: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :number, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Complemento:' %>
+
+    </div>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Complemento:', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :complement, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Bairro: *' %>
+    </div>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Bairro: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :neightborhood, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Cidade: *' %>
+    </div>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Cidade: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :city%>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Estado: *' %>
+    </div>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Estado: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :state %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'País: *' %>
+    </div>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'País: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :country %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-<%= f.fields_for :assets do |asset|%>
-<% if asset.object.new_record? %>
-		<div class="letra_vermelha">
-    	<%= f.label 'Fotos: ' %>&nbsp;
-
-		<%= asset.file_field :image%>
-	</div>
-<%end%>
-<%end%>
-<br />
-
-
-<br />
-<div class="actions">
-	<%= f.submit 'Enviar dados'%>
-</div>
+  <%= f.fields_for :assets do |asset|%>
+    <% if asset.object.new_record? %>
+      <div class="control-group letra_vermelha">
+        <%= f.label 'Fotos: ', :class => "control-label" %>
+        <div class="controls">
+          <%= asset.file_field :image%>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+  <div class="control-group actions">
+    <div class="controls">
+      <%= f.submit 'Enviar dados'%>
+    </div>
+  </div>
 
 <% end %>
 
