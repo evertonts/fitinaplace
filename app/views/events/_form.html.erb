@@ -1,6 +1,6 @@
-<%= form_for(@event,  :class => "formAligns", :html => {:multipart => true,:class => 'form_interno' }) do |f| %>
+<%= form_for(@event,  :html => {:multipart => true, :class => 'form_interno form-horizontal' }) do |f| %>
   <% if @event.errors.any? %>
-<div id="error_explanation" class="alert alert-error">
+    <div id="error_explanation" class="alert alert-error">
       <h2><%= pluralize(@event.errors.count, "erro") %> proibiram esse evento de ser salvo:</h2>
 
       <ul>
@@ -11,59 +11,89 @@
     </div>
   <% end %>
 
-  <div class="letra_vermelha">
-    <%= f.label 'Nome: '%>
-    <%= f.text_field :name, :style => "width: inherit" %>
-  </div>
-  <br />
-  <div class="letra_vermelha">
-    <%= f.label 'Descrição: '%>
-    <%= f.text_area :description, :style => "width: inherit; height: 100px"%>
-  </div>
-  <br />
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Nome: ', :class => "control-label"%>
+    <div class="controls">
+      <%= f.text_field :name, :style => "width: inherit" %>
+    </div>
 
-    <%= f.fields_for(:address) do |g| %>
-      <div class="letra_vermelha">
-        <%= g.label 'Rua: *' %>
+  </div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Descrição: ', :class => "control-label"%>
+    <div class="controls">
+      <%= f.text_area :description, :style => "width: inherit; height: 100px"%>
+    </div>
+
+  </div>
+
+  <%= f.fields_for(:address) do |g| %>
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Rua: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :street, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Número: *' %>
+    </div>
+
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Número: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :number, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Complemento:' %>
+    </div>
+
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Complemento:', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :complement, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Bairro: *' %>
+    </div>
+
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Bairro: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :neightborhood, :style => "width: 50%" %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Cidade: *' %>
+    </div>
+
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Cidade: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :city%>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'Estado: *' %>
+    </div>
+
+    <div class="control-group letra_vermelha">
+      <%= g.label 'Estado: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :state %>
       </div>
-      <div class="letra_vermelha">
-        <%= g.label 'País: *' %>
+    </div>
+
+    <div class="control-group letra_vermelha">
+      <%= g.label 'País: *', :class => "control-label" %>
+      <div class="controls">
         <%= g.text_field :country %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-  <div class="letra_vermelha">
-    <%= f.label 'Data: ' %>
-    <%= f.date_select :date, {}, :style => "width: 110px" %>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Data: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.date_select :date, {}, :style => "width: 110px" %>
+    </div>
   </div>
 
-  <div class="letra_vermelha">
-    <%= f.label 'Foto: ' %>
-    <%= f.file_field :avatar%></div>
+  <div class="control-group letra_vermelha">
+    <%= f.label 'Foto: ', :class => "control-label" %>
+    <div class="controls">
+      <%= f.file_field :avatar%>
+    </div>
+  </div>
 
-  <br/>
-  <div class="actions" >
-    <%= f.submit 'Enviar dados'%>
+  <div class="control-group actions" >
+    <div class="controls">
+      <%= f.submit 'Enviar dados'%>
+    </div>
   </div>
 <% end %>
