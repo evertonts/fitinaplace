@@ -24,7 +24,7 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   # GET /resources/new.json
   def new
-    @resource = Resource.new
+    @resource = Resource.new(:address => Address.new)
     @resource.assets.build
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +42,7 @@ class ResourcesController < ApplicationController
   # POST /resources.json
   def create
     @resource = Resource.new(params[:resource])
-    @resource.house_id = params[:house_id]
+    @resource.user_id = current_user.id
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Recurso criado com sucesso.' }

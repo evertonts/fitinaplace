@@ -1,6 +1,10 @@
 class Address < ActiveRecord::Base
   validates_presence_of :street, :number, :neightborhood, :city,:state, :country
   validates :number, :numericality => true
+  
+  belongs_to :user
+  belongs_to :resource
+  
   def to_s
     link = self.street
     if self.number != nil

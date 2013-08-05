@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715195149) do
+ActiveRecord::Schema.define(:version => 20130729195656) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130715195149) do
     t.string   "country"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "cep"
   end
 
   create_table "assets", :force => true do |t|
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20130715195149) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.text     "description",         :limit => 255
+    t.text     "description"
     t.integer  "user_id"
     t.date     "date"
     t.string   "avatar_file_name"
@@ -68,24 +69,6 @@ ActiveRecord::Schema.define(:version => 20130715195149) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
-
-  create_table "houses", :force => true do |t|
-    t.string   "street"
-    t.integer  "number"
-    t.string   "complement"
-    t.string   "neightborhood"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.integer  "user_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "address_id"
-  end
 
   create_table "negociations", :force => true do |t|
     t.boolean  "status"
@@ -132,9 +115,11 @@ ActiveRecord::Schema.define(:version => 20130715195149) do
     t.string   "place"
     t.string   "picture"
     t.integer  "vacancies"
-    t.integer  "house_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "address_id"
+    t.boolean  "house"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -163,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20130715195149) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "role",                   :default => "site_user"
+    t.integer  "address_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

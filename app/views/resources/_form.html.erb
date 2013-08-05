@@ -1,16 +1,16 @@
-<%= form_for(@resource, :html =>{:class => 'form_interno'}) do |f| %>
-  <% if @resource.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
-      <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
-      <ul>
-        <% @resource.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@resource, :html =>{:multipart => true,:class => 'form_interno'}) do |f| %>
+<% if @resource.errors.any? %>
+<div id="error_explanation" class="alert alert-error">
+	<h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+	<ul>
+		<% @resource.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
 <%= hidden_field_tag :house_id, params[:house_id].to_i %>
 <div class="letra_vermelha">
@@ -42,36 +42,61 @@
 	<%= f.text_field :place %>
 </div>
 
-  <div class="letra_vermelha">
-    <%= f.label 'Descrição: ' %>&nbsp;
-    <%= f.text_field :description %>
-  </div>
-  <div class="letra_vermelha">
-    <%= f.label 'Vagas: ' %>&nbsp;
-    <%= f.number_field :vacancies %>
-  </div>
+<div class="letra_vermelha">
+	<%= f.label 'Descrição: ' %>&nbsp;
+	<%= f.text_field :description %>
+</div>
+<div class="letra_vermelha">
+	<%= f.label 'Vagas: ' %>&nbsp;
+	<%= f.number_field :vacancies %>
+</div>
+
+<%= f.fields_for :address do |g| %>
+      <div class="letra_vermelha">
+        <%= g.label 'Rua: *' %>
+        <%= g.text_field :street, :style => "width: 50%" %>
+      </div>
+      <div class="letra_vermelha">
+        <%= g.label 'Número: *' %>
+        <%= g.text_field :number, :style => "width: 50%" %>
+      </div>
+      <div class="letra_vermelha">
+        <%= g.label 'Complemento:' %>
+        <%= g.text_field :complement, :style => "width: 50%" %>
+      </div>
+      <div class="letra_vermelha">
+        <%= g.label 'Bairro: *' %>
+        <%= g.text_field :neightborhood, :style => "width: 50%" %>
+      </div>
+      <div class="letra_vermelha">
+        <%= g.label 'Cidade: *' %>
+        <%= g.text_field :city%>
+      </div>
+      <div class="letra_vermelha">
+        <%= g.label 'Estado: *' %>
+        <%= g.text_field :state %>
+      </div>
+      <div class="letra_vermelha">
+        <%= g.label 'País: *' %>
+        <%= g.text_field :country %>
+      </div>
+    <% end %>
+
+<%= f.fields_for :assets do |asset|%>
+<% if asset.object.new_record? %>
+		<div class="letra_vermelha">
+    	<%= f.label 'Fotos: ' %>&nbsp;
+
+		<%= asset.file_field :image%>
+	</div>
+<%end%>
+<%end%>
+<br />
 
 
-  
-  <br />
-  <div class="letra_vermelha" style="padding-left: 40px">
-      <i>(Marque as fotos que deseja excluir)</i>
-    <%= f.fields_for :assets do |asset|%>
-      <% unless asset.object.new_record? %>
-
-    <div class="letra_vermelha" >
-          <%= link_to(image_tag(asset.object.image.url(:thumb)),asset.object.image.url(:original))%>
-          <%= asset.check_box :_destroy%>
-        </div>
-      <% end %>
-    <%end%>
-  </div>
-
-  <br />
 <br />
 <div class="actions">
-	  <%= f.submit 'Enviar dados', :style=>"background-color:#A80713; color:white;width: 120px;
-height: 40px;margin-left: 180px;border-radius: 10px;"%>
+	<%= f.submit 'Enviar dados'%>
 </div>
 
 <% end %>

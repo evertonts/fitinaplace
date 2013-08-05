@@ -1,4 +1,5 @@
 Fitinaplace::Application.routes.draw do
+
   resources :negociations do
     post :update_status, :on => :collection
   end
@@ -14,19 +15,17 @@ Fitinaplace::Application.routes.draw do
   resources :comments, :only => [:create, :destroy, :update]
   resources :ratings, :only => [:create]
   resources :events
-  resources :houses
   resources :questions
   resources :comofunciona
   resources :about
   resources :faq
   resources :termosdeuso
   resources :termosdeseguro
-  
+  resources :confirmacao
   authenticated :user do
     root :to => 'home#index'
   end
   root :to => "home#index"
-  devise_for :users
-  devise_for :houses
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users, :only => :show
 end

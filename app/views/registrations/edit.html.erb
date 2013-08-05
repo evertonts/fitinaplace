@@ -1,0 +1,39 @@
+<div id="main" role="main" class="application">
+
+  <h1>Editar usuário </h1>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),  :class => "formAligns", :html => { :method => :put, :multipart => true, :class =>"form_interno"}) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="letra_vermelha"><%= f.label "Foto:" %>
+      <%= f.file_field :avatar  %></div>
+
+    <div class="letra_vermelha"><%= f.label 'Nome:' %>
+      <%= f.text_field :name   %></div>
+
+    <div class="letra_vermelha"><%= f.label 'CPF:' %>
+      <%= f.text_field :cpf   %></div>
+
+    <div class="letra_vermelha"><%= f.label 'RG:' %>
+      <%= f.text_field :rg   %></div>
+
+    <div class="letra_vermelha"><%= f.label 'Telefone:' %>
+      <%= f.text_field :telefone   %></div>
+
+    <div class="letra_vermelha"><%= f.label 'Email:' %>
+      <%= f.email_field :email   %></div>
+
+    <i>(deixe em branco se não deseja mudá-la)</i>
+    <div class="letra_vermelha"><%= f.label 'Nova senha: ' %>
+      <%= f.password_field :password, :autocomplete => "off"   %></div>
+
+    <div class="letra_vermelha"><%= f.label 'Confirmar senha:' %>
+      <%= f.password_field :password_confirmation  %></div>
+
+    <i>(precisamos da sua senha atual para confirmar as mudanças)</i>
+    <div class="letra_vermelha"><%= f.label 'Senha atual:'%>
+      <%= f.password_field :current_password   %></div>
+    <br />
+    <div class="actions"><%= f.submit "Enviar dados"%></div>
+  <% end %>
+  <p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Você tem certeza?", :method => :delete %>.</p>
+</div>

@@ -1,8 +1,7 @@
 <div id="main" role="main" class="application">
   <div class="listagemcinza">
-    <h1>Recursos</h1>
+    <h1>Acomodações</h1>
     <% @resources.each do |resource| %>
-      <% if params[:house_id].to_i == resource.house_id  %>
         <div class="linha">
           <div style="float: left; position: relative;width: 35%;">
             <%= image_tag(resource.assets.first.image.url(:thumb)) unless resource.assets.first.nil?%>
@@ -17,12 +16,12 @@
           <div style="clear:both;"></div>
           <span></span>
           <span><%= link_to 'Editar', edit_resource_path(resource) %></span>
-          <span><%= link_to 'Remover', resource, confirm: 'Deseja remover este recurso?', method: :delete %></span>
+          <span><%= link_to 'Remover', resource, confirm: 'Deseja remover esta acomodação?', method: :delete %></span>
         </div>
         <div></div>
         <div style="clear:both;"></div>
-      <% end %>
     <% end %>
   </div>
   <br />
+  <span><%= link_to 'Nova acomodação', new_resource_path %></span>
 </div>
